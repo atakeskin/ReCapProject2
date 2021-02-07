@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Business", "Business\Busine
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core", "Core\Core.csproj", "{053E1725-F045-4A8D-825C-23487D8442A4}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleApp", "ConsoleApp\ConsoleApp.csproj", "{E4D61F2E-4619-45F0-93A1-07F9BE5A3075}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleUI", "ConsoleApp\ConsoleUI.csproj", "{E4D61F2E-4619-45F0-93A1-07F9BE5A3075}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsFormUI", "WindowsFormUI\WindowsFormUI.csproj", "{8DDB23F4-C32F-4BAF-8376-4D856F280623}"
 EndProject
