@@ -1,9 +1,8 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using Entities.Concrete;
 using Entities.DTOs;
 
-namespace Business.Abstrct
+namespace Business.Abstract
 {
     public interface ICarService
     {

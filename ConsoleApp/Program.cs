@@ -41,23 +41,23 @@ namespace ConsoleApp
                 ModelYear = new DateTime(2019, 02, 12)
             });
 
-            Console.WriteLine($"-------------Araba Güncelleme--------------------");
-            carManager.Update(new Car
-            {
-                Id = 9,
-                BrandId = 1,
-                ColorId = 1,
-                PlakaNo = "52PUK451",
-                DailyPrice = 150,
-                Description = "Hibrit",
-                ModelYear = new DateTime(2019, 02, 12)
-            });
+            //Console.WriteLine($"-------------Araba Güncelleme--------------------");
+            //carManager.Update(new Car
+            //{
+            //    Id = 9,
+            //    BrandId = 1,
+            //    ColorId = 1,
+            //    PlakaNo = "52PUK451",
+            //    DailyPrice = 150,
+            //    Description = "Hibrit",
+            //    ModelYear = new DateTime(2019, 02, 12)
+            //});
 
-            Console.WriteLine($"-------------Arabayı Sistemden Silme--------------------");
-            carManager.Delete(new Car
-            {
-                Id = 2
-            });
+            //Console.WriteLine($"-------------Arabayı Sistemden Silme--------------------");
+            //carManager.Delete(new Car
+            //{
+            //    Id = 2
+            //});
 
             Console.WriteLine("-------------MarkayaId'ye Göre Liste---------------------");
             foreach (var car in carManager.GetCarsByBrandId(1))
