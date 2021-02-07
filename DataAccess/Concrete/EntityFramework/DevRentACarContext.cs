@@ -3,6 +3,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DataAccess.Concrete.EntityFramework
 {
+    /// <summary>
+    /// Context : Db tabloları ile proje classlarını bağlamak
+    /// </summary>
     public class DevRentACarContext : DbContext
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using Business.Abstrct;
 using DataAccess.Abstract;
-using Entities.ComplexTypes;
 using Entities.Concrete;
+using Entities.DTOs;
 
 namespace Business.Concrete
 {
@@ -74,7 +74,7 @@ namespace Business.Concrete
             return _carDal.GetAll(c => c.ModelYear.Year == year);
         }
 
-        public IQueryable<CarDetail> GetCarDetails()
+        public List<CarDetailDto> GetCarDetails()
         {
             return _carDal.GetCarDetails();
         }

@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using Entities.ComplexTypes;
 using Entities.Concrete;
+using Entities.DTOs;
 
 namespace Business.Abstrct
 {
@@ -18,6 +18,6 @@ namespace Business.Abstrct
         List<Car> GetByDailyPrice(decimal min, decimal max);
         List<Car> GetByModelYear(int year);
 
-        IQueryable<CarDetail> GetCarDetails();
+        List<CarDetailDto> GetCarDetails();
     }
 }

@@ -2,10 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
 using DataAccess.Abstract;
-using Entities.ComplexTypes;
 using Entities.Concrete;
+using Entities.DTOs;
 
 namespace DataAccess.Concrete.InMemory
 {
@@ -54,6 +53,8 @@ namespace DataAccess.Concrete.InMemory
 
         public void Add(Car entity)
         {
+            //LINQ - Language Integrated Query
+            //Lambda
             _cars.Add(entity);
         }
 
@@ -73,7 +74,7 @@ namespace DataAccess.Concrete.InMemory
             _cars.Remove(GetToBeProcessedCar(entity));
         }
 
-        public IQueryable<CarDetail> GetCarDetails()
+        public List<CarDetailDto> GetCarDetails()
         {
             throw new NotImplementedException();
         }
