@@ -29,6 +29,11 @@ namespace WindowsFormUI.Forms
 
         private void CarForm_Load(object sender, EventArgs e)
         {
+            GetAllToCarGridControl();
+        }
+
+        private void GetAllToCarGridControl()
+        {
             CarGridControl.DataSource = _carService.GetCarDetails();
             BranIdTextEdit.Properties.ValueMember = "Id";
             BranIdTextEdit.Properties.DisplayMember = "Name";
@@ -42,11 +47,11 @@ namespace WindowsFormUI.Forms
         {
 
         }
-
+        int id = 0;
         private void CarGridView_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
         {
             int index = CarGridView.FocusedRowHandle;
-            int id = 0;
+            
             if (index >= 0)
             {
                 id = Convert.ToInt32(CarGridView.GetRowCellValue(index, "Id").ToString());
@@ -61,19 +66,68 @@ namespace WindowsFormUI.Forms
             DailyPriceTextEdit.Text = car.DailyPrice.ToString();
             DescriptionTextEdit.Text = car.Description;
             ModelYearTextEdit.Text = car.ModelYear.ToString();
+            CarNameTextEdit.Text = car.Name;
         }
 
         private void AddCarBtn_Click(object sender, EventArgs e)
         {
+
+            //MessageBox.Show(PlakaNoTextEdit.Text +" "+, "Sonuç", MessageBoxButtons.OK);
             _carService.Add(new Car
             {
-                BrandId = BranIdTextEdit.ItemIndex,
-                ColorId = ColorIdTextEdit.ItemIndex,
+                Name = CarNameTextEdit.Text,
+                BrandId = Convert.ToInt32(BranIdTextEdit.EditValue.ToString()),
+                ColorId = Convert.ToInt32(ColorIdTextEdit.EditValue.ToString()),
                 PlakaNo = PlakaNoTextEdit.Text,
                 ModelYear = ModelYearTextEdit.DateTime,
-                DailyPrice = Convert.ToDecimal(DescriptionTextEdit.Text),
+                DailyPrice = Convert.ToDecimal(DailyPriceTextEdit.Text),
                 Description = DescriptionTextEdit.Text
             });
+            GetAllToCarGridControl();
+        }
+
+        private void ModelYearTextEdit_EditValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void UpdateCarBtn_Click(object sender, EventArgs e)
+        {
+            _carService.Update(new Car
+            {
+                Id = Convert.ToInt32(CarIdTextEdit.Text),
+                BrandId = Convert.ToInt32(BranIdTextEdit.EditValue.ToString()),
+                ColorId = Convert.ToInt32(ColorIdTextEdit.EditValue.ToString()),
+                Name = CarNameTextEdit.Text,
+                PlakaNo = PlakaNoTextEdit.Text,
+                ModelYear = ModelYearTextEdit.DateTime,
+                DailyPrice = Convert.ToDecimal(DailyPriceTextEdit.Text),
+                Description = DescriptionTextEdit.Text
+            });
+
+            GetAllToCarGridControl();
+        }
+
+        private void DeleteCarBtn_Click(object sender, EventArgs e)
+        {
+            if (id > 0)
+            {
+                DialogResult dialogResult = MessageBox.Show(_carService.GetById(id).PlakaNo + " plakalı arabayı silmek istediğinizden eminmisiniz?", "Dikkat", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    _carService.Delete(new Car
+                    {
+                        Id = id
+                    });
+                }
+
+            }
+            GetAllToCarGridControl();
+        }
+
+        private void AnaFrmPanelControl_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

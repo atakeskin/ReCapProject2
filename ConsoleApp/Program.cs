@@ -14,11 +14,8 @@ namespace ConsoleApp
             Console.WriteLine("-------------Tüm Liste---------------------");
             foreach (var car in carManager.GetAll())
             {
-                Console.WriteLine($"Id:{car.Id} " +
-                                  $"PlakaNo:{car.PlakaNo} " +
-                                  $"DailyPrice:{car.DailyPrice} " +
-                                  $"Description:{car.Description} " +
-                                  $"ModelYear:{car.ModelYear.Year}");
+                Console.WriteLine("Id:{0,-3:D} PlakaNo:{1} DailyPrice:{0,-4:D} Description:{3} ModelYear:{4}",
+                    car.Id, car.PlakaNo, car.DailyPrice, car.Description, car.ModelYear.Year);
             }
 
 

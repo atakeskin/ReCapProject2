@@ -5,9 +5,14 @@ namespace DataAccess.Concrete.EntityFramework
 {
     /// <summary>
     /// Context : Db tabloları ile proje classlarını bağlamak
+    /// Varsa diğer nesneler için DbSet'ler buraya yazılır.
     /// </summary>
     public class DevRentACarContext : DbContext
     {
+        //public DevRentACarContext()
+        //{
+        //    Database.SetInitializer<NorthwindContext>(null);
+        //}
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer(@"
@@ -21,5 +26,7 @@ namespace DataAccess.Concrete.EntityFramework
         public DbSet<Car> Cars { get; set; }
         public DbSet<Brand> Brands { get; set; }
         public DbSet<Color> Colors { get; set; }
+
+        
     }
 }

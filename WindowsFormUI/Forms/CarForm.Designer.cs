@@ -47,10 +47,12 @@ namespace WindowsFormUI.Forms
             this.BranIdTextEdit = new DevExpress.XtraEditors.LookUpEdit();
             this.ColorIdTextEdit = new DevExpress.XtraEditors.LookUpEdit();
             this.ModelYearTextEdit = new DevExpress.XtraEditors.DateEdit();
-            this.AddCarBtn = new DevExpress.XtraEditors.SimpleButton();
-            this.UpdateCarBtn = new DevExpress.XtraEditors.SimpleButton();
-            this.DeleteCarBtn = new DevExpress.XtraEditors.SimpleButton();
             this.RefreceCarBtn = new DevExpress.XtraEditors.SimpleButton();
+            this.DeleteCarBtn = new DevExpress.XtraEditors.SimpleButton();
+            this.UpdateCarBtn = new DevExpress.XtraEditors.SimpleButton();
+            this.AddCarBtn = new DevExpress.XtraEditors.SimpleButton();
+            this.CarNameTextEdit = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.CarGridControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CarGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.AnaFrmPanelControl)).BeginInit();
@@ -63,6 +65,7 @@ namespace WindowsFormUI.Forms
             ((System.ComponentModel.ISupportInitialize)(this.ColorIdTextEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ModelYearTextEdit.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ModelYearTextEdit.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CarNameTextEdit.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // CarGridControl
@@ -88,12 +91,14 @@ namespace WindowsFormUI.Forms
             this.AnaFrmPanelControl.Controls.Add(this.labelControl7);
             this.AnaFrmPanelControl.Controls.Add(this.labelControl6);
             this.AnaFrmPanelControl.Controls.Add(this.labelControl5);
+            this.AnaFrmPanelControl.Controls.Add(this.labelControl8);
             this.AnaFrmPanelControl.Controls.Add(this.labelControl4);
             this.AnaFrmPanelControl.Controls.Add(this.labelControl3);
             this.AnaFrmPanelControl.Controls.Add(this.labelControl2);
             this.AnaFrmPanelControl.Controls.Add(this.labelControl1);
             this.AnaFrmPanelControl.Controls.Add(this.DescriptionTextEdit);
             this.AnaFrmPanelControl.Controls.Add(this.DailyPriceTextEdit);
+            this.AnaFrmPanelControl.Controls.Add(this.CarNameTextEdit);
             this.AnaFrmPanelControl.Controls.Add(this.PlakaNoTextEdit);
             this.AnaFrmPanelControl.Controls.Add(this.CarIdTextEdit);
             this.AnaFrmPanelControl.Controls.Add(this.BranIdTextEdit);
@@ -108,6 +113,7 @@ namespace WindowsFormUI.Forms
             this.AnaFrmPanelControl.Name = "AnaFrmPanelControl";
             this.AnaFrmPanelControl.Size = new System.Drawing.Size(925, 281);
             this.AnaFrmPanelControl.TabIndex = 1;
+            this.AnaFrmPanelControl.Paint += new System.Windows.Forms.PaintEventHandler(this.AnaFrmPanelControl_Paint);
             // 
             // labelControl7
             // 
@@ -123,7 +129,7 @@ namespace WindowsFormUI.Forms
             // 
             this.labelControl6.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.labelControl6.Appearance.Options.UseFont = true;
-            this.labelControl6.Location = new System.Drawing.Point(324, 172);
+            this.labelControl6.Location = new System.Drawing.Point(309, 172);
             this.labelControl6.Name = "labelControl6";
             this.labelControl6.Size = new System.Drawing.Size(74, 19);
             this.labelControl6.TabIndex = 1;
@@ -133,7 +139,7 @@ namespace WindowsFormUI.Forms
             // 
             this.labelControl5.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.labelControl5.Appearance.Options.UseFont = true;
-            this.labelControl5.Location = new System.Drawing.Point(319, 78);
+            this.labelControl5.Location = new System.Drawing.Point(304, 78);
             this.labelControl5.Name = "labelControl5";
             this.labelControl5.Size = new System.Drawing.Size(79, 19);
             this.labelControl5.TabIndex = 1;
@@ -191,7 +197,7 @@ namespace WindowsFormUI.Forms
             // 
             // DailyPriceTextEdit
             // 
-            this.DailyPriceTextEdit.Location = new System.Drawing.Point(404, 169);
+            this.DailyPriceTextEdit.Location = new System.Drawing.Point(389, 169);
             this.DailyPriceTextEdit.Name = "DailyPriceTextEdit";
             this.DailyPriceTextEdit.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.DailyPriceTextEdit.Properties.Appearance.Options.UseFont = true;
@@ -199,7 +205,7 @@ namespace WindowsFormUI.Forms
             this.DailyPriceTextEdit.Properties.MaskSettings.Set("MaskManagerType", typeof(DevExpress.Data.Mask.NumericMaskManager));
             this.DailyPriceTextEdit.Properties.MaskSettings.Set("MaskManagerSignature", "allowNull=False");
             this.DailyPriceTextEdit.Properties.MaskSettings.Set("mask", "c");
-            this.DailyPriceTextEdit.Size = new System.Drawing.Size(166, 26);
+            this.DailyPriceTextEdit.Size = new System.Drawing.Size(181, 26);
             this.DailyPriceTextEdit.TabIndex = 0;
             // 
             // PlakaNoTextEdit
@@ -217,6 +223,7 @@ namespace WindowsFormUI.Forms
             // 
             // CarIdTextEdit
             // 
+            this.CarIdTextEdit.Enabled = false;
             this.CarIdTextEdit.Location = new System.Drawing.Point(106, 31);
             this.CarIdTextEdit.Name = "CarIdTextEdit";
             this.CarIdTextEdit.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
@@ -256,7 +263,7 @@ namespace WindowsFormUI.Forms
             // ModelYearTextEdit
             // 
             this.ModelYearTextEdit.EditValue = "8.02.2021 00:04:16";
-            this.ModelYearTextEdit.Location = new System.Drawing.Point(404, 75);
+            this.ModelYearTextEdit.Location = new System.Drawing.Point(389, 75);
             this.ModelYearTextEdit.Name = "ModelYearTextEdit";
             this.ModelYearTextEdit.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.ModelYearTextEdit.Properties.Appearance.Options.UseFont = true;
@@ -270,14 +277,50 @@ namespace WindowsFormUI.Forms
             this.ModelYearTextEdit.Properties.EditFormat.FormatString = "";
             this.ModelYearTextEdit.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.ModelYearTextEdit.Properties.MaskSettings.Set("mask", "d");
-            this.ModelYearTextEdit.Size = new System.Drawing.Size(166, 26);
+            this.ModelYearTextEdit.Size = new System.Drawing.Size(181, 26);
             this.ModelYearTextEdit.TabIndex = 0;
+            this.ModelYearTextEdit.EditValueChanged += new System.EventHandler(this.ModelYearTextEdit_EditValueChanged);
+            // 
+            // RefreceCarBtn
+            // 
+            this.RefreceCarBtn.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.RefreceCarBtn.Appearance.Options.UseFont = true;
+            this.RefreceCarBtn.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("RefreceCarBtn.ImageOptions.Image")));
+            this.RefreceCarBtn.Location = new System.Drawing.Point(691, 166);
+            this.RefreceCarBtn.Name = "RefreceCarBtn";
+            this.RefreceCarBtn.Size = new System.Drawing.Size(131, 44);
+            this.RefreceCarBtn.TabIndex = 2;
+            this.RefreceCarBtn.Text = "Yenile";
+            // 
+            // DeleteCarBtn
+            // 
+            this.DeleteCarBtn.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.DeleteCarBtn.Appearance.Options.UseFont = true;
+            this.DeleteCarBtn.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("DeleteCarBtn.ImageOptions.Image")));
+            this.DeleteCarBtn.Location = new System.Drawing.Point(691, 116);
+            this.DeleteCarBtn.Name = "DeleteCarBtn";
+            this.DeleteCarBtn.Size = new System.Drawing.Size(131, 44);
+            this.DeleteCarBtn.TabIndex = 2;
+            this.DeleteCarBtn.Text = "Sil";
+            this.DeleteCarBtn.Click += new System.EventHandler(this.DeleteCarBtn_Click);
+            // 
+            // UpdateCarBtn
+            // 
+            this.UpdateCarBtn.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.UpdateCarBtn.Appearance.Options.UseFont = true;
+            this.UpdateCarBtn.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("UpdateCarBtn.ImageOptions.Image")));
+            this.UpdateCarBtn.Location = new System.Drawing.Point(691, 66);
+            this.UpdateCarBtn.Name = "UpdateCarBtn";
+            this.UpdateCarBtn.Size = new System.Drawing.Size(131, 44);
+            this.UpdateCarBtn.TabIndex = 2;
+            this.UpdateCarBtn.Text = "Güncelle";
+            this.UpdateCarBtn.Click += new System.EventHandler(this.UpdateCarBtn_Click);
             // 
             // AddCarBtn
             // 
             this.AddCarBtn.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.AddCarBtn.Appearance.Options.UseFont = true;
-            this.AddCarBtn.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.ImageOptions.Image")));
+            this.AddCarBtn.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("AddCarBtn.ImageOptions.Image")));
             this.AddCarBtn.Location = new System.Drawing.Point(691, 16);
             this.AddCarBtn.Name = "AddCarBtn";
             this.AddCarBtn.Size = new System.Drawing.Size(131, 44);
@@ -285,38 +328,25 @@ namespace WindowsFormUI.Forms
             this.AddCarBtn.Text = "Kaydet";
             this.AddCarBtn.Click += new System.EventHandler(this.AddCarBtn_Click);
             // 
-            // UpdateCarBtn
+            // CarNameTextEdit
             // 
-            this.UpdateCarBtn.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.UpdateCarBtn.Appearance.Options.UseFont = true;
-            this.UpdateCarBtn.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton2.ImageOptions.Image")));
-            this.UpdateCarBtn.Location = new System.Drawing.Point(691, 66);
-            this.UpdateCarBtn.Name = "UpdateCarBtn";
-            this.UpdateCarBtn.Size = new System.Drawing.Size(131, 44);
-            this.UpdateCarBtn.TabIndex = 2;
-            this.UpdateCarBtn.Text = "Güncelle";
+            this.CarNameTextEdit.Location = new System.Drawing.Point(389, 31);
+            this.CarNameTextEdit.Name = "CarNameTextEdit";
+            this.CarNameTextEdit.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.CarNameTextEdit.Properties.Appearance.Options.UseFont = true;
+            this.CarNameTextEdit.Properties.BeepOnError = false;
+            this.CarNameTextEdit.Size = new System.Drawing.Size(181, 26);
+            this.CarNameTextEdit.TabIndex = 0;
             // 
-            // DeleteCarBtn
+            // labelControl8
             // 
-            this.DeleteCarBtn.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.DeleteCarBtn.Appearance.Options.UseFont = true;
-            this.DeleteCarBtn.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton3.ImageOptions.Image")));
-            this.DeleteCarBtn.Location = new System.Drawing.Point(691, 116);
-            this.DeleteCarBtn.Name = "DeleteCarBtn";
-            this.DeleteCarBtn.Size = new System.Drawing.Size(131, 44);
-            this.DeleteCarBtn.TabIndex = 2;
-            this.DeleteCarBtn.Text = "Sil";
-            // 
-            // RefreceCarBtn
-            // 
-            this.RefreceCarBtn.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.RefreceCarBtn.Appearance.Options.UseFont = true;
-            this.RefreceCarBtn.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton4.ImageOptions.Image")));
-            this.RefreceCarBtn.Location = new System.Drawing.Point(691, 166);
-            this.RefreceCarBtn.Name = "RefreceCarBtn";
-            this.RefreceCarBtn.Size = new System.Drawing.Size(131, 44);
-            this.RefreceCarBtn.TabIndex = 2;
-            this.RefreceCarBtn.Text = "Yenile";
+            this.labelControl8.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.labelControl8.Appearance.Options.UseFont = true;
+            this.labelControl8.Location = new System.Drawing.Point(313, 34);
+            this.labelControl8.Name = "labelControl8";
+            this.labelControl8.Size = new System.Drawing.Size(70, 19);
+            this.labelControl8.TabIndex = 1;
+            this.labelControl8.Text = "Car Name";
             // 
             // CarForm
             // 
@@ -342,6 +372,7 @@ namespace WindowsFormUI.Forms
             ((System.ComponentModel.ISupportInitialize)(this.ColorIdTextEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ModelYearTextEdit.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ModelYearTextEdit.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CarNameTextEdit.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -369,5 +400,7 @@ namespace WindowsFormUI.Forms
         private DevExpress.XtraEditors.SimpleButton DeleteCarBtn;
         private DevExpress.XtraEditors.SimpleButton UpdateCarBtn;
         private DevExpress.XtraEditors.SimpleButton AddCarBtn;
+        private DevExpress.XtraEditors.LabelControl labelControl8;
+        private DevExpress.XtraEditors.TextEdit CarNameTextEdit;
     }
 }
