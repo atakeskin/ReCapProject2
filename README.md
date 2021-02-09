@@ -21,12 +21,13 @@ En kaba tabir ile bir kadman diğer katmanı new'leyemez. Bağımlılıklar arta
 ## KURALLAR
 
 ### Hangi teknolojiyi kullanıyorsak onunla ilgili Concrete klasörü altına klasör açılır.
-İçindeki dosyalar bu klasörleme yapısı ile Namespace adı verilir.
+İçindeki dosyalar bu klasörleme yapısına göre Namespace adı verilir.
+Aynı şey dosya isimleri içinde geçerlidir. Teknolojiye bağlı olarak dosya ismi verilir.(Ör: EfProductDall gibi)
 
 ### Çıplak Class kalmasın.
 Bir Class'ın base'inin veya iplementasyonunun olması gerekir.
 O yüzden Abstract klasöründe implementasyonlar yazılır.
 İlgili Classımızın imzaları bu Interface'den inherid edilmesi sağlanır.
-Aynı zamanda yeni bir teknoloji(Entity Framewor,NHibernate vb.) kullandığımızda Classımız bu Interface üzerinden miras alınarak bağımlılığn önünegeçilmiş olunacaktır.
+Aynı zamanda yeni bir teknoloji(Entity Framework,NHibernate vb.) kullandığımızda Classımız bu Interface üzerinden miras alır. Ve böylece bağımlılığn önüne geçilmiş olunacaktır.
 
 ### Katmanlar arası iletişim için Public belirtecinden faydalanılınır.
