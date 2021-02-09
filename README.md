@@ -75,3 +75,9 @@ Artık bu çerçevede temel CRUD operasyonları için katmanlı yapım hazırdı
 
 # Best Practice
 ## UI katmanında nesne isimleri mutlaka değiştirilerek yeniden verilmelidir.(Ör:gbxCategory)
+
+#Not
+### İmplemente:
+İnterface'ler implementasyon
+### İnherit:
+Abstract Class'lar ve Normal Class'lar inheritince'dır.
