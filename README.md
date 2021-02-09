@@ -53,7 +53,14 @@ Base'de Add(),Update(),Delete() operasyonlarında buna abone ol / refere et
 
 eklenecek/güncellenecek/silinecek olarak işaretle 
 
-veritabanında akleme/güncelleme/silme kodunu çalıştır ve SaveChanges metoduyla burada UnitOfDizayn Paterni imlemente ederek onu gerçekleştirmiş olacağız.
+veritabanında ekleme/güncelleme/silme kodunu çalıştır ve SaveChanges metoduyla burada UnitOfDizayn Paterni imlemente ederek onu gerçekleştirmiş olacağız.
 
-Dahada genelleme yapılarak core katmanında ilgili teknoloji klasörü içerisinde tutulur.
+Dahada genelleme yapılarak core katmanında ilgili teknoloji klasörü içerisinde tutulur. Bütün CRUD işlemlerimiz için böylece metodlarımızı yazmış oluruz.
 
+# Programcının Adımları
+## I.Adım:
+Entities/Concrate'de veritabanı nesnesi IEntity'den inherit gerekli propertileri verilerek oluşturulur.
+## II.Adım:
+DataAccess/Concrete/EntityFramework'de Teknoloji EntityFramework olduğunu düşünürsek NorthwindContext'de temel mappingi DbSet için propertisi tanımlanır.
+## III.Adım:
+DataAccess/Abstract'da ilgili nesneden generic olan IEntityRepository'den implemente interface tanımlanır.
