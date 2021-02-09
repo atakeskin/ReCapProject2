@@ -64,7 +64,7 @@ veritabanında ekleme/güncelleme/silme kodunu çalıştır ve SaveChanges metod
 
 Dahada genelleme yapılarak core katmanında ilgili teknoloji klasörü içerisinde tutulur. Bütün CRUD işlemlerimiz için böylece metodlarımızı yazmış oluruz.
 
-### Core Katmanı
+### UI Katmanı
 Refactory işlemleriyle benzer operasyonler metod veya sınıf olarak tanımlanır.Tekrar tekrar kullanılır.
 
 
