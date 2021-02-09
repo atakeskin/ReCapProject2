@@ -72,4 +72,4 @@ Artık bu çerçevede temel CRUD operasyonları için katmanlı yapım hazırdı
 
 
 # Best Practice
-## UI katmanında nesne isimleri mutlaka değiştirilerek yeniden verilmelidir.
+## UI katmanında nesne isimleri mutlaka değiştirilerek yeniden verilmelidir.(Ör:gbxCategory)
