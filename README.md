@@ -23,3 +23,4 @@ En kaba tabir ile bir kadman diğer katmanı new'leyemez. Bağımlılıklar arta
 İçindeki dosyalar bu klasörleme yapısı ile Namespace adı verilir.
 ### Çıplak Class kalmasın.
 Bir Class'ın base'inin veya iplementasyonunun olması gerekir.
+O yüzden Abstract klasöründe implementasyonlar ypılır.
