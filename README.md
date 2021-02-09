@@ -38,4 +38,5 @@ IDto : Veritabanı nesnesi olan sınıfların join edilerek birleşiminden oluş
 ### Katmanlar arası iletişim için Public belirtecinden faydalanılınır.
 
 ### Core Katmanı
-DataAccess katmanında operasyon sınıfları genel olarak birbirini tekrarlayandır. Bunun önüne geçmek için Repository Dizayn Paterni kullanılır. İçerisinde operasyonlar içerisinde kullanıcı parametre vermek isterse Linq expresion ile filtreleme yaper. Generic tipte TEntity ve databese  genellemesi TContext için base sınıf oluşturulur ve core katmanında tutulur.
+DataAccess katmanında operasyon sınıfları genel olarak birbirini tekrarlayandır. Bunun önüne geçmek için Repository Dizayn Paterni kullanılır.  Generic tipte TEntity kısıtlamaları tanımlı olarak yazılır. Yani TEntity referans tipte veritabanı nesnesi ve newlenebilir somut bir sınıf olmalıdır. İçerisinde operasyonlara kullanıcı parametre vermek isterse Linq expresion ile filtreleme yapacak şekilde IEntityRepository imza interface si oluşturulur.
+Generic tipte TEntity ve database  genellemesi TContext için base sınıf yine aynı şekilde tiplere kısıtlamalar verilerek oluşturulur. Dahada genelleme yapılarak core katmanında tutulur.
