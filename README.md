@@ -44,9 +44,10 @@ IDto : Veritabanı nesnesi olan sınıfların join edilerek birleşiminden oluş
 ### Katmanlar arası iletişim için Public belirtecinden faydalanılınır.
 
 # N KATMANLI MİMARİ
+
 ### DataAccess Katmanı
 Abstract klasörü içerisinde tanımlı veritabanı nesneli repository'den implemente interface'dir. Ayrıca DTO nesneleri imzalarını barındırır.
-Concrete klasöründe yine ayrıca kullanılan teknolojiye bağlı olarak veritabanı nesnesi ve veritabanı context nesnesini tutan base repository ile DTO nesnelerini tutan interface'i inherit eder.
+Concrete klasöründe yine ayrıca kullanılan teknolojiye bağlı olarak veritabanı nesnesi ve veritabanı context nesnesini tutan base repository inherit - DTO nesnelerini tutan interface'i imlemente class barındırır.
 ### Core Katmanı
 DataAccess katmanında operasyon sınıfları genel olarak birbirini tekrarlayandır. Bunun önüne geçmek için Repository Dizayn Paterni kullanılır.  Generic tipte TEntity kısıtlamaları tanımlı olarak yazılır. Yani TEntity referans tipte veritabanı nesnesi ve newlenebilir somut bir sınıf olmalıdır. İçerisinde operasyonlara kullanıcı parametre vermek isterse Linq expresion ile filtreleme yapacak şekilde IEntityRepository imza interface si oluşturulur. Buna generic constraint denir.
 Generic tipte TEntity ve database  genellemesi TContext için base sınıf yine aynı şekilde tiplere kısıtlamalar verilerek oluşturulur. 
@@ -73,7 +74,7 @@ Artık bu çerçevede temel CRUD operasyonları için katmanlı yapım hazırdı
 ## V.Adım:
 İş katmanında Business/Abstract'de ilgili nesne için service interface'si yazılır. Sadece işe özel metodlar yazılır.
 ## VI.Adım:
-Business/Concrete'de ilgili nesne için interface'inden implemente manager class'ı yazılır.
+Business/Concrete'de ilgili nesne için interface'inden implemente manager class'ı yazılır. Bu class ilgili nesnenin DataAccess katmanında interface'den implementedir.
 
 # Best Practice
 ## UI katmanında nesne isimleri mutlaka değiştirilerek yeniden verilmelidir.(Ör:gbxCategory)
