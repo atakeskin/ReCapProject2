@@ -7,7 +7,7 @@ Burası mümkün olduğunca Code Smell / Kötü kokan kodlardan arındırılmı�
 
 
 # Dikkat!!!
-Aşağıdaki yazılar aşırı beyin yakıcıdır. Spaghetti Kodlama yazanları uzak tutunuz. :)) Engin Hoca öğrencilerine serbestir.
+Aşağıdaki yazılar ile beyin kısa devre yapabilir. Spaghetti Kodlama yazanları uzak tutunuz. :)) Engin Hoca öğrencilerine serbestir.
 
 
 ## SOLID Prensipler Nedir?
