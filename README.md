@@ -42,6 +42,8 @@ IEntity : Veritabanı nesnesi olduğunu belirten imzadır(boş bir interface)
 IDto : Veritabanı nesnesi olan sınıfların join edilerek birleşiminden oluşmuş nesneyi belirten imzadır.
 
 ### Katmanlar arası iletişim için Public belirtecinden faydalanılınır.
+
+# N KATMANLI MİMARİ
 ### DataAccess Katmanı
 Abstract klasörü içerisinde tanımlı veritabanı nesneli repository'den implemente interface'dir. Ayrıca DTO nesneleri imzalarını barındırır.
 Concrete klasöründe yine ayrıca kullanılan teknolojiye bağlı olarak veritabanı nesnesi ve veritabanı context nesnesini tutan base repository ile DTO nesnelerini tutan interface'i inherit eder.
