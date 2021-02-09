@@ -36,6 +36,7 @@ Bir Class'ın base'inin veya implementasyonunun olması gerekir.
 O yüzden Abstract klasöründe implementasyonlar yazılır.
 İlgili Classımızın imzaları bu Interface'den inherid edilmesi sağlanır.
 Aynı zamanda yeni bir teknoloji(Entity Framework,NHibernate vb.) kullandığımızda Classımız bu Interface üzerinden miras alır. Ve böylece bağımlılığn önüne geçilmiş olunacaktır.
+
 Veritabanı tablo nesne karşılığı olan class'larımız için burada;
 IEntity : Veritabanı nesnesi olduğunu belirten imzadır(boş bir interface)
 IDto : Veritabanı nesnesi olan sınıfların join edilerek birleşiminden oluşmuş nesneyi belirten imzadır.
