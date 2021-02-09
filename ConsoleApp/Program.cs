@@ -14,14 +14,63 @@ namespace ConsoleUI
             ColorManager colorManager = new ColorManager(new EfColorDal());
 
             Designer.ShowWindow(Designer.ThisConsole, 3);
-
             Console.Clear();
+
+            CarTest(carManager, brandManager, colorManager);
+
+            //BrandTest(brandManager);
+
+            //ColorTest(colorManager);
+
+
+            Console.ReadKey();
+        }
+
+        private static void ColorTest(ColorManager colorManager)
+        {
+            Designer.Baslik("Color All Lists");
+            Designer.PrintRow("Brand ID", "Brand Name");
+
+            foreach (var color in colorManager.GetAll())
+            {
+                Designer.PrintRow(color.Id.ToString(), color.Name);
+            }
+
+            Designer.Baslik("New Color Add");
+            colorManager.Add(new Color
+            {
+                Name = "Blue"
+            });
+        }
+
+        private static void BrandTest(BrandManager brandManager)
+        {
+            Designer.Baslik("Brand All Lists");
+            Designer.PrintRow("Brand ID", "Brand Name");
+
+            foreach (var brand in brandManager.GetAll())
+            {
+                Designer.PrintRow(brand.Id.ToString(), brand.Name);
+            }
+
+            Designer.Baslik("New Brand Add");
+            brandManager.Add(new Brand
+            {
+                Name = "Kia"
+            });
+
+        }
+
+        private static void CarTest(CarManager carManager, BrandManager brandManager, ColorManager colorManager)
+        {
             Designer.Baslik("Tümünü Liste");
             Designer.PrintRow("Car ID", "Brand Name", "Color Name", "Model Year", "Daily Price", "Description");
 
             foreach (var car in carManager.GetAll())
             {
-                Designer.PrintRow(car.Id.ToString(), brandManager.GetById(car.BrandId).Name, colorManager.GetById(car.ColorId).Name, car.ModelYear.ToString(), car.DailyPrice.ToString(), car.Description);
+                Designer.PrintRow(car.Id.ToString(), brandManager.GetById(car.BrandId).Name,
+                    colorManager.GetById(car.ColorId).Name, car.ModelYear.ToString(), car.DailyPrice.ToString(),
+                    car.Description);
             }
 
             Designer.Baslik("Yeni Araba Ekleme");
@@ -65,7 +114,6 @@ namespace ConsoleUI
             //}
 
 
-
             //Console.WriteLine("-------------ColorId'ye Göre Liste---------------------");
             //foreach (var car in carManager.GetCarsByColorId(1))
             //{
@@ -106,8 +154,6 @@ namespace ConsoleUI
             //                      $"Color Name:{car.ColorName} " +
             //                      $"Daily Price:{car.DailyPrice}");
             //}
-
-            Console.ReadKey();
         }
     }
 }
