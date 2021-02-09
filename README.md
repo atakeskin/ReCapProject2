@@ -68,3 +68,8 @@ DataAccess/Abstract'da ilgili nesneden generic olan IEntityRepository'den implem
 DataAccess/Concrete/EntityFramework'de ilgili veritabanı ile context nesneleri verilmiş base sınıftan ve ayrıca III.Adımda oluşturulan interface'den inherit class oluşturulur.
 
 Artık bu çerçevede temel CRUD operasyonları için katmanlı yapım hazırdır.
+
+
+
+# Best Practice
+## UI katmanında nesne isimleri mutlaka değiştirilerek yeniden verilmelidir.
