@@ -31,8 +31,11 @@ Bir Class'ın base'inin veya iplementasyonunun olması gerekir.
 O yüzden Abstract klasöründe implementasyonlar yazılır.
 İlgili Classımızın imzaları bu Interface'den inherid edilmesi sağlanır.
 Aynı zamanda yeni bir teknoloji(Entity Framework,NHibernate vb.) kullandığımızda Classımız bu Interface üzerinden miras alır. Ve böylece bağımlılığn önüne geçilmiş olunacaktır.
+Veritabanı tablo nesne karşılığı olan class'larımız için burada;
+IEntity : Veritabanı nesnesi olduğunu belirten imzadır(boş bir interface)
+IDto : Veritabanı nesnesi olan sınıfların join edilerek birleşiminden oluşmuş nesneyi belirten imzadır.
 
 ### Katmanlar arası iletişim için Public belirtecinden faydalanılınır.
 
 ### Core Katmanı
-DataAccess katmanında operasyon sınıfları genel olarak birbirini tekrarlayandır. Bunun önüne geçmek için Repository Dizayn Paterni kullanılır. Operasyonlar içerisinde Linq expresion ile filtreleme kullanılarak generic tipte TEntity ve databese  genellemesi TContext için base sınıf oluşturulur ve core katmanında tutulur.
+DataAccess katmanında operasyon sınıfları genel olarak birbirini tekrarlayandır. Bunun önüne geçmek için Repository Dizayn Paterni kullanılır. İçerisinde operasyonlar içerisinde kullanıcı parametre vermek isterse Linq expresion ile filtreleme yaper. Generic tipte TEntity ve databese  genellemesi TContext için base sınıf oluşturulur ve core katmanında tutulur.
