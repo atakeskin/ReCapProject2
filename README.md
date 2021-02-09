@@ -21,4 +21,5 @@ En kaba tabir ile bir kadman diğer katmanı new'leyemez. Bağımlılıklar arta
 ## KURALLAR
 ### Hangi teknolojiyi kullanıyorsak onunla ilgili Concrete klasörü altına klasör açılır.
 İçindeki dosyalar bu klasörleme yapısı ile Namespace adı verilir.
-### Çıplak Class kalmasın. Bir Class'ın base'inin veya iplementasyonunun olması gerekir.
+### Çıplak Class kalmasın.
+Bir Class'ın base'inin veya iplementasyonunun olması gerekir.
