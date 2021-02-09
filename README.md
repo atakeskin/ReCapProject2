@@ -5,6 +5,11 @@ Başta bu kampı bizlere hediye eden [Engin DEMİROĞ](https://github.com/engind
 ## Ön Söz
 Burası mümkün olduğunca Code Smell / Kötü kokan kodlardan arındırılmış olacaktır. SOLID Prensiplere uyulmaya çalışılmıştır.
 
+
+# Dikkat!!!
+Aşağıdaki yazılar aşırı beyin yakıcıdır. Spaghetti Kodlama yazanları uzak tutunuz. :)) Engin Hoca öğrencilerine serbesttir.
+
+
 ## SOLID Prensipler Nedir?
 ### Single Responsibility Principle:
 
