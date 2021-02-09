@@ -66,12 +66,14 @@ Entities/Concrate'de veritabanı nesnesi IEntity'den inherit gerekli propertiler
 DataAccess/Concrete/EntityFramework'de Teknoloji EntityFramework olduğunu düşünürsek NorthwindContext'de temel mappingi DbSet için propertisi tanımlanır.
 ## III.Adım:
 DataAccess/Abstract'da ilgili nesneden generic olan IEntityRepository'den implemente interface tanımlanır.
-## IV.Adım(Son):
+## IV.Adım:
 DataAccess/Concrete/EntityFramework'de ilgili veritabanı ile context nesneleri verilmiş base sınıftan ve ayrıca III.Adımda oluşturulan interface'den inherit class oluşturulur.
 
 Artık bu çerçevede temel CRUD operasyonları için katmanlı yapım hazırdır.
-
-
+## V.Adım:
+İş katmanında Business/Abstract'de ilgili nesne için service interface'si yazılır. Sadece işe özel metodlar yazılır.
+## VI.Adım:
+Business/Concrete'de ilgili nesne için interface'inden implemente manager class'ı yazılır.
 
 # Best Practice
 ## UI katmanında nesne isimleri mutlaka değiştirilerek yeniden verilmelidir.(Ör:gbxCategory)
