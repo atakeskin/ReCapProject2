@@ -47,5 +47,5 @@ Abstract klasörü içerisinde tanımlı veritabanı nesneli repository'den impl
 Concrete klasöründe yine ayrıca kullanılan teknolojiye bağlı olarak veritabanı nesnesi ve veritabanı context nesnesini tutan base repository ile DTO nesnelerini tutan interface'i inherit eder.
 ### Core Katmanı
 DataAccess katmanında operasyon sınıfları genel olarak birbirini tekrarlayandır. Bunun önüne geçmek için Repository Dizayn Paterni kullanılır.  Generic tipte TEntity kısıtlamaları tanımlı olarak yazılır. Yani TEntity referans tipte veritabanı nesnesi ve newlenebilir somut bir sınıf olmalıdır. İçerisinde operasyonlara kullanıcı parametre vermek isterse Linq expresion ile filtreleme yapacak şekilde IEntityRepository imza interface si oluşturulur. Buna generic constraint denir.
-Generic tipte TEntity ve database  genellemesi TContext için base sınıf yine aynı şekilde tiplere kısıtlamalar verilerek oluşturulur. Dahada genelleme yapılarak core katmanında ilgiliteknoloji klasörü içerisinde tutulur.
+Generic tipte TEntity ve database  genellemesi TContext için base sınıf yine aynı şekilde tiplere kısıtlamalar verilerek oluşturulur. Dahada genelleme yapılarak core katmanında ilgili teknoloji klasörü içerisinde tutulur.
 
