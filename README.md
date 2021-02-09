@@ -35,4 +35,4 @@ Aynı zamanda yeni bir teknoloji(Entity Framework,NHibernate vb.) kullandığım
 ### Katmanlar arası iletişim için Public belirtecinden faydalanılınır.
 
 ### Core Katmanı
-DataAccess katmanında operasyon sınıfları genel olarak birbirini tekrarlayandır. Bunun önüne geçmek için Repository Dizayn Paterni kullanılır. Operasyonlar içerisinde Linq expresion ile filtreleme kullanılarak generic tipte TEntity ve databese için TContext için base sınıf oluşturulur ve core katmanında tutulur.
+DataAccess katmanında operasyon sınıfları genel olarak birbirini tekrarlayandır. Bunun önüne geçmek için Repository Dizayn Paterni kullanılır. Operasyonlar içerisinde Linq expresion ile filtreleme kullanılarak generic tipte TEntity ve databese  genellemesi TContext için base sınıf oluşturulur ve core katmanında tutulur.
