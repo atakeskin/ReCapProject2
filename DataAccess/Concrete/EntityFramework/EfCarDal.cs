@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using Core.DataAccess.EntityFramework;
 using DataAccess.Abstract;
 using Entities.Concrete;
@@ -9,12 +11,12 @@ namespace DataAccess.Concrete.EntityFramework
 {
     public class EfCarDal : EfEntityRepositoryBase<Car,DevRentACarContext>,ICarDal
     {
-
-        public List<CarDetailDto> GetCarDetails()
+        
+        public List<CarDetailDto> GetCarDetails(Expression<Func<Car, bool>> filter = null)
         {
             using (DevRentACarContext context = new DevRentACarContext())
             {
-                var result = from c in context.Cars
+                var result = from c in filter is null ? context.Cars : context.Cars.Where(filter)
                     join co in context.Colors on c.ColorId equals co.Id
                     join b in context.Brands on c.BrandId equals b.Id
 
@@ -22,6 +24,7 @@ namespace DataAccess.Concrete.EntityFramework
                     {
                         Id = c.Id,
                         Name = c.Name,
+                        ModelYear = c.ModelYear,
                         PlakaNo = c.PlakaNo,
                         BrandName = b.Name,
                         ColorName = co.Name,

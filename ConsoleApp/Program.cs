@@ -27,16 +27,17 @@ namespace ConsoleApp
                               $"Description:{car1.Description} " +
                               $"ModelYear:{car1.ModelYear.Year}");
 
-            Console.WriteLine($"-------------Sisteme Araba Ekleme--------------------");
-            carManager.Add(new Car
-            {
-                BrandId = 1,
-                ColorId = 1,
-                PlakaNo = "34AS245",
-                DailyPrice = 150,
-                Description = "3 teker",
-                ModelYear = new DateTime(2019, 02, 12)
-            });
+            //Console.WriteLine($"-------------Sisteme Araba Ekleme--------------------");
+            //carManager.Add(new Car
+            //{
+            //    BrandId = 1,
+            //    ColorId = 1,
+            //    Name = "Renault Megan",
+            //    PlakaNo = "34AS245",
+            //    DailyPrice = 150,
+            //    Description = "3 teker",
+            //    ModelYear = new DateTime(2019, 02, 12)
+            //});
 
             //Console.WriteLine($"-------------Araba Güncelleme--------------------");
             //carManager.Update(new Car

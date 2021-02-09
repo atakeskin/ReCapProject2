@@ -74,6 +74,11 @@ namespace DataAccess.Concrete.InMemory
             _cars.Remove(GetToBeProcessedCar(entity));
         }
 
+        public List<CarDetailDto> GetCarDetails(Expression<Func<Car, bool>> filter = null)
+        {
+            throw new NotImplementedException();
+        }
+
         public List<CarDetailDto> GetCarDetails()
         {
             throw new NotImplementedException();

@@ -29,39 +29,46 @@ namespace Business.Concrete
 
         public void Add(Car car)
         {
-            if (car.Description.Length>2 && car.DailyPrice>0)
+            if (car.Name.Length>2 && car.DailyPrice>0)
             {
                 _carDal.Add(car);
-                Console.WriteLine("Araba sisteme basariyla eklendi.");
+                Console.WriteLine("New Car is added.");
             }
             else
             {
-                Console.WriteLine("Araba tanımlaması 2 karekterden fazla olmalıdır.");
-                Console.WriteLine("Araba günük fiyatı geçerli değer olmalıdır.");
+                Console.WriteLine("please give a car with daily price greater than 0 and name lenght longer than 2");
             }
 
         }
 
         public void Update(Car car)
         {
-            _carDal.Update(car);
-            Console.WriteLine("Araba sistemde basariyla güncellendi.");
+
+            if (car.Name.Length > 2 && car.DailyPrice > 0)
+            {
+                _carDal.Update(car);
+                Console.WriteLine("Car is Updated.");
+            }
+            else
+            {
+                Console.WriteLine("please give a car with daily price greater than 0 and name lenght longer than 2");
+            }
         }
 
         public void Delete(Car car)
         {
             _carDal.Delete(car);
-            Console.WriteLine("Araba sistemden basariyla silindi.");
+            Console.WriteLine("Car is deleted");
         }
 
-        public List<Car> GetCarsByBrandId(int id)
+        public List<CarDetailDto> GetCarsByBrandId(int id)
         {
-            return _carDal.GetAll(c => c.BrandId == id).ToList();
+            return _carDal.GetCarDetails(c => c.BrandId == id).ToList();
         }
 
-        public List<Car> GetCarsByColorId(int id)
+        public List<CarDetailDto> GetCarsByColorId(int id)
         {
-            return _carDal.GetAll(c => c.ColorId == id).ToList();
+            return _carDal.GetCarDetails(c => c.ColorId == id).ToList();
         }
 
         public List<Car> GetByDailyPrice(decimal min, decimal max)
