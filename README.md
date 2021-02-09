@@ -17,7 +17,7 @@ Bir uygulama yeni bir özellik eklendiğinde (burada değişiklikten bahsedilmiy
 
 ### Dependency Inversion Principle:
 En kaba tabir ile bir katman diğer katmanı new'leyemez. Bağımlılıklar artar. 
-Dependency Injection(DI) Deseni kullanılır. Gereken nesnenin ya Constructor’dan ya da Setter metoduyla parametre olarak alınması gerektiğini vurgulamaktadır. Böylece iki classı birbirinden izole ederiz. Örneğin IProductDall Interface ini bu desen ile sınıfın yapıcı metodu içerisinde kullandığımda aynı implementasyondan oluşan ve iş kodları kendilerine özgü olan teknojileri bağımlılığım olmadan çağırabilmiş olurum.
+Dependency Injection(DI) Deseni kullanılır. Gereken nesnenin ya Constructor’dan ya da Setter metoduyla parametre olarak alınması gerektiğini vurgulamaktadır. Böylece iki classı birbirinden izole ederiz. Örneğin IProductDall Interface ini bu desen ile sınıfın yapıcı metodu içerisinde kullandığımda aynı implementasyondan oluşan ve iş kodları kendilerine özgü olan teknojileri(Ör:Entity Framework,NHibernate vb.) bağımlılığım olmadan çağırabilmiş olurum.
 Bu olay micro servis yazımına kadar gider. İş katmanında başka bir iş katmanını dahi newlememesiniz.
 
 ## KURALLAR
@@ -33,3 +33,6 @@ O yüzden Abstract klasöründe implementasyonlar yazılır.
 Aynı zamanda yeni bir teknoloji(Entity Framework,NHibernate vb.) kullandığımızda Classımız bu Interface üzerinden miras alır. Ve böylece bağımlılığn önüne geçilmiş olunacaktır.
 
 ### Katmanlar arası iletişim için Public belirtecinden faydalanılınır.
+
+### Core Katmanı
+DataAccess katmanında operasyon sınıfları genel olarak birbirini tekrarlayandır. Bunun önüne geçmek için Repository Dizayn Paterni kullanılır. Operasyonlar içerisinde Linq expresion ile filtreleme kullanılarak generic tipte TEntity ve databese için TContext için base sınıf oluşturulur ve core katmanında tutulur.
