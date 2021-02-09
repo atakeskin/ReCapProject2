@@ -16,7 +16,9 @@ Bir uygulama yeni bir özellik eklendiğinde (burada değişiklikten bahsedilmiy
 ### Interface Segregation Principle:
 
 ### Dependency Inversion Principle:
-En kaba tabir ile bir kadman diğer katmanı new'leyemez. Bağımlılıklar artar. Bu olay micro servis yazımına kadar gider. İş katmanında başka bir iş katmanını dahi newlememesiniz.
+En kaba tabir ile bir kadman diğer katmanı new'leyemez. Bağımlılıklar artar. 
+Dependency Injection(DI) Deseni kullanılır. Gereken nesnenin ya Constructor’dan ya da Setter metoduyla parametre olarak alınması gerektiğini vurgulamaktadır. Böylece iki classı birbirinden izole ederiz.
+Bu olay micro servis yazımına kadar gider. İş katmanında başka bir iş katmanını dahi newlememesiniz.
 
 ## KURALLAR
 
