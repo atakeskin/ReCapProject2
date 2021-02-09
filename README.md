@@ -17,3 +17,8 @@ Bir uygulama yeni bir özellik eklendiğinde (burada değişiklikten bahsedilmiy
 
 ### Dependency Inversion Principle:
 En kaba tabir ile bir kadman diğer katmanı new'leyemez. Bağımlılıklar artar. Bu olay micro servis yazımına kadar gider. İş katmanında başka bir iş katmanını dahi newlememesiniz.
+
+## KURALLAR
+### Hangi teknolojiyi kullanıyorsak onunla ilgili Concrete klasörü altına klasör açılır.
+İçindeki dosyalar bu klasörleme yapısı ile Namespace adı verilir.
+### Çıplak Class kalmasın. Bir Class'ın base'inin veya iplementasyonunun olması gerekir.
