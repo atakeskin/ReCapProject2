@@ -43,7 +43,11 @@ IDto : Veritabanı nesnesi olan sınıfların join edilerek birleşiminden oluş
 
 ### Katmanlar arası iletişim için Public belirtecinden faydalanılınır.
 
+
 # N KATMANLI MİMARİ
+
+### Entities Katmanı
+Dikey mimaride çalışır.
 
 ### DataAccess Katmanı
 Abstract klasörü içerisinde tanımlı veritabanı nesneli repository'den implemente interface'dir. Ayrıca DTO nesneleri imzalarını barındırır.
@@ -59,6 +63,10 @@ eklenecek/güncellenecek/silinecek olarak işaretle
 veritabanında ekleme/güncelleme/silme kodunu çalıştır ve SaveChanges metoduyla burada UnitOfDizayn Paterni imlemente ederek onu gerçekleştirmiş olacağız.
 
 Dahada genelleme yapılarak core katmanında ilgili teknoloji klasörü içerisinde tutulur. Bütün CRUD işlemlerimiz için böylece metodlarımızı yazmış oluruz.
+
+### Core Katmanı
+Refactory işlemleriyle benzer operasyonler metod veya sınıf olarak tanımlanır.Tekrar tekrar kullanılır.
+
 
 # Programcının Adımları
 ## I.Adım:
