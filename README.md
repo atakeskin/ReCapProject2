@@ -32,7 +32,7 @@ Bu olay micro servis yazımına kadar gider. İş katmanında başka bir iş kat
 Aynı şey dosya isimleri içinde geçerlidir. Teknolojiye bağlı olarak dosya ismi verilir.(Ör: EfProductDall gibi)
 
 ### Çıplak Class kalmasın.
-Bir Class'ın base'inin veya iplementasyonunun olması gerekir.
+Bir Class'ın base'inin veya implementasyonunun olması gerekir.
 O yüzden Abstract klasöründe implementasyonlar yazılır.
 İlgili Classımızın imzaları bu Interface'den inherid edilmesi sağlanır.
 Aynı zamanda yeni bir teknoloji(Entity Framework,NHibernate vb.) kullandığımızda Classımız bu Interface üzerinden miras alır. Ve böylece bağımlılığn önüne geçilmiş olunacaktır.
