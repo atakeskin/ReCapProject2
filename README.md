@@ -82,10 +82,10 @@ DataAccess/Concrete/EntityFramework'de burada teknoloji EntityFramework olduğun
 DataAccess/Abstract'da ilgili nesneden generic olan IEntityRepository'den implemente interface tanımlanır.
 ## IV.Adım:
 DataAccess/Concrete/EntityFramework'de ilgili veritabanı ile context nesneleri verilmiş base sınıftan inherit ve ayrıca III.Adımda oluşturulan interface'den implemente class oluşturulur.
-
-Artık bu çerçevede temel CRUD operasyonları için katmanlı yapım hazırdır.
+Artık bu çerçevede temel CRUD operasyonları için katmanlı yapı hazırdır.
 ## V.Adım:
-İş katmanında Business/Abstract'de ilgili nesne için service interface'si yazılır. Sadece işe özel metodlar yazılır.
+İş katmanında Business/Abstract'de ilgili nesne için service interface'si yazılır. Sadece işe özel metodlar ihtiyaç ne ise kodlanır.
+
 ## VI.Adım:
 Business/Concrete'de ilgili nesne için interface'inden implemente manager class'ı yazılır. Bu class ilgili nesnenin DataAccess katmanında interface'den implementedir.
 
