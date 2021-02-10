@@ -70,7 +70,7 @@ Dahada genelleme yapılarak core katmanında ilgili teknoloji klasörü içerisi
 
 ### UI Katmanı
 Refactory işlemleriyle benzer operasyonler metod veya sınıf olarak tanımlanır.Tekrar tekrar kullanılır.
-Intelligence programing / Niyet güdümlü programlama : Olmayan metod yazılır. Genereate Medot ile otomatikmen metodu oluşturur.
+Programlama tekniklerinden Intelligence programing / Niyet güdümlü programlama : Olmayan metod yazılır. Genereate Metod(sağ click) ile otomatik metodu oluşturur. Test First Devolopment / Önce test yap sonra programını yaz yaklaşımı yapılır.
 
 
 # Programcının Adımları
