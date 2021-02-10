@@ -89,6 +89,10 @@ Artık bu çerçevede temel CRUD operasyonları için katmanlı yapım hazırdı
 ## VI.Adım:
 Business/Concrete'de ilgili nesne için interface'inden implemente manager class'ı yazılır. Bu class ilgili nesnenin DataAccess katmanında interface'den implementedir.
 
+# Hata Yönetimi Süreçleri
+----
+
+
 # Best Practice
 ## UI katmanında nesne isimleri mutlaka değiştirilerek yeniden verilmelidir.(Ör:gbxCategory)
 
