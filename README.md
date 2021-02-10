@@ -67,10 +67,12 @@ Dahada genelleme yapılarak core katmanında ilgili teknoloji klasörü içerisi
 
 ### Bussines Katmanı
 İş kodlarının tutulduğu katmandır.
+Validasyon yönetimi bu katmanda yapılır.
 
 ### UI Katmanı
 Refactory işlemleriyle benzer operasyonler metod veya sınıf olarak tanımlanır.Tekrar tekrar kullanılır.
 Programlama tekniklerinden Intelligence programing / Niyet güdümlü programlama : Olmayan metod yazılır. Genereate Metod(sağ click) ile otomatik metodu oluşturur. Test First Devolopment / Önce test yap sonra kodu yaz yaklaşımı yapılır. F12 ile progrm içinde gezilir. Refactoring işlemlerinde code generide edilmesi rSharper ile daha rahat oluyor. Solution Buid edilerek çıkan hataya tıklanır. Interface'lerden implemente sınıf yeni kod için tekrar implemente edilir. new'li Dal katmanı içinde yeni delege tanımlanır. Bu işlemler aşağıdaki programcının adımlarının tersine gidilmesi olarakta düşünülenebilinir.
+Hata yönetimi arayüzün işi değildir. Try catch ile sadece hatayı nasıl göstereceğiyle ilgilenir.
 
 
 # Programcının Adımları
@@ -104,3 +106,6 @@ Bundan sonra artık UI katmanında katmanlı mimarinin nimetlerini kullanma zama
 İnterface'ler implementasyon
 ### İnherit:
 Abstract Class'lar ve Normal Class'lar inheritince'dır.
+
+# Ek Bilgiler
+VS çok kullandığımız bloklar varsa sağ tıklayıp sinppet oluşturabilinir.
