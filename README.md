@@ -85,9 +85,8 @@ DataAccess/Concrete/EntityFramework'de ilgili veritabanı ile context nesneleri 
 Artık bu çerçevede temel CRUD operasyonları için katmanlı yapı hazırdır.
 ## V.Adım:
 İş katmanında Business/Abstract'de ilgili nesne için service interface'si yazılır. Sadece işe özel metodlar ihtiyaç ne ise kodlanır.
-
 ## VI.Adım:
-Business/Concrete'de ilgili nesne için interface'inden implemente manager class'ı yazılır. Bu class ilgili nesnenin DataAccess katmanında interface'den implementedir.
+Business/Concrete'de ilgili nesne için interface'inden implemente manager class'ı yazılır. Bu class constructorında ilgili nesnenin DataAccess katmanındaki interface'den parametre ile nesne oluşturulur.
 
 # Hata Yönetimi Süreçleri
 ----
