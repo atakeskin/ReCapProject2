@@ -75,13 +75,13 @@ Programlama tekniklerinden Intelligence programing / Niyet güdümlü programlam
 
 # Programcının Adımları
 ## I.Adım:
-Entities/Concrate'de veritabanı nesnesi IEntity'den implemente ve gerekli veritabanında tabloda veri karşılıklarını tutan propertileri verilerek oluşturulur.
+Entities/Concrate'de veritabanı nesnesi IEntity'den implemente ve gerekli veritabanında tabloda veri karşılıklarını tutan propertileri verilerek oluşturulan classdır.
 ## II.Adım:
-DataAccess/Concrete/EntityFramework'de Teknoloji EntityFramework olduğunu düşünürsek NorthwindContext'de temel mappingi DbSet için propertisi tanımlanır.
+DataAccess/Concrete/EntityFramework'de burada teknoloji EntityFramework olduğunu düşünürerek NorthwindContext'de temel mappingi DbSet için propertisi tanımlanır.
 ## III.Adım:
 DataAccess/Abstract'da ilgili nesneden generic olan IEntityRepository'den implemente interface tanımlanır.
 ## IV.Adım:
-DataAccess/Concrete/EntityFramework'de ilgili veritabanı ile context nesneleri verilmiş base sınıftan ve ayrıca III.Adımda oluşturulan interface'den inherit class oluşturulur.
+DataAccess/Concrete/EntityFramework'de ilgili veritabanı ile context nesneleri verilmiş base sınıftan inherit ve ayrıca III.Adımda oluşturulan interface'den implemente class oluşturulur.
 
 Artık bu çerçevede temel CRUD operasyonları için katmanlı yapım hazırdır.
 ## V.Adım:
