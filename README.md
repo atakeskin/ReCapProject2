@@ -87,7 +87,8 @@ Artık bu çerçevede temel CRUD operasyonları için katmanlı yapı hazırdır
 İş katmanında Business/Abstract'de ilgili nesne için service interface'si yazılır. Sadece işe özel metodlar ihtiyaç ne ise kodlanır.
 ## VI.Adım:
 Business/Concrete'de ilgili nesne için interface'inden implemente manager class'ı yazılır. Bu class constructorında ilgili nesnenin DataAccess katmanındaki interface'den parametre ile nesne oluşturulur.
-
+## VII.Adım:
+Bundan sonra artık UI katmanında katmanlı mimarinin nimetlerini kullanma zamanı geldi.(DataGirid nesnesi içinde verileri listeleme,Combobox içerisinde categorileri almak gibi)
 # Hata Yönetimi Süreçleri
 ----
 
