@@ -10,6 +10,7 @@ Burası mümkün olduğunca Code Smell / Kötü kokan kodlardan arındırılmı�
 Bazı kelimeleri aşağıdaki manaları ile anlamlandırınız. 
 #### Teknoloji = EntityFramework,NHibernate,Dapper vb.
 #### Database = MsSQL,ORAGLE,MySQL vb.
+#### Katmanlar = Business,DataAccess,Entitiy,Core,UI vb.
 
 # Dikkat!!!
 Aşağıdaki yazılar ile beyin kısa devre yapabilir. Spaghetti Kodlama yazanları uzak tutunuz. :)) Engin Hoca öğrencilerine serbestir.
@@ -59,7 +60,7 @@ Kodsal anlamda bir metodun içerisinde iki farklı iş kodu yazılmaz.
 
 #### Open/Closed Principle:
 Bir uygulama yeni bir özellik eklemeye açık. Değiştirmeye kapalı olmalıdır. Konfigürasyon hariç mevcuttaki tek bir satır koda dokunulmaz.
-Örneğin: Yeni bir teknoloji veya database sisteme ekleme yaparken soyutlamadan faydalanılır.
+Örneğin: Yeni bir teknoloji veya database sisteme ekleme yaparken soyutlamadan faydalanılır. Gevşek bağlılık olmalıdır.
 #### Liskov ‘s Substitution Principle:
 
 #### Interface Segregation Principle:
@@ -78,8 +79,11 @@ Bir çok araç ile yapılabilinir.
 
 # OOP
 ...
-Encapsulation: Bir nesnenin bazı özellik ve işlevlerini başka sınıflardan ve nesnelerden saklamak.
+##### Encapsulation: 
+Bir nesnenin bazı özellik ve işlevlerini başka sınıflardan ve nesnelerden saklamak.
 Fonksiyonlarda parametreler-->model/DTO/ComplexType gibi ortak nesneler içine koyup öyle gönderilir.
+##### Soyutlama Tekniği:
+İnterfaceler kullanılır. Katmanlar arasında iletişimi sağlarlar.
 ...
 
 
