@@ -96,12 +96,14 @@ Bir çok araç ile yapılabilinir.
 
 
 ## 📌 OOP
-...
+
 ##### Encapsulation: 
 Bir nesnenin bazı özellik ve işlevlerini başka sınıflardan ve nesnelerden saklamak.
 Fonksiyonlarda parametreler-->model/DTO/ComplexType gibi ortak nesneler içine koyup öyle gönderilir.
 ##### Soyutlama Tekniği:
 İnterfaceler kullanılır. Katmanlar arasında iletişimi sağlarlar. İş katmanı veri erişim katmanıyla Dependency Inversion Principle ayağa kaldırılarak interface vasıtasıyla iletişim kurar.
+##### Abstract Class :
+Abstractlar inherittır. Aynı zamanda bir nesnel class gibide davranır. Kullanım konusunda cimri olmak gerekir. Interfacelerden farkı nesnel class'lara bir abstract class verilebilinir. Interface'ler ise kısıtlama yoktur. Abstract Class'lar daha çok Business iş süreçlerinde karşımıza çıkar.
 ...
 
 
@@ -109,6 +111,8 @@ Fonksiyonlarda parametreler-->model/DTO/ComplexType gibi ortak nesneler içine k
 
 
 ## 📌  Design Pattern
+######^ ⚠ Tasarım kalıpları ezberlenmeye çalışılmaz. Tasarım kalıplarında amaç SOLID'i ayağa kaldırmaktır. 
+######^ ⚠ Unutma!!Kodlamamızda SOLID'e uyarak yazdığımızda ismini bilmesekte tasarımkalıplarını otomatik olarak yazarız.
 ...
 
 
