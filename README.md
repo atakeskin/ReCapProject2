@@ -18,7 +18,7 @@ Bazı kelimeleri aşağıdaki manaları ile anlamlandırınız.
 
 ## ⚠ Dikkat!!!
 Aşağıdaki yazılar ile beyin kısa devre yapabilir. O yüzden Spaghetti Kodlama yazanları uzak tutunuz. :)) Engin Hoca öğrencilerine serbestir.
-Veritabanında aşırı Normalizasyon(var olan 5 seviyenin 3. seviyesinde bırakılır) programlamada aşırı tasarım'dan kaçınılmalıdır.
+Veritabanında aşırı Normalizasyon(var olan 5 seviyenin 3. seviyesinde bırakılır) programlamada over design(aşırı tasarım'dan) kaçınılmalıdır.
 Programın (Handel)üstesinden gelemeyiz. İyi programcı hemen hemen hiç new yazmaz. Bunun için IoC Container teknojilerinden faydalanırız. En çok kullanılanlar;Ninject,AutoFac,Structure Map, Castle Windsor vb. IoC Container'lar bu newlemeleri bizim için bir konfigurasyon vasıtasıyla yapmamızı sağlayan dolayısıyla sistemde istediğimiz zaman değişiklik yapmamızı sağlayan ortamdır.
 
 
@@ -75,11 +75,12 @@ Bir uygulama yeni bir özellik eklemeye açık. Değiştirmeye kapalı olmalıd�
 Örneğin: Yeni bir teknoloji veya database sisteme ekleme yaparken soyutlamadan faydalanılarak gevşek bağlılık(Loosely Coupled) Dependency Inversion Principle ile 
 sağlanır.
 
-#### Liskov ‘s Substitution Principle:
+#### Liskov‘s Substitution Principle:
 Bulgar bir hanımefendi tarafından ortaya atılmıştır. 
 Nesneleri sırf birbirine benziyor diye birbirinin yerine kullanma. Ör: İlişkisel Veritabanında Normalization çinememek için bankanın iki tip gerçek, tüzel kişi nesneleri ayrı ayrı ve Musteri base nesnesinden inherit yapılır.
 
 #### Interface Segregation Principle:
+Güçlü interface'i parçalara ayırarak ör:IPayable,IWorkable,IEatable vb. ilgili nesnel classlar tarafından ihtiyaçları doğrultusunda bir veya daha fazla implemente edilmesi sağlanır. Böylece gereksiz implementasyonun önüne geçilerek clean code yazımı gerçekleştirilir.
 
 #### Dependency Inversion Principle:
 En kaba tabir ile bir katman diğer katmanı new'leyemez. Bağımlılıkların azaltımıdır. 
