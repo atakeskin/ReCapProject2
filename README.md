@@ -6,7 +6,7 @@ Başta bu kampı bizlere hediye eden [Engin DEMİROĞ](https://github.com/engind
 ## Ön Söz :
 Burası mümkün olduğunca Code Smell / Kötü kokan kodlardan arındırılmış olacaktır. SOLID Prensiplere uyulmaya çalışılmıştır.
 
-##Tanımlar :
+## Tanımlar :
 Bazı kelimeleri aşağıdaki manaları ile anlamlandırınız. 
 Teknoloji = EntityFramework,NHibernate,Dapper vb.
 Database = MsSQL,ORAGLE,MySQL vb.
