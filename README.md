@@ -1,24 +1,24 @@
 # DevRentACar
 
-📌 Takdim :
+📌 ## Takdim :
 Başta bu kampı bizlere hediye eden [Engin DEMİROĞ](https://github.com/engindemirog) hocama çok çok teşekkür ederim. Hiçbir maddi ve manevi fedakarlığından vazgeçmeden bizleri spaghetti kodlamadan best practice lerle dolu programcılığa çıkarma arzusunu hayranlıkla izlemekteyim. Sizin derslerdeki enerjiniz bizleri ilerki kodlama hayatımız için şevklendiriyor.
 
-📌 Ön Söz :
+📌 ## Ön Söz :
 Burası mümkün olduğunca Code Smell / Kötü kokan kodlardan arındırılmış olacaktır. SOLID Prensiplere uyulmaya çalışılmıştır.
 
-📌 Tanımlar :
+📌 ## Tanımlar :
 Bazı kelimeleri aşağıdaki manaları ile anlamlandırınız. 
 - Teknoloji = EntityFramework,NHibernate,Dapper vb.
 - Database = MsSQL,ORAGLE,MySQL vb.
 - Katmanlar = Business,DataAccess,Entitiy,Core,UI vb.
 - Soyutlama = Interface vb.
 
-📌 Dikkat!!!
+📌 ## Dikkat!!!
 Aşağıdaki yazılar ile beyin kısa devre yapabilir. O yüzden Spaghetti Kodlama yazanları uzak tutunuz. :)) Engin Hoca öğrencilerine serbestir.
 Veritabanında aşırı Normalizasyon(var olan 5 seviyenin 3. seviyesinde bırakılır) programlamada aşırı tasarım'dan kaçınılmalıdır.
 Programın (Handel)üstesinden gelemeyiz. İyi programcı hemen hemen hiç new yazmaz.
 
-📌 Programcılığın ABC'si
+📌 ## Programcılığın ABC'si
 
 ## Değişkenler
 - Değer tipler : Belleğin Stek bölümünü kullanır.
