@@ -35,11 +35,19 @@ Kurumsal hafıza için yazılır.
 ## 4-Soyutlama
 Çıplak kılas kalmasın. Open/Closed Principle uygun olmalıdır.
 
-## 5-SOLID
+## 5-SOLID İmplementasyonu
 
 ### SOLID Prensipler Nedir?
+SOLID isimlendirmesi beş tane prensibin ilk harferinden oluşur.
+Yazılımda sürdürülebilirliği ve temiz kod yazımı sağlıyor.
+Bir değişiklik geldiğinde yazılım direnç göstermiyor ise SOLID prensibe uygundur denir.
+
 #### Single Responsibility Principle:
-Tek sorumluluk prensibine göre bir fonksiyon/class sadece bir işi yapabilir.
+Tek sorumluluk prensibine göre her bloğun, her metodun, her classın ve her katmanın sadece bir görevi vardır.
+Arayüz UI : MVC Mimari ile => MobilUI|WebUI|MasaüstüUI / Business / DataAccess / Entities
+Örneğin Katman anlamında Controllerin içerisinde Business kodu yazılmaz. Veya Business'in içerisinde DataAccess kodu yazılmaz.
+Kodsal anlamda bir metodun içerisinde iki farklı iş kodu yazılmaz.
+
 #### Open/Closed Principle:
 Bir uygulama yeni bir özellik eklendiğinde (burada değişiklikten bahsedilmiyor) konfigürasyon hariç mevcutta olan kodlara dokunulmaz.
 
@@ -120,6 +128,7 @@ Dahada genelleme yapılarak core katmanında ilgili teknoloji klasörü içerisi
 Validasyon yönetimi bu katmanda yapılır.
 
 ### UI Katmanı
+Bir kullanıcıya birşeyler göstermek. Kullanıcıdan bilgi almak kısacası kullanıcı ile yapılan her etkileşim bu katmanın işidir.
 Refactory işlemleriyle benzer operasyonler metod veya sınıf olarak tanımlanır.Tekrar tekrar kullanılır.
 Programlama tekniklerinden Intelligence programing / Niyet güdümlü programlama : Olmayan metod yazılır. Genereate Metod(sağ click) ile otomatik metodu oluşturur. Test First Devolopment / Önce test yap sonra kodu yaz yaklaşımı yapılır. F12 ile progrm içinde gezilir. Refactoring işlemlerinde code generide edilmesi rSharper ile daha rahat oluyor. Solution Buid edilerek çıkan hataya tıklanır. Interface'lerden implemente sınıf yeni kod için tekrar implemente edilir. new'li Dal katmanı içinde yeni delege tanımlanır. Bu işlemler aşağıdaki programcının adımlarının tersine gidilmesi olarakta düşünülenebilinir.
 Hata yönetimi arayüzün işi değildir. Try catch ile sadece hatayı nasıl göstereceğiyle ilgilenir.
