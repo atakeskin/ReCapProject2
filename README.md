@@ -11,6 +11,7 @@ Bazı kelimeleri aşağıdaki manaları ile anlamlandırınız.
 - Teknoloji = EntityFramework,NHibernate,Dapper vb.
 - Database = MsSQL,ORAGLE,MySQL vb.
 - Katmanlar = Business,DataAccess,Entitiy,Core,UI vb.
+- Soyutlama = Interface vb.
 
 # Dikkat!!!
 Aşağıdaki yazılar ile beyin kısa devre yapabilir. O yüzden Spaghetti Kodlama yazanları uzak tutunuz. :)) Engin Hoca öğrencilerine serbestir.
@@ -60,14 +61,14 @@ Kodsal anlamda bir metodun içerisinde iki farklı iş kodu yazılmaz.
 
 #### Open/Closed Principle:
 Bir uygulama yeni bir özellik eklemeye açık. Değiştirmeye kapalı olmalıdır. Konfigürasyon hariç mevcuttaki tek bir satır koda dokunulmaz.
-Örneğin: Yeni bir teknoloji veya database sisteme ekleme yaparken soyutlamadan faydalanılır. Gevşek bağlılık olmalıdır.
+Örneğin: Yeni bir teknoloji veya database sisteme ekleme yaparken soyutlamadan faydalanılarak gevşek bağlılık(Loosely Coupled) sağlanır. Dependency Inversion Principle ile 
 #### Liskov ‘s Substitution Principle:
 
 #### Interface Segregation Principle:
 
 #### Dependency Inversion Principle:
 En kaba tabir ile bir katman diğer katmanı new'leyemez. Bağımlılıkların azaltımıdır. 
-Dependency Injection(DI) Deseni kullanılır. Gereken nesnenin ya Constructor’dan ya da Setter metoduyla parametre olarak alınması gerektiğini vurgulamaktadır. Böylece iki classı birbirinden izole ederiz. Örneğin IProductDall Interface ini bu desen ile sınıfın yapıcı metodu içerisinde kullandığımda aynı implementasyondan oluşan ve iş kodları kendilerine özgü olan teknojileri bağımlılığım olmadan çağırabilmiş olurum.
+Dependency Injection(DI) Deseni kullanılır. Gereken nesnenin ya Constructor’dan ya da Setter metoduyla parametre olarak alınması gerektiğini vurgulamaktadır. Böylece iki classı birbirinden izole ederiz. Örneğin IProductDall Interface ini bu desen ile sınıfın yapıcı metodu içerisinde kullandığımızda aynı implementasyondan oluşan ve iş kodları kendilerine özgü olan teknojileri bağımlılığımız olmadan çağırabilmiş oluruz.
 Bu olay micro servis yazımına kadar gider. İş katmanında başka bir iş katmanını dahi newleyemessiniz.
 
 ## 6-(AOP) Aspect Oriented Programming
@@ -83,7 +84,7 @@ Bir çok araç ile yapılabilinir.
 Bir nesnenin bazı özellik ve işlevlerini başka sınıflardan ve nesnelerden saklamak.
 Fonksiyonlarda parametreler-->model/DTO/ComplexType gibi ortak nesneler içine koyup öyle gönderilir.
 ##### Soyutlama Tekniği:
-İnterfaceler kullanılır. Katmanlar arasında iletişimi sağlarlar.
+İnterfaceler kullanılır. Katmanlar arasında iletişimi sağlarlar. İş katmanı veri erişim katmanıyla Dependency Inversion Principle ayağa kaldırılarak interface vasıtasıyla iletişim kurar.
 ...
 
 
@@ -120,7 +121,7 @@ IDto : Veritabanı nesnesi olan sınıfların join edilerek birleşiminden oluş
 ### Entities Katmanı
 Dikey mimaride çalışır.
 
-### DataAccess Katmanı
+### DataAccess Katmanı - Veri erişim Katmanı
 Abstract klasörü içerisinde tanımlı veritabanı nesneli repository'den implemente interface'dir. Ayrıca DTO nesneleri imzalarını barındırır.
 Concrete klasöründe yine ayrıca kullanılan teknolojiye bağlı olarak veritabanı nesnesi ve veritabanı context nesnesini tutan base repository inherit - DTO nesnelerini tutan interface'i imlemente class barındırır.
 
