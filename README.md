@@ -111,8 +111,8 @@ Abstractlar inherittır. Aynı zamanda bir nesnel class gibide davranır. Kullan
 
 
 ## 📌  Design Pattern
-######^ ⚠ Tasarım kalıpları ezberlenmeye çalışılmaz. Tasarım kalıplarında amaç SOLID'i ayağa kaldırmaktır. 
-######^ ⚠ Unutma!!Kodlamamızda SOLID'e uyarak yazdığımızda ismini bilmesekte tasarımkalıplarını otomatik olarak yazarız.
+###### ⚠ Tasarım kalıpları ezberlenmeye çalışılmaz. Tasarım kalıplarında amaç SOLID'i ayağa kaldırmaktır. 
+###### ⚠ Unutma!!Kodlamamızda SOLID'e uyarak yazdığımızda ismini bilmesekte tasarımkalıplarını otomatik olarak yazarız.
 ...
 
 
