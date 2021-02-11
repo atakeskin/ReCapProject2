@@ -13,7 +13,7 @@ Bazı kelimeleri aşağıdaki manaları ile anlamlandırınız.
 - Katmanlar = Business,DataAccess,Entitiy,Core,UI vb.
 
 # Dikkat!!!
-Aşağıdaki yazılar ile beyin kısa devre yapabilir. Spaghetti Kodlama yazanları uzak tutunuz. :)) Engin Hoca öğrencilerine serbestir.
+Aşağıdaki yazılar ile <div>Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>beyin kısa devre yapabilir. Spaghetti Kodlama yazanları uzak tutunuz. :)) Engin Hoca öğrencilerine serbestir.
 Veritabanında aşırı Normalizasyon(var olan 5 seviyenin 3. seviyesinde bırakılır) programlamada aşırı tasarım'dan kaçınılmalıdır.
 Programın (Handel)üstesinden gelemeyiz. İyi programcı hemen hemen hiç new yazmaz.
 
