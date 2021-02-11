@@ -132,14 +132,14 @@ IDto : Veritabanı nesnesi olan sınıfların join edilerek birleşiminden oluş
 
 ## 📌 N KATMANLI MİMARİ
 
-### Entities Katmanı
+### 📚 Entities Katmanı
 Dikey mimaride çalışır.
 
-### DataAccess Katmanı - Veri erişim Katmanı
+### 📚 DataAccess Katmanı - Veri erişim Katmanı
 Abstract klasörü içerisinde tanımlı veritabanı nesneli repository'den implemente interface'dir. Ayrıca DTO nesneleri imzalarını barındırır.
 Concrete klasöründe yine ayrıca kullanılan teknolojiye bağlı olarak veritabanı nesnesi ve veritabanı context nesnesini tutan base repository inherit - DTO nesnelerini tutan interface'i imlemente class barındırır.
 
-### Core Katmanı
+### 📚 Core Katmanı
 DataAccess katmanında operasyon sınıfları genel olarak birbirini tekrarlayandır. Bunun önüne geçmek için Repository Dizayn Paterni kullanılır.  Generic tipte TEntity kısıtlamaları tanımlı olarak yazılır. Yani TEntity referans tipte veritabanı nesnesi ve newlenebilir somut bir sınıf olmalıdır. İçerisinde operasyonlara kullanıcı parametre vermek isterse Linq expresion ile filtreleme yapacak şekilde IEntityRepository imza interface si oluşturulur. Buna generic constraint denir.
 Generic tipte TEntity ve database  genellemesi TContext için base sınıf yine aynı şekilde tiplere kısıtlamalar verilerek oluşturulur. 
 
@@ -151,11 +151,11 @@ veritabanında ekleme/güncelleme/silme kodunu çalıştır ve SaveChanges metod
 
 Dahada genelleme yapılarak core katmanında ilgili teknoloji klasörü içerisinde tutulur. Bütün CRUD işlemlerimiz için böylece metodlarımızı yazmış oluruz.
 
-### Bussines Katmanı
+### 📚 Bussines Katmanı
 İş kodlarının tutulduğu katmandır.
 Validasyon yönetimi bu katmanda yapılır.
 
-### UI Katmanı
+### 📚 UI Katmanı
 Bir kullanıcıya birşeyler göstermek. Kullanıcıdan bilgi almak kısacası kullanıcı ile yapılan her etkileşim bu katmanın işidir.
 Refactory işlemleriyle benzer operasyonler metod veya sınıf olarak tanımlanır.Tekrar tekrar kullanılır.
 Programlama tekniklerinden Intelligence programing / Niyet güdümlü programlama : Olmayan metod yazılır. Genereate Metod(sağ click) ile otomatik metodu oluşturur. Test First Devolopment / Önce test yap sonra kodu yaz yaklaşımı yapılır. F12 ile progrm içinde gezilir. Refactoring işlemlerinde code generide edilmesi rSharper ile daha rahat oluyor. Solution Buid edilerek çıkan hataya tıklanır. Interface'lerden implemente sınıf yeni kod için tekrar implemente edilir. new'li Dal katmanı içinde yeni delege tanımlanır. Bu işlemler aşağıdaki programcının adımlarının tersine gidilmesi olarakta düşünülenebilinir.
