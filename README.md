@@ -16,10 +16,10 @@ Bazı kelimeleri aşağıdaki manaları ile anlamlandırınız.
 - Soyutlama = Interface vb.
 
 
-## 📌 Dikkat!!!
+## ⚠ Dikkat!!!
 Aşağıdaki yazılar ile beyin kısa devre yapabilir. O yüzden Spaghetti Kodlama yazanları uzak tutunuz. :)) Engin Hoca öğrencilerine serbestir.
 Veritabanında aşırı Normalizasyon(var olan 5 seviyenin 3. seviyesinde bırakılır) programlamada aşırı tasarım'dan kaçınılmalıdır.
-Programın (Handel)üstesinden gelemeyiz. İyi programcı hemen hemen hiç new yazmaz.
+Programın (Handel)üstesinden gelemeyiz. İyi programcı hemen hemen hiç new yazmaz. Bunun için IoC Container teknojilerinden faydalanırız. En çok kullanılanlar;Ninject,AutoFac,Structure Map, Castle Windsor vb. IoC Container'lar bu newlemeleri bizim için bir konfigurasyon vasıtasıyla yapmamızı sağlayan dolayısıyla sistemde istediğimiz zaman değişiklik yapmamızı sağlayan ortamdır.
 
 
 ## 📌 Programcılığın ABC'si
