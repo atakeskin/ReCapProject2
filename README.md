@@ -8,23 +8,56 @@ Burası mümkün olduğunca Code Smell / Kötü kokan kodlardan arındırılmı�
 
 # Dikkat!!!
 Aşağıdaki yazılar ile beyin kısa devre yapabilir. Spaghetti Kodlama yazanları uzak tutunuz. :)) Engin Hoca öğrencilerine serbestir.
+Veritabanında aşırı Normalizasyon(var olan 5 seviyenin 3. seviyesinde bırakılır) programlamada aşırı tasarım'dan kaçınılmalıdır.
+Programın (Handel)üstesinden gelemeyiz.
+
+
 
 # Clean Code
 Araç:[sonarqube](https://www.sonarqube.org/)
+
 ## 1-İsimlendirme Kuralları
 İsimlendirme yeterince açıklayıcı Common Language içerisinde olmalıdır.
-## 2-
-## 3-
+
+## 2-Fonksiyonlar
+Fonksiyonlar tek sorumluluk prensibine uygun olmalıdır.
+Nesnel bir dili fonksiyonel kullanmaya çalışılırsa zafiyetler yaşanır.
+Bir çok operasyon parçalanabilir ve metod içerisinde çarılmalıdır.
+Bu parçalar başka bir yerdede kullanılabilinir.
+Koda devamlı Refactoring ReSharper gibi araçlar kullanılır.
+
+## 3-Yorumlar-Comments
+Fonksiyonun içerisine comment yazılmaz.
+Bir ölçüye kadar fonksiyonun üzerine intelizans desteği için yazılır.
+Kurumsal hafıza için yazılır.
+
 ## 4-
+
 ## 5-
+
 ## 6-
+
+
+
 # OOP
 ...
+Encapsulation: Bir nesnenin bazı özellik ve işlevlerini başka sınıflardan ve nesnelerden saklamak.
+Fonksiyonlarda parametreler-->model/DTO/ComplexType gibi ortak nesneler içine koyup öyle gönderilir.
+...
+
+
+
+
 # Design Pattern
 ...
+
+
+
+
+
 ## SOLID Prensipler Nedir?
 ### Single Responsibility Principle:
-
+Tek sorumluluk prensibine göre bir fonksiyon/class sadece bir işi yapabilir.
 ### Open/Closed Principle:
 Bir uygulama yeni bir özellik eklendiğinde (burada değişiklikten bahsedilmiyor) konfigürasyon hariç mevcutta olan kodlara dokunulmaz.
 
@@ -36,6 +69,10 @@ Bir uygulama yeni bir özellik eklendiğinde (burada değişiklikten bahsedilmiy
 En kaba tabir ile bir katman diğer katmanı new'leyemez. Bağımlılıkların azaltımıdır. 
 Dependency Injection(DI) Deseni kullanılır. Gereken nesnenin ya Constructor’dan ya da Setter metoduyla parametre olarak alınması gerektiğini vurgulamaktadır. Böylece iki classı birbirinden izole ederiz. Örneğin IProductDall Interface ini bu desen ile sınıfın yapıcı metodu içerisinde kullandığımda aynı implementasyondan oluşan ve iş kodları kendilerine özgü olan teknojileri(Ör:Entity Framework,NHibernate vb.) bağımlılığım olmadan çağırabilmiş olurum.
 Bu olay micro servis yazımına kadar gider. İş katmanında başka bir iş katmanını dahi newleyemessiniz.
+
+
+
+
 
 ## KURALLAR
 
@@ -54,6 +91,8 @@ IEntity : Veritabanı nesnesi olduğunu belirten imzadır(boş bir interface)
 IDto : Veritabanı nesnesi olan sınıfların join edilerek birleşiminden oluşmuş nesneyi belirten imzadır.
 
 ### Katmanlar arası iletişim için Public belirtecinden faydalanılınır.
+
+
 
 
 # N KATMANLI MİMARİ
@@ -87,6 +126,9 @@ Programlama tekniklerinden Intelligence programing / Niyet güdümlü programlam
 Hata yönetimi arayüzün işi değildir. Try catch ile sadece hatayı nasıl göstereceğiyle ilgilenir.
 
 
+
+
+
 # Programcının Adımları
 ## I.Adım:
 Entities/Concrate'de veritabanı nesnesi IEntity'den implemente ve gerekli veritabanında tabloda veri karşılıklarını tutan propertileri verilerek oluşturulan classdır.
@@ -106,12 +148,19 @@ Bundan sonra artık UI katmanında katmanlı mimarinin nimetlerini kullanma zama
 Önce ihtiyacımız olan nesne servisi çağırılır. Consructor içerisinde bu servisi refere eden nesne managerı oluşturulur. Manager'de ilgili teknolojiden dal nesnesi parametre olarak verilir.
 
 
+
+
+
 # Hata Yönetimi Süreçleri
 ----
 
 
+
+
 # Best Practice
 ## UI katmanında nesne isimleri mutlaka değiştirilerek yeniden verilmelidir.(Ör:gbxCategory)
+
+
 
 
 # Not
@@ -119,6 +168,9 @@ Bundan sonra artık UI katmanında katmanlı mimarinin nimetlerini kullanma zama
 İnterface'ler implementasyon
 ### İnherit:
 Abstract Class'lar ve Normal Class'lar inheritince'dır.
+
+
+
 
 # Ek Bilgiler
 VS çok kullandığımız bloklar varsa sağ tıklayıp sinppet oluşturabilinir.
