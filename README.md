@@ -1,24 +1,24 @@
 # DevRentACar
 
-## Takdim :
+📌 Takdim :
 Başta bu kampı bizlere hediye eden [Engin DEMİROĞ](https://github.com/engindemirog) hocama çok çok teşekkür ederim. Hiçbir maddi ve manevi fedakarlığından vazgeçmeden bizleri spaghetti kodlamadan best practice lerle dolu programcılığa çıkarma arzusunu hayranlıkla izlemekteyim. Sizin derslerdeki enerjiniz bizleri ilerki kodlama hayatımız için şevklendiriyor.
 
-## Ön Söz :
+📌 Ön Söz :
 Burası mümkün olduğunca Code Smell / Kötü kokan kodlardan arındırılmış olacaktır. SOLID Prensiplere uyulmaya çalışılmıştır.
 
-## Tanımlar :
+📌 Tanımlar :
 Bazı kelimeleri aşağıdaki manaları ile anlamlandırınız. 
 - Teknoloji = EntityFramework,NHibernate,Dapper vb.
 - Database = MsSQL,ORAGLE,MySQL vb.
 - Katmanlar = Business,DataAccess,Entitiy,Core,UI vb.
 - Soyutlama = Interface vb.
 
-# Dikkat!!!
+📌 Dikkat!!!
 Aşağıdaki yazılar ile beyin kısa devre yapabilir. O yüzden Spaghetti Kodlama yazanları uzak tutunuz. :)) Engin Hoca öğrencilerine serbestir.
 Veritabanında aşırı Normalizasyon(var olan 5 seviyenin 3. seviyesinde bırakılır) programlamada aşırı tasarım'dan kaçınılmalıdır.
 Programın (Handel)üstesinden gelemeyiz. İyi programcı hemen hemen hiç new yazmaz.
 
-# Programcılığın ABC'si
+📌 Programcılığın ABC'si
 
 ## Değişkenler
 - Değer tipler : Belleğin Stek bölümünü kullanır.
@@ -29,7 +29,7 @@ Programın (Handel)üstesinden gelemeyiz. İyi programcı hemen hemen hiç new y
 ## Karar Verme Mekanizmaları
 - İf'ler koşullu yönlendirmeler için kullanılır. Sadece lojik anlamında dağılım(Dallanmak) için kullanılır. Birbirin alternatifi olan işler için kullanılmaz.
  
-# Clean Code
+📌 Clean Code
 
 Araç:[sonarqube](https://www.sonarqube.org/)
 
@@ -83,7 +83,7 @@ Bir çok araç ile yapılabilinir.
 Örneğin; Add operasyonu üzerinde {Validasyon}{Tansaction-Unit of work}{Caching}{Loglama}{Authorized}{Perforance} Aspec'ler yazılarak Single Responsibility Principle uyulur.
 
 
-# OOP
+📌 OOP
 ...
 ##### Encapsulation: 
 Bir nesnenin bazı özellik ve işlevlerini başka sınıflardan ve nesnelerden saklamak.
@@ -95,12 +95,12 @@ Fonksiyonlarda parametreler-->model/DTO/ComplexType gibi ortak nesneler içine k
 
 
 
-# Design Pattern
+📌 Design Pattern
 ...
 
 
 
-## KURALLAR
+📌 KURALLAR
 
 ### Hangi teknolojiyi kullanıyorsak onunla ilgili Concrete klasörü altına klasör açılır.
 İçindeki dosyalarda bu klasörleme yapısına göre Namespace adı verilir.
@@ -121,7 +121,7 @@ IDto : Veritabanı nesnesi olan sınıfların join edilerek birleşiminden oluş
 
 
 
-# N KATMANLI MİMARİ
+📌 N KATMANLI MİMARİ
 
 ### Entities Katmanı
 Dikey mimaride çalışır.
@@ -156,7 +156,7 @@ Hata yönetimi arayüzün işi değildir. Try catch ile sadece hatayı nasıl g�
 
 
 
-# Programcının Adımları
+📌 Programcının Adımları
 ## I.Adım:
 Entities/Concrate'de veritabanı nesnesi IEntity'den implemente ve gerekli veritabanında tabloda veri karşılıklarını tutan propertileri verilerek oluşturulan classdır.
 ## II.Adım:
@@ -178,19 +178,19 @@ Bundan sonra artık UI katmanında katmanlı mimarinin nimetlerini kullanma zama
 
 
 
-# Hata Yönetimi Süreçleri
+📌 Hata Yönetimi Süreçleri
 ----
 
 
 
 
-# Best Practice
+📌 Best Practice
 ## UI katmanında nesne isimleri mutlaka değiştirilerek yeniden verilmelidir.(Ör:gbxCategory)
 
 
 
 
-# Not
+📌 Not
 ### İmplemente:
 İnterface'ler implementasyon
 ### İnherit:
@@ -199,10 +199,10 @@ Abstract Class'lar ve Normal Class'lar inheritince'dır.
 
 
 
-# Ek Bilgiler
+📌 Ek Bilgiler
 VS çok kullandığımız bloklar varsa sağ tıklayıp sinppet oluşturabilinir.
 
-# Kaynakça
+📌 Kaynakça
 - [kodlama.io](https://www.kodlama.io/)
 - Udemy/YouTube - Engin DEMİROĞ Eğitim Serileri
 - Clean Code - Robert C. Martin
