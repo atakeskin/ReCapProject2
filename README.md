@@ -19,6 +19,11 @@ Veritabanında aşırı Normalizasyon(var olan 5 seviyenin 3. seviyesinde bırak
 Programın (Handel)üstesinden gelemeyiz. İyi programcı hemen hemen hiç new yazmaz.
 
 # Programcılığın ABC'si
+
+## Değişkenler
+- Değer tipler : Belleğin Stek bölümünü kullanır.
+- Referans tipler : Belleğin Stek ve Heap bölümlerini kullanırlar.
+
 ## Sabitler
 - Enum programcılıkta en fazla suistimal edilen konuların başında gelir. Gerçekten ona ihtiyaç var mı? Dikkat.
 ## Karar Verme Mekanizmaları
