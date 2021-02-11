@@ -8,8 +8,8 @@ Burası mümkün olduğunca Code Smell / Kötü kokan kodlardan arındırılmı�
 
 ## Tanımlar :
 Bazı kelimeleri aşağıdaki manaları ile anlamlandırınız. 
-Teknoloji = EntityFramework,NHibernate,Dapper vb.
-Database = MsSQL,ORAGLE,MySQL vb.
+#### Teknoloji = EntityFramework,NHibernate,Dapper vb.
+#### Database = MsSQL,ORAGLE,MySQL vb.
 
 # Dikkat!!!
 Aşağıdaki yazılar ile beyin kısa devre yapabilir. Spaghetti Kodlama yazanları uzak tutunuz. :)) Engin Hoca öğrencilerine serbestir.
