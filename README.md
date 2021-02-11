@@ -1,10 +1,15 @@
 # DevRentACar
 
-## Takdim
+## Takdim :
 Başta bu kampı bizlere hediye eden [Engin DEMİROĞ](https://github.com/engindemirog) hocama çok çok teşekkür ederim. Hiçbir maddi ve manevi fedakarlığından vazgeçmeden bizleri spaghetti kodlamadan best practice lerle dolu programcılığa çıkarma arzusunu hayranlıkla izlemekteyim. Sizin derslerdeki enerjiniz bizleri ilerki kodlama hayatımız için şevklendiriyor.
-## Ön Söz
+
+## Ön Söz :
 Burası mümkün olduğunca Code Smell / Kötü kokan kodlardan arındırılmış olacaktır. SOLID Prensiplere uyulmaya çalışılmıştır.
 
+##Tanımlar :
+Bazı kelimeleri aşağıdaki manaları ile anlamlandırınız. 
+Teknoloji = EntityFramework,NHibernate,Dapper vb.
+Database = MsSQL,ORAGLE,MySQL vb.
 
 # Dikkat!!!
 Aşağıdaki yazılar ile beyin kısa devre yapabilir. Spaghetti Kodlama yazanları uzak tutunuz. :)) Engin Hoca öğrencilerine serbestir.
@@ -12,10 +17,11 @@ Veritabanında aşırı Normalizasyon(var olan 5 seviyenin 3. seviyesinde bırak
 Programın (Handel)üstesinden gelemeyiz. İyi programcı hemen hemen hiç new yazmaz.
 
 # Programcılığın ABC'si
-
+## Sabitler
+- Enum programcılıkta en fazla suistimal edilen konuların başında gelir. Gerçekten ona ihtiyaç var mı? Dikkat.
 ## Karar Verme Mekanizmaları
--İf'ler koşullu yönlendirmeler için kullanılır. Sadece lojik anlamında dağılım(Dallanmak) için kullanılır. Birbirin alternatifi olan işler için kullanılmaz.
-
+- İf'ler koşullu yönlendirmeler için kullanılır. Sadece lojik anlamında dağılım(Dallanmak) için kullanılır. Birbirin alternatifi olan işler için kullanılmaz.
+ 
 # Clean Code
 
 Araç:[sonarqube](https://www.sonarqube.org/)
@@ -60,7 +66,7 @@ Bir uygulama yeni bir özellik eklemeye açık. Değiştirmeye kapalı olmalıd�
 
 #### Dependency Inversion Principle:
 En kaba tabir ile bir katman diğer katmanı new'leyemez. Bağımlılıkların azaltımıdır. 
-Dependency Injection(DI) Deseni kullanılır. Gereken nesnenin ya Constructor’dan ya da Setter metoduyla parametre olarak alınması gerektiğini vurgulamaktadır. Böylece iki classı birbirinden izole ederiz. Örneğin IProductDall Interface ini bu desen ile sınıfın yapıcı metodu içerisinde kullandığımda aynı implementasyondan oluşan ve iş kodları kendilerine özgü olan teknojileri(Ör:Entity Framework,NHibernate vb.) bağımlılığım olmadan çağırabilmiş olurum.
+Dependency Injection(DI) Deseni kullanılır. Gereken nesnenin ya Constructor’dan ya da Setter metoduyla parametre olarak alınması gerektiğini vurgulamaktadır. Böylece iki classı birbirinden izole ederiz. Örneğin IProductDall Interface ini bu desen ile sınıfın yapıcı metodu içerisinde kullandığımda aynı implementasyondan oluşan ve iş kodları kendilerine özgü olan teknojileri bağımlılığım olmadan çağırabilmiş olurum.
 Bu olay micro servis yazımına kadar gider. İş katmanında başka bir iş katmanını dahi newleyemessiniz.
 
 ## 6-(AOP) Aspect Oriented Programming
