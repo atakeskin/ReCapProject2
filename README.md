@@ -9,7 +9,19 @@ Burası mümkün olduğunca Code Smell / Kötü kokan kodlardan arındırılmı�
 # Dikkat!!!
 Aşağıdaki yazılar ile beyin kısa devre yapabilir. Spaghetti Kodlama yazanları uzak tutunuz. :)) Engin Hoca öğrencilerine serbestir.
 
-
+# Clean Code
+Araç:[sonarqube](https://www.sonarqube.org/)
+## 1-İsimlendirme Kuralları
+İsimlendirme yeterince açıklayıcı Common Language içerisinde olmalıdır.
+## 2-
+## 3-
+## 4-
+## 5-
+## 6-
+# OOP
+...
+# Design Pattern
+...
 ## SOLID Prensipler Nedir?
 ### Single Responsibility Principle:
 
@@ -100,6 +112,7 @@ Bundan sonra artık UI katmanında katmanlı mimarinin nimetlerini kullanma zama
 
 # Best Practice
 ## UI katmanında nesne isimleri mutlaka değiştirilerek yeniden verilmelidir.(Ör:gbxCategory)
+
 
 # Not
 ### İmplemente:
