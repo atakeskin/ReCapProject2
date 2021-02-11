@@ -14,6 +14,7 @@ Programın (Handel)üstesinden gelemeyiz.
 
 
 # Clean Code
+
 Araç:[sonarqube](https://www.sonarqube.org/)
 
 ## 1-İsimlendirme Kuralları
@@ -31,12 +32,31 @@ Fonksiyonun içerisine comment yazılmaz.
 Bir ölçüye kadar fonksiyonun üzerine intelizans desteği için yazılır.
 Kurumsal hafıza için yazılır.
 
-## 4-
+## 4-Soyutlama
+Çıplak kılas kalmasın. Open/Closed Principle uygun olmalıdır.
 
-## 5-
+## 5-SOLID
 
-## 6-
+### SOLID Prensipler Nedir?
+#### Single Responsibility Principle:
+Tek sorumluluk prensibine göre bir fonksiyon/class sadece bir işi yapabilir.
+#### Open/Closed Principle:
+Bir uygulama yeni bir özellik eklendiğinde (burada değişiklikten bahsedilmiyor) konfigürasyon hariç mevcutta olan kodlara dokunulmaz.
 
+#### Liskov ‘s Substitution Principle:
+
+#### Interface Segregation Principle:
+
+#### Dependency Inversion Principle:
+En kaba tabir ile bir katman diğer katmanı new'leyemez. Bağımlılıkların azaltımıdır. 
+Dependency Injection(DI) Deseni kullanılır. Gereken nesnenin ya Constructor’dan ya da Setter metoduyla parametre olarak alınması gerektiğini vurgulamaktadır. Böylece iki classı birbirinden izole ederiz. Örneğin IProductDall Interface ini bu desen ile sınıfın yapıcı metodu içerisinde kullandığımda aynı implementasyondan oluşan ve iş kodları kendilerine özgü olan teknojileri(Ör:Entity Framework,NHibernate vb.) bağımlılığım olmadan çağırabilmiş olurum.
+Bu olay micro servis yazımına kadar gider. İş katmanında başka bir iş katmanını dahi newleyemessiniz.
+
+## 6-(AOP) Aspect Oriented Programming
+Bir çok araç ile yapılabilinir.
++ IoC Container
++ Sarmallama Tekniği
+Örneğin; Add operasyonu üzerinde {Validasyon için kod}{Tansaction-Unit of work için bir kod}{Cache'leme için bir kod}{Loglama için bir kod}{Authorized için bir kod}
 
 
 # OOP
@@ -50,27 +70,6 @@ Fonksiyonlarda parametreler-->model/DTO/ComplexType gibi ortak nesneler içine k
 
 # Design Pattern
 ...
-
-
-
-
-
-## SOLID Prensipler Nedir?
-### Single Responsibility Principle:
-Tek sorumluluk prensibine göre bir fonksiyon/class sadece bir işi yapabilir.
-### Open/Closed Principle:
-Bir uygulama yeni bir özellik eklendiğinde (burada değişiklikten bahsedilmiyor) konfigürasyon hariç mevcutta olan kodlara dokunulmaz.
-
-### Liskov ‘s Substitution Principle:
-
-### Interface Segregation Principle:
-
-### Dependency Inversion Principle:
-En kaba tabir ile bir katman diğer katmanı new'leyemez. Bağımlılıkların azaltımıdır. 
-Dependency Injection(DI) Deseni kullanılır. Gereken nesnenin ya Constructor’dan ya da Setter metoduyla parametre olarak alınması gerektiğini vurgulamaktadır. Böylece iki classı birbirinden izole ederiz. Örneğin IProductDall Interface ini bu desen ile sınıfın yapıcı metodu içerisinde kullandığımda aynı implementasyondan oluşan ve iş kodları kendilerine özgü olan teknojileri(Ör:Entity Framework,NHibernate vb.) bağımlılığım olmadan çağırabilmiş olurum.
-Bu olay micro servis yazımına kadar gider. İş katmanında başka bir iş katmanını dahi newleyemessiniz.
-
-
 
 
 
@@ -174,3 +173,8 @@ Abstract Class'lar ve Normal Class'lar inheritince'dır.
 
 # Ek Bilgiler
 VS çok kullandığımız bloklar varsa sağ tıklayıp sinppet oluşturabilinir.
+
+# Kaynakça
+- [kodlama.io](https://www.kodlama.io/)
+- Udemy/YouTube - Engin DEMİROĞ Eğitim Serileri
+- Clean Code - Robert C. Martin
