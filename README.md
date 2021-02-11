@@ -9,9 +9,12 @@ Burası mümkün olduğunca Code Smell / Kötü kokan kodlardan arındırılmı�
 # Dikkat!!!
 Aşağıdaki yazılar ile beyin kısa devre yapabilir. Spaghetti Kodlama yazanları uzak tutunuz. :)) Engin Hoca öğrencilerine serbestir.
 Veritabanında aşırı Normalizasyon(var olan 5 seviyenin 3. seviyesinde bırakılır) programlamada aşırı tasarım'dan kaçınılmalıdır.
-Programın (Handel)üstesinden gelemeyiz.
+Programın (Handel)üstesinden gelemeyiz. İyi programcı hemen hemen hiç new yazmaz.
 
+# Programcılığın ABC'si
 
+## Karar Verme Mekanizmaları
+-İf'ler koşullu yönlendirmeler için kullanılır. Sadece lojik anlamında dağılım(Dallanmak) için kullanılır. Birbirin alternatifi olan işler için kullanılmaz.
 
 # Clean Code
 
@@ -50,7 +53,7 @@ Kodsal anlamda bir metodun içerisinde iki farklı iş kodu yazılmaz.
 
 #### Open/Closed Principle:
 Bir uygulama yeni bir özellik eklemeye açık. Değiştirmeye kapalı olmalıdır. Konfigürasyon hariç mevcuttaki tek bir satır koda dokunulmaz.
-
+Örneğin: Yeni bir teknoloji veya database sisteme ekleme yaparken soyutlamadan faydalanılır.
 #### Liskov ‘s Substitution Principle:
 
 #### Interface Segregation Principle:
@@ -84,13 +87,13 @@ Fonksiyonlarda parametreler-->model/DTO/ComplexType gibi ortak nesneler içine k
 ## KURALLAR
 
 ### Hangi teknolojiyi kullanıyorsak onunla ilgili Concrete klasörü altına klasör açılır.
-İçindeki dosyalar bu klasörleme yapısına göre Namespace adı verilir.
+İçindeki dosyalarda bu klasörleme yapısına göre Namespace adı verilir.
 Aynı şey dosya isimleri içinde geçerlidir. Teknolojiye bağlı olarak dosya ismi verilir.(Ör: EfProductDall gibi)
 
 ### Çıplak Class kalmasın.
-Bir Class'ın base'inin veya implementasyonunun olması gerekir.
-O yüzden Abstract klasöründe implementasyonlar yazılır.
-İlgili Classımızın imzaları bu Interface'den inherid edilmesi sağlanır.
+Bir Class'ın base'inin inherit veya implementasyonunun olması gerekir. SOLID'in - sürdürülebilirliğin sağlanması için olmazsa olmaz kuraldır.
+O yüzden Abstract klasöründe implementasyonlar için Interface'ler yazılır.
+İlgili Classımızın imzaları bu Interface'den implemente edilmesi sağlanır.
 Aynı zamanda yeni bir teknoloji(Entity Framework,NHibernate vb.) kullandığımızda Classımız bu Interface üzerinden miras alır. Ve böylece bağımlılığn önüne geçilmiş olunacaktır.
 
 Veritabanı tablo nesne karşılığı olan class'larımız için burada;
