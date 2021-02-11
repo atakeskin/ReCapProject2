@@ -27,6 +27,7 @@ Programın (Handel)üstesinden gelemeyiz. İyi programcı hemen hemen hiç new y
 ## Değişkenler
 - Değer tipler : Belleğin Stek bölümünü kullanır.Örneğin int,decimal vb.
 - Referans tipler : Belleğin Stek ve Heap bölümlerini kullanırlar.Örneğin Class'lar,Interface vb.
+- String : TcNo sayısal bir işlem yapılmadığından bu tiptir.
 
 ## Sabitler
 - Enum programcılıkta en fazla suistimal edilen konuların başında gelir. Gerçekten ona ihtiyaç var mı? Dikkat.
@@ -76,7 +77,7 @@ sağlanır.
 
 #### Liskov ‘s Substitution Principle:
 Bulgar bir hanımefendi tarafından ortaya atılmıştır. 
-Nesneleri sırf birbirine benziyor diye birbirinin yerine kullanma. Ör: İlişkisel Veritabanında Normalization bankanın iki tip gerçek ve tüzel kişi nesneleri var.
+Nesneleri sırf birbirine benziyor diye birbirinin yerine kullanma. Ör: İlişkisel Veritabanında Normalization çinememek için bankanın iki tip gerçek, tüzel kişi nesneleri ayrı ayrı ve Musteri base nesnesinden inherit yapılır.
 
 #### Interface Segregation Principle:
 
