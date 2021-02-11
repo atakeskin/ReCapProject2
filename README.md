@@ -49,7 +49,7 @@ Arayüz UI : MVC Mimari ile => MobilUI|WebUI|MasaüstüUI / Business / DataAcces
 Kodsal anlamda bir metodun içerisinde iki farklı iş kodu yazılmaz.
 
 #### Open/Closed Principle:
-Bir uygulama yeni bir özellik eklendiğinde (burada değişiklikten bahsedilmiyor) konfigürasyon hariç mevcutta olan kodlara dokunulmaz.
+Bir uygulama yeni bir özellik eklemeye açık. Değiştirmeye kapalı olmalıdır. Konfigürasyon hariç mevcuttaki tek bir satır koda dokunulmaz.
 
 #### Liskov ‘s Substitution Principle:
 
@@ -64,7 +64,7 @@ Bu olay micro servis yazımına kadar gider. İş katmanında başka bir iş kat
 Bir çok araç ile yapılabilinir.
 + IoC Container
 + Sarmallama Tekniği
-Örneğin; Add operasyonu üzerinde {Validasyon için kod}{Tansaction-Unit of work için bir kod}{Cache'leme için bir kod}{Loglama için bir kod}{Authorized için bir kod}
+Örneğin; Add operasyonu üzerinde {Validasyon}{Tansaction-Unit of work}{Caching}{Loglama}{Authorized}{Perforance} Aspec'ler yazılarak Single Responsibility Principle uyulur.
 
 
 # OOP
