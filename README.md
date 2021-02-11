@@ -25,8 +25,8 @@ Programın (Handel)üstesinden gelemeyiz. İyi programcı hemen hemen hiç new y
 ## 📌 Programcılığın ABC'si
 
 ## Değişkenler
-- Değer tipler : Belleğin Stek bölümünü kullanır.
-- Referans tipler : Belleğin Stek ve Heap bölümlerini kullanırlar.
+- Değer tipler : Belleğin Stek bölümünü kullanır.Örneğin int,decimal vb.
+- Referans tipler : Belleğin Stek ve Heap bölümlerini kullanırlar.Örneğin Class'lar,Interface vb.
 
 ## Sabitler
 - Enum programcılıkta en fazla suistimal edilen konuların başında gelir. Gerçekten ona ihtiyaç var mı? Dikkat.
@@ -71,14 +71,18 @@ Kodsal anlamda bir metodun içerisinde iki farklı iş kodu yazılmaz.
 
 #### Open/Closed Principle:
 Bir uygulama yeni bir özellik eklemeye açık. Değiştirmeye kapalı olmalıdır. Konfigürasyon hariç mevcuttaki tek bir satır koda dokunulmaz.
-Örneğin: Yeni bir teknoloji veya database sisteme ekleme yaparken soyutlamadan faydalanılarak gevşek bağlılık(Loosely Coupled) sağlanır. Dependency Inversion Principle ile 
+Örneğin: Yeni bir teknoloji veya database sisteme ekleme yaparken soyutlamadan faydalanılarak gevşek bağlılık(Loosely Coupled) Dependency Inversion Principle ile 
+sağlanır.
+
 #### Liskov ‘s Substitution Principle:
+Bulgar bir hanımefendi tarafından ortaya atılmıştır. 
+Nesneleri sırf birbirine benziyor diye birbirinin yerine kullanma. Ör: İlişkisel Veritabanında Normalization bankanın iki tip gerçek ve tüzel kişi nesneleri var.
 
 #### Interface Segregation Principle:
 
 #### Dependency Inversion Principle:
 En kaba tabir ile bir katman diğer katmanı new'leyemez. Bağımlılıkların azaltımıdır. 
-Dependency Injection(DI) Deseni kullanılır. Gereken nesnenin ya Constructor’dan ya da Setter metoduyla parametre olarak alınması gerektiğini vurgulamaktadır. Böylece iki classı birbirinden izole ederiz. Örneğin IProductDall Interface ini bu desen ile sınıfın yapıcı metodu içerisinde kullandığımızda aynı implementasyondan oluşan ve iş kodları kendilerine özgü olan teknojileri bağımlılığımız olmadan çağırabilmiş oluruz.
+Dependency Injection(DI) Deseni kullanılır. Gereken nesnenin ya Constructor’dan ya da Setter metoduyla parametre olarak alınması gerektiğini vurgulamaktadır. Böylece iki classı birbirinden izole ederiz. Örneğin IProductDall Interface ini bu desen ile sınıfın yapıcı metodu içerisinde kullandığımızda aynı implementasyondan oluşan ve iş kodları kendilerine özgü olan teknojileri bağımlılığımız olmadan çağırabilmiş oluruz. Bir katman bir katmana gevşek bağlılığı sağlar.
 Bu olay micro servis yazımına kadar gider. İş katmanında başka bir iş katmanını dahi newleyemessiniz.
 
 ## 6-(AOP) Aspect Oriented Programming
@@ -160,8 +164,7 @@ Bir kullanıcıya birşeyler göstermek. Kullanıcıdan bilgi almak kısacası k
 Refactory işlemleriyle benzer operasyonler metod veya sınıf olarak tanımlanır.Tekrar tekrar kullanılır.
 Programlama tekniklerinden Intelligence programing / Niyet güdümlü programlama : Olmayan metod yazılır. Genereate Metod(sağ click) ile otomatik metodu oluşturur. Test First Devolopment / Önce test yap sonra kodu yaz yaklaşımı yapılır. F12 ile progrm içinde gezilir. Refactoring işlemlerinde code generide edilmesi rSharper ile daha rahat oluyor. Solution Buid edilerek çıkan hataya tıklanır. Interface'lerden implemente sınıf yeni kod için tekrar implemente edilir. new'li Dal katmanı içinde yeni delege tanımlanır. Bu işlemler aşağıdaki programcının adımlarının tersine gidilmesi olarakta düşünülenebilinir.
 Hata yönetimi arayüzün işi değildir. Try catch ile sadece hatayı nasıl göstereceğiyle ilgilenir.
-
-
+New'lemeler için .NET CORE içerisinde IoC Container amacı ile MVC tarafında implementasyonlar var. Fakat Backend'de bizim yine IoC Containerlardan destek vermemiz gerekiyor. Ayrıca WepApi yaptığımızda MVC'nin içinde kalan IoC Container işimize yaramayacaktır.
 
 
 
