@@ -163,7 +163,7 @@ eklenecek/güncellenecek/silinecek olarak işaretle
 
 veritabanında ekleme/güncelleme/silme kodunu çalıştır ve SaveChanges metoduyla burada UnitOfDizayn Paterni imlemente ederek onu gerçekleştirmiş olacağız.
 
-Dahada genelleme yapılarak core katmanında ilgili teknoloji klasörü içerisinde tutulur. Bütün CRUD işlemlerimiz için böylece metodlarımızı yazmış oluruz.
+Dahada genelleme yapılarak core katmanında ilgili teknolojiyi base repository haline getirerek klasörü içerisinde tutulur. Bütün CRUD işlemler için böylece metodlar yazmış olunur.
 
 ### 📚 Bussines Katmanı
 İş kodlarının tutulduğu katmandır.
