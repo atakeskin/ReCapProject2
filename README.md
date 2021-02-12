@@ -5,7 +5,7 @@ Başta bu kampı bizlere hediye eden [Engin DEMİROĞ](https://github.com/engind
 
 
 ## 📌 Ön Söz :
-Burası mümkün olduğunca Code Smell / Kötü kokan kodlardan arındırılmış olacaktır. SOLID Prensiplere uyulmaya çalışılmıştır.
+Burası mümkün olduğunca Code Smell / Kötü kokan kodlardan arındırılmış olacaktır. SOLID Prensiplere uyulmaya çalışılmıştır. Temiz Mimariye odaklanır.
 
 
 ## 📌 Tanımlar :
@@ -57,7 +57,7 @@ Kurumsal hafıza için yazılır.
 ## 4-Soyutlama
 Çıplak kılas kalmasın. Open/Closed Principle uygun olmalıdır.
 
-## 5-SOLID İmplementasyonu
+## 5-SOLID Prensipleri İmplementasyonu
 
 ### SOLID Prensipler Nedir?
 SOLID isimlendirmesi beş tane prensibin ilk harferinden oluşur.
@@ -87,7 +87,7 @@ En kaba tabir ile bir katman diğer katmanı new'leyemez. Bağımlılıkların a
 Dependency Injection(DI) Deseni kullanılır. Gereken nesnenin ya Constructor’dan ya da Setter metoduyla parametre olarak alınması gerektiğini vurgulamaktadır. Böylece iki classı birbirinden izole ederiz. Örneğin IProductDall Interface ini bu desen ile sınıfın yapıcı metodu içerisinde kullandığımızda aynı implementasyondan oluşan ve iş kodları kendilerine özgü olan teknojileri bağımlılığımız olmadan çağırabilmiş oluruz. Bir katman bir katmana gevşek bağlılığı sağlar.
 Bu olay micro servis yazımına kadar gider. İş katmanında başka bir iş katmanını dahi newleyemessiniz.
 
-## 6-(AOP) Aspect Oriented Programming
+## 6-(AOP) Aspect Oriented Programming Yaklaşımı
 Bir çok araç ile yapılabilinir.
 + IoC Container
 + Sarmallama Tekniği
@@ -107,7 +107,11 @@ Abstractlar inherittır. Aynı zamanda bir nesnel class gibide davranır. Kullan
 ...
 
 
+## CQRS (Command Query Responsibility Segregation) Yaklaşımı
+...
 
+## PnP (Plug and Play) mimarisine
+...
 
 
 ## 📌  Design Pattern
@@ -166,7 +170,7 @@ Dahada genelleme yapılarak core katmanında ilgili teknoloji klasörü içerisi
 Validasyon yönetimi bu katmanda yapılır.
 
 ### 📚 UI Katmanı
-Bir kullanıcıya birşeyler göstermek. Kullanıcıdan bilgi almak kısacası kullanıcı ile yapılan her etkileşim bu katmanın işidir.
+Bir kullanıcıya birşeyler göstermek. Kullanıcıdan bilgi almak kısacası kullanıcı ile yapılan her etkileşim bu katmanın işidir. Yazılımın Frontend kısmına karşılık gelir. Diğer katmanlar Backend kısmını oluşturur.
 Refactory işlemleriyle benzer operasyonler metod veya sınıf olarak tanımlanır.Tekrar tekrar kullanılır.
 Programlama tekniklerinden Intelligence programing / Niyet güdümlü programlama : Olmayan metod yazılır. Genereate Metod(sağ click) ile otomatik metodu oluşturur. Test First Devolopment / Önce test yap sonra kodu yaz yaklaşımı yapılır. F12 ile progrm içinde gezilir. Refactoring işlemlerinde code generide edilmesi rSharper ile daha rahat oluyor. Solution Buid edilerek çıkan hataya tıklanır. Interface'lerden implemente sınıf yeni kod için tekrar implemente edilir. new'li Dal katmanı içinde yeni delege tanımlanır. Bu işlemler aşağıdaki programcının adımlarının tersine gidilmesi olarakta düşünülenebilinir.
 Hata yönetimi arayüzün işi değildir. Try catch ile sadece hatayı nasıl göstereceğiyle ilgilenir.
