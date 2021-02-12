@@ -35,6 +35,10 @@ Bir class yada struct içinde tanımlanan her tipten değişkendir.Private isiml
 
 ## Constance(Sabitler)
 - Enum programcılıkta en fazla suistimal edilen konuların başında gelir. Gerçekten ona ihtiyaç var mı? Dikkat.
+
+## Generic Tip
+- Herhangi bir değer/referans tip olabilen yapıdır. Bu tiplerin genellemesidir. Kısıtlamalar where verilerek özele indirgenebilinir. 
+
 ## Karar Verme Mekanizmaları
 - İf'ler koşullu yönlendirmeler için kullanılır. Sadece lojik anlamında dağılım(Dallanmak) için kullanılır. Birbirin alternatifi olan işler için kullanılmaz.
  
