@@ -57,7 +57,7 @@ namespace WindowsFormUI.Forms
         {
             if (id > 0)
             {
-                DialogResult dialogResult = MessageBox.Show(_brandService.GetById(id).Name + " markasını silmek istediğinizden eminmisiniz?", "Dikkat", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                DialogResult dialogResult = MessageBox.Show(_brandService.GetById(id).Data.Name + " markasını silmek istediğinizden eminmisiniz?", "Dikkat", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (dialogResult == DialogResult.Yes)
                 {
                     _brandService.Delete(new Brand
@@ -90,9 +90,9 @@ namespace WindowsFormUI.Forms
                 id = Convert.ToInt32(BrandGridView.GetRowCellValue(index, "Id").ToString());
             }
 
-            Brand brand = _brandService.GetById(id);
-            BrandIdTextEdit.Text = brand.Id.ToString();
-            BrandNameTextEdit.Text = brand.Name;
+            var brand = _brandService.GetById(id);
+            BrandIdTextEdit.Text = brand.Data.Id.ToString();
+            BrandNameTextEdit.Text = brand.Data.Name;
         }
     }
 }

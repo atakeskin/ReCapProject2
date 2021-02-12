@@ -1,6 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Business.Abstract;
+using Business.Constants;
+using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
 
@@ -15,33 +16,32 @@ namespace Business.Concrete
             _colorDal = ColorDal;
         }
 
-        public List<Color> GetAll()
+        public IDataResult<List<Color>> GetAll()
         {
-            return _colorDal.GetAll();
+            return new SuccessDataResult<List<Color>>(_colorDal.GetAll(), Messages.ColorsListed);
         }
 
-        public Color GetById(int id)
+        public IDataResult<Color> GetById(int id)
         {
-            return _colorDal.Get(co => co.Id == id);
+            return new SuccessDataResult<Color>(_colorDal.Get(co => co.Id == id), Messages.ColorListed);
         }
 
-        public void Add(Color Color)
+        public IResult Add(Color color)
         {
-            _colorDal.Add(Color);
-            Console.WriteLine("Renk sisteme basariyla eklendi.");
+            _colorDal.Add(color);
+            return new SuccessResult(Messages.ColorAdded);
         }
 
-        public void Update(Color Color)
+        public IResult Update(Color color)
         {
-            _colorDal.Update(Color);
-            Console.WriteLine("Renk sistemde basariyla güncellendi.");
+            _colorDal.Update(color);
+            return new SuccessResult(Messages.CarUpdated);
         }
 
-        public void Delete(Color Color)
+        public IResult Delete(Color color)
         {
-            _colorDal.Delete(Color);
-            Console.WriteLine("Renk sistemden basariyla silindi.");
+            _colorDal.Delete(color);
+            return new SuccessResult(Messages.ColorDeleted);
         }
-
     }
 }

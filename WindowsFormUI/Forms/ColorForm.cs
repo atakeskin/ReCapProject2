@@ -57,7 +57,7 @@ namespace WindowsFormUI.Forms
         {
             if (id > 0)
             {
-                DialogResult dialogResult = MessageBox.Show(_colorService.GetById(id).Name + " rengi silmek istediğinizden eminmisiniz?", "Dikkat", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                DialogResult dialogResult = MessageBox.Show(_colorService.GetById(id).Data.Name + " rengi silmek istediğinizden eminmisiniz?", "Dikkat", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (dialogResult == DialogResult.Yes)
                 {
                     _colorService.Delete(new Color
@@ -78,9 +78,9 @@ namespace WindowsFormUI.Forms
                 id = Convert.ToInt32(ColorGridView.GetRowCellValue(index, "Id").ToString());
             }
 
-            Color color = _colorService.GetById(id);
-            ColorIdTextEdit.Text = color.Id.ToString();
-            ColorNameTextEdit.Text = color.Name;
+            var color = _colorService.GetById(id);
+            ColorIdTextEdit.Text = color.Data.Id.ToString();
+            ColorNameTextEdit.Text = color.Data.Name;
         }
     }
 }

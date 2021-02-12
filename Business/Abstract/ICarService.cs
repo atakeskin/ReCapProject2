@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Core.Utilities.Results;
 using Entities.Concrete;
 using Entities.DTOs;
 
@@ -6,19 +7,21 @@ namespace Business.Abstract
 {
     public interface ICarService
     {
-        List<Car> GetAll();
-        Car GetById(int id);
-        void Add(Car car);
-        void Update(Car car);
-        void Delete(Car car);
+        #region Basic CRUD Signatures 
+        IDataResult<List<Car>> GetAll();
+        IDataResult<Car> GetById(int id);
+        IResult Add(Car car);
+        IResult Update(Car car);
+        IResult Delete(Car car);
+        #endregion
 
-        //List<Car> GetCarsByBrandId(int id);
-       // List<Car> GetCarsByColorId(int id);
-        List<Car> GetByDailyPrice(decimal min, decimal max);
-        List<Car> GetByModelYear(int year);
-
-        List<CarDetailDto> GetCarDetails();
-        List<CarDetailDto> GetCarsByColorId(int id);
-        List<CarDetailDto> GetCarsByBrandId(int id);
+        #region Other CRUD Signatures
+        IDataResult<List<Car>> GetByDailyPrice(decimal min, decimal max);
+        IDataResult<List<Car>> GetByModelYear(int year);
+        IDataResult<List<CarDetailDto>> GetCarDetails();
+        IDataResult<List<CarDetailDto>> GetCarsByColorId(int id);
+        IDataResult<List<CarDetailDto>> GetCarsByBrandId(int id);
+        IDataResult<List<CarDetailDto>> GetCarDetailsByPlate(string plate);
+        #endregion
     }
 }

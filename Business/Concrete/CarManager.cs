@@ -1,7 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using Business.Abstract;
+using Business.Constants;
+using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
 using Entities.DTOs;
@@ -17,73 +18,66 @@ namespace Business.Concrete
             _carDal = carDal;
         }
 
-        public List<Car> GetAll()
+        public IDataResult<List<Car>> GetAll()
         {
-            return _carDal.GetAll();
+            return new SuccessDataResult<List<Car>>(_carDal.GetAll(), Messages.CarsListed);
         }
 
-        public Car GetById(int id)
+        public IDataResult<Car> GetById(int id)
         {
-            return _carDal.Get(c=>c.Id == id);
+            return new SuccessDataResult<Car>(_carDal.Get(c => c.Id == id),Messages.CarListed);
         }
 
-        public void Add(Car car)
+        public IResult Add(Car car)
         {
-            if (car.Name.Length>2 && car.DailyPrice>0)
-            {
-                _carDal.Add(car);
-                Console.WriteLine("New Car is added.");
-            }
-            else
-            {
-                Console.WriteLine("please give a car with daily price greater than 0 and name lenght longer than 2");
-            }
-
+            _carDal.Add(car);
+            return new SuccessResult(Messages.CarAdded);
         }
 
-        public void Update(Car car)
+        public IResult Update(Car car)
         {
-
-            if (car.Name.Length > 2 && car.DailyPrice > 0)
-            {
-                _carDal.Update(car);
-                Console.WriteLine("Car is Updated.");
-            }
-            else
-            {
-                Console.WriteLine("please give a car with daily price greater than 0 and name lenght longer than 2");
-            }
+            _carDal.Update(car);
+            return new SuccessResult(Messages.CarUpdated);
         }
 
-        public void Delete(Car car)
+        public IResult Delete(Car car)
         {
             _carDal.Delete(car);
-            Console.WriteLine("Car is deleted");
+            return new SuccessResult(Messages.CarDeleted);
         }
 
-        public List<CarDetailDto> GetCarsByBrandId(int id)
+        public IDataResult<List<Car>> GetByDailyPrice(decimal min, decimal max)
         {
-            return _carDal.GetCarDetails(c => c.BrandId == id).ToList();
+            return new SuccessDataResult<List<Car>>(
+                _carDal.GetAll(c => c.DailyPrice > min && c.DailyPrice < max).ToList(), 
+                Messages.CarsListed);
         }
 
-        public List<CarDetailDto> GetCarsByColorId(int id)
+        public IDataResult<List<Car>> GetByModelYear(int year)
         {
-            return _carDal.GetCarDetails(c => c.ColorId == id).ToList();
+            return new SuccessDataResult<List<Car>>(
+                _carDal.GetAll(c => c.ModelYear.Year == year),
+                Messages.CarsListed);
         }
 
-        public List<Car> GetByDailyPrice(decimal min, decimal max)
+        public IDataResult<List<CarDetailDto>> GetCarDetails()
         {
-            return _carDal.GetAll(c => c.DailyPrice > min && c.DailyPrice < max).ToList();
+            return new SuccessDataResult<List<CarDetailDto>>(_carDal.GetCarDetails(),Messages.CarsListed);
         }
 
-        public List<Car> GetByModelYear(int year)
+        public IDataResult<List<CarDetailDto>> GetCarsByColorId(int id)
         {
-            return _carDal.GetAll(c => c.ModelYear.Year == year);
+            return new SuccessDataResult<List<CarDetailDto>>(_carDal.GetCarDetails(c => c.ColorId == id).ToList(),Messages.CarsListed);
         }
 
-        public List<CarDetailDto> GetCarDetails()
+        public IDataResult<List<CarDetailDto>> GetCarsByBrandId(int id)
         {
-            return _carDal.GetCarDetails();
+            return new SuccessDataResult<List<CarDetailDto>>(_carDal.GetCarDetails(c => c.BrandId == id).ToList(),Messages.CarsListed);
+        }
+
+        public IDataResult<List<CarDetailDto>> GetCarDetailsByPlate(string plate)
+        {
+            return new SuccessDataResult<List<CarDetailDto>>(_carDal.GetCarDetails(c => c.PlakaNo.ToLower().Contains(plate.ToLower())),Messages.CarsListed);
         }
     }
 }
