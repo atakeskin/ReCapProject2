@@ -96,7 +96,10 @@ Bir çok araç ile yapılabilinir.
 
 
 ## 📌 OOP
-
+##### Getter Setter
+Getter Readonly'lidir Constructor'da set edilebilinir.
+##### Cunstructor
+Cunstructor kendi base'i içinde kendini tekrar etme ilkesi içerisinde nested kullanılır.
 ##### Encapsulation: 
 Bir nesnenin bazı özellik ve işlevlerini başka sınıflardan ve nesnelerden saklamak.
 Fonksiyonlarda parametreler-->model/DTO/ComplexType gibi ortak nesneler içine koyup öyle gönderilir.
@@ -207,7 +210,7 @@ Bundan sonra artık UI katmanında katmanlı mimarinin nimetlerini kullanma zama
 
 
 
-## 📌 Hata Yönetimi Süreçleri
+## 📌 Exception Yönetimi(Hata Yönetimi) Süreçleri
 ----
 
 
