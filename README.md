@@ -177,6 +177,7 @@ Hata yönetimi arayüzün işi değildir. Try catch ile sadece hatayı nasıl g�
 New'lemeler için .NET CORE içerisinde IoC Container amacı ile MVC tarafında implementasyonlar var. Fakat Backend'de bizim yine IoC Containerlardan destek vermemiz gerekiyor. Ayrıca WepApi yaptığımızda MVC'nin içinde kalan IoC Container işimize yaramayacaktır.
 
 ### 📚 WebAPI Katmanı
+Farklı client'lar ile backend katmanlı mimarinin arasında iletişim kurulmasını sağlar. WepApi'de RestFul(Json vb.) gibi Standart bulunan servise client'lardan    istek (Request) yapılır. Ör: Şu kategorideki ürünler estenebilinir. Yanıt olarakta Response veilir.
 ...
 
 
