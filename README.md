@@ -120,6 +120,7 @@ Bir metotda sadece bir değer döndürülür. Mesela liste gibi. Ama aynı anda 
 - Özellik tutan Classların yönetimi
 - Katmanlar arasında iletişimi sağlarlar. İş katmanı veri erişim katmanıyla Dependency Inversion Principle ayağa kaldırılarak interface vasıtasıyla iletişim kurar.
 - Bir proje içerisinde kullanırken oradaki referans yönetimini yakalanır. Utilities / Results içerisinde Data veya işlem sonucu ve kullanıcıyı bilgilendirmek için mesaj olur.
+- SOLID'in I harfine göre bir interface bir interface'i implemente ettiğinde otomatikmen kodlarını içerir.
 ##### Abstract Class :
 Abstractlar inherittır. Aynı zamanda bir nesnel class gibide davranır. Kullanım konusunda cimri olmak gerekir. Interfacelerden farkı nesnel class'lara bir abstract class verilebilinir. Interface'ler ise kısıtlama yoktur. Abstract Class'lar daha çok Business iş süreçlerinde karşımıza çıkar.
 ...
