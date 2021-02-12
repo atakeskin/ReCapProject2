@@ -31,7 +31,7 @@ Programın (Handel)üstesinden gelemeyiz. İyi programcı hemen hemen hiç new y
 Anti Patern oluşturan magic string'lerden kaçınılmalıdır.
 
 ## Field
-Bir class yada struct içinde tanımlanan her tipten değişkendir.
+Bir class yada struct içinde tanımlanan her tipten değişkendir.Private isimlendirme pascalCase yazılır. Public ise CamelCase yazılır.
 
 ## Constance(Sabitler)
 - Enum programcılıkta en fazla suistimal edilen konuların başında gelir. Gerçekten ona ihtiyaç var mı? Dikkat.
@@ -84,7 +84,7 @@ Bulgar bir hanımefendi tarafından ortaya atılmıştır.
 Nesneleri sırf birbirine benziyor diye birbirinin yerine kullanma. Ör: İlişkisel Veritabanında Normalization çinememek için bankanın iki tip gerçek, tüzel kişi nesneleri ayrı ayrı ve Musteri base nesnesinden inherit yapılır.
 
 #### Interface Segregation Principle:
-Güçlü interface'i parçalara ayırarak ör:IPayable,IWorkable,IEatable vb. ilgili nesnel classlar tarafından ihtiyaçları doğrultusunda bir veya daha fazla implemente edilmesi sağlanır. Böylece gereksiz implementasyonun önüne geçilerek clean code yazımı gerçekleştirilir.
+Kullanmayacağın bir şeyi yazma. Güçlü interface'i parçalara ayırarak ör:IPayable,IWorkable,IEatable vb. ilgili nesnel classlar tarafından ihtiyaçları doğrultusunda bir veya daha fazla implemente edilmesi sağlanır. Böylece gereksiz implementasyonun önüne geçilerek clean code yazımı gerçekleştirilir.
 
 #### Dependency Inversion Principle:
 En kaba tabir ile bir katman diğer katmanı new'leyemez. Bağımlılıkların azaltımıdır. 
@@ -168,6 +168,7 @@ Abstract klasörü içerisinde tanımlı veritabanı nesneli repository'den impl
 Concrete klasöründe yine ayrıca kullanılan teknolojiye bağlı olarak veritabanı nesnesi ve veritabanı context nesnesini tutan base repository inherit - DTO nesnelerini tutan interface'i imlemente class barındırır.
 
 ### 📚 Core Katmanı
+Evrensel katmandır. Birkere yazılır. Kurumsal mimaride tüm projelerde kullanabilirdir.
 DataAccess katmanında operasyon sınıfları genel olarak birbirini tekrarlayandır. Bunun önüne geçmek için Repository Dizayn Paterni kullanılır.  Generic tipte TEntity kısıtlamaları tanımlı olarak yazılır. Yani TEntity referans tipte veritabanı nesnesi ve newlenebilir somut bir sınıf olmalıdır. İçerisinde operasyonlara kullanıcı parametre vermek isterse Linq expresion ile filtreleme yapacak şekilde IEntityRepository imza interface si oluşturulur. Buna generic constraint denir.
 Generic tipte TEntity ve database  genellemesi TContext için base sınıf yine aynı şekilde tiplere kısıtlamalar verilerek oluşturulur. 
 
