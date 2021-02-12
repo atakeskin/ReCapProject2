@@ -5,7 +5,7 @@ Başta bu kampı bizlere hediye eden [Engin DEMİROĞ](https://github.com/engind
 
 
 ## 📌 Ön Söz :
-Burası mümkün olduğunca Code Smell / Kötü kokan kodlardan arındırılmış olacaktır. SOLID Prensiplere uyulmaya çalışılmıştır. Temiz Mimariye odaklanır.
+Burası mümkün olduğunca Code Smell / Kötü kokan kodlardan arındırılmış olacaktır. SOLID Prensiplere uyulmaya çalışılmıştır. Temiz Mimariye odaklanır. Profesyonelliğe ulaşım için en ileri teknikler ile implemente etmeye odaklanınılmıştır.
 
 
 ## 📌 Tanımlar :
