@@ -100,6 +100,7 @@ Bir çok araç ile yapılabilinir.
 ##### Encapsulation: 
 Bir nesnenin bazı özellik ve işlevlerini başka sınıflardan ve nesnelerden saklamak.
 Fonksiyonlarda parametreler-->model/DTO/ComplexType gibi ortak nesneler içine koyup öyle gönderilir.
+Bir metotda sadece bir değer döndürülür. Mesela liste gibi. Ama aynı anda birden fazla birşey döndürmek isteniyorsa encapsulation yapılır.
 ##### Soyutlama Tekniği:
 İnterfaceler kullanılır. Katmanlar arasında iletişimi sağlarlar. İş katmanı veri erişim katmanıyla Dependency Inversion Principle ayağa kaldırılarak interface vasıtasıyla iletişim kurar.
 ##### Abstract Class :
@@ -166,8 +167,7 @@ veritabanında ekleme/güncelleme/silme kodunu çalıştır ve SaveChanges metod
 Dahada genelleme yapılarak core katmanında ilgili teknolojiyi base repository haline getirerek klasörü içerisinde tutulur. Bütün CRUD işlemler için böylece metodlar yazmış olunur.
 
 ### 📚 Bussines Katmanı
-İş kodlarının tutulduğu katmandır.
-Validasyon yönetimi bu katmanda yapılır.
+İş kodlarının tutulduğu katmandır. Validasyon yönetimi bu katmanda yapılır. 
 
 ### 📚 UI Katmanı
 Bir kullanıcıya birşeyler göstermek. Kullanıcıdan bilgi almak kısacası kullanıcı ile yapılan her etkileşim bu katmanın işidir. Yazılımın Frontend kısmına karşılık gelir. Diğer katmanlar Backend kısmını oluşturur.
