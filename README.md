@@ -5,7 +5,7 @@ Başta bu kampı bizlere hediye eden [Engin DEMİROĞ](https://github.com/engind
 
 
 ## 📌 Ön Söz :
-Burası mümkün olduğunca Code Smell / Kötü kokan kodlardan arındırılmış olacaktır. SOLID Prensiplere uyulmaya çalışılmıştır. Temiz Mimariye odaklanır. Profesyonelliğe ulaşım için en ileri teknikler ile implemente etmeye odaklanınılmıştır.
+Burası mümkün olduğunca Code Smell / Kötü kokan, içinde tekrarlanmış (duplicate) kodlar arındırılmış olacaktır. SOLID Prensiplere uyulmaya çalışılmıştır. Temiz Mimariye odaklanır. Profesyonelliğe ulaşım için en ileri teknikler ile implemente etmeye odaklanınılmıştır.
 
 
 ## 📌 Tanımlar :
@@ -41,7 +41,11 @@ Bir class yada struct içinde tanımlanan her tipten değişkendir.Private isiml
 
 ## Karar Verme Mekanizmaları
 - İf'ler koşullu yönlendirmeler için kullanılır. Sadece lojik anlamında dağılım(Dallanmak) için kullanılır. Birbirin alternatifi olan işler için kullanılmaz.
- 
+- switch doğaları gereği switch ifadeleri N tane şey yaparlar. Abstract Factory tasarım deseni (design pattern) temeline gömmek ve başka hiç kimsenin görmesine izin vermemektir.
+## Döngüler
+...
+## Exception
+- try/catch Bloklarını çirkindir ve Ayırın
 
 ## 📌  Clean Code
 
@@ -49,16 +53,19 @@ Araç:[sonarqube](https://www.sonarqube.org/)
 
 ## 1-İsimlendirme Kuralları
 İsimlendirme yeterince açıklayıcı Common Language içerisinde olmalıdır.
+Ör: 
+- int elapsedTimeInDays;
+- getActiveAccount();
 
 ## 2-Fonksiyonlar
-Fonksiyonlar tek sorumluluk prensibine uygun olmalıdır.
+Fonksiyonlar tek sorumluluk prensibine uygun olmalıdır.Sadece Bir Şey Yapmalıdır. Çok kısa olmalıdır.
 Nesnel bir dili fonksiyonel kullanmaya çalışılırsa zafiyetler yaşanır.
 Bir çok operasyon parçalanabilir ve metod içerisinde çarılmalıdır.
 Bu parçalar başka bir yerdede kullanılabilinir.
-Koda devamlı Refactoring ReSharper gibi araçlar kullanılır.
+Koda devamlı Refactoring için ReSharper gibi araçlar kullanılır.
 
 ## 3-Yorumlar-Comments
-Fonksiyonun içerisine comment yazılmaz.
+Yorum Yok.Fonksiyonun içerisine comment yazılmaz.
 Bir ölçüye kadar fonksiyonun üzerine intelizans desteği için yazılır.
 Kurumsal hafıza için yazılır.
 
@@ -101,7 +108,11 @@ Bir çok araç ile yapılabilinir.
 + Sarmallama Tekniği
 Örneğin; Add operasyonu üzerinde {Validasyon}{Tansaction-Unit of work}{Caching}{Loglama}{Authorized}{Perforance} Aspec'ler yazılarak Single Responsibility Principle uyulur.
 
-
+## Dört basit tasarım kuralı
+- Tüm testleri çalıştırın : Bir tasarım, amaçlandığı gibi hareket eden bir sistem üretmelidir.
+- Tekrarlanmış kodlar yazmayın : Tekrarlanmış kodlar, ek iş, ek risk ve gereksiz karmaşa demektir. 
+- Açıklayıcı olun : kodumuz yazanın niyetini açıkça belli etmelidir. Yazar kodu daha da açık hale getirdikçe, diğerlerinin anlaması için geçen süre ve bakım süresi daha da azalır.
+- Sınıf ve metot sayısını en aza indirin : Sınıflarımızı ve metotlarımızı küçültmek için çabalarken, küçük küçük bir çok sınıf ve metot yaratabiliriz. Bu kural ise bu sayıyı minimumda tutmamız gerektiğini söylüyor.
 
 ## 📌 OOP
 ##### Properties
@@ -111,6 +122,9 @@ Getter Readonly'lidir Constructor'da set edilebilinir.
 Newlenmez ve uygulama hayatında tek bir instance'ı vardır. Deirek çağırılır.
 ##### Cunstructor
 Cunstructor kendi base'i içinde kendini tekrar etme ilkesi içerisinde nested kullanılır.
+##### Class
+- newlenebilirler. Sınıf tasarımı konusundaki ilk kural sınıfların küçük olmaları gerektiğidir. 
+- SOLID'in I harfine göre bir class bir class'ı inherit ettiğinde sen aslında base'inin structerini içeriyorsun.Haberin olsun demektir. O da diyor ki constructorları varsa implente et o zaman diye bizi uyarır.
 ##### Encapsulation: 
 Bir nesnenin bazı özellik ve işlevlerini başka sınıflardan ve nesnelerden saklamak.
 Fonksiyonlarda parametreler-->model/DTO/ComplexType gibi ortak nesneler içine koyup öyle gönderilir.
@@ -123,6 +137,7 @@ Bir metotda sadece bir değer döndürülür. Mesela liste gibi. Ama aynı anda 
 - SOLID'in I harfine göre bir interface bir interface'i implemente ettiğinde otomatikmen kodlarını içerir.
 ##### Abstract Class :
 Abstractlar inherittır. Aynı zamanda bir nesnel class gibide davranır. Kullanım konusunda cimri olmak gerekir. Interfacelerden farkı nesnel class'lara bir abstract class verilebilinir. Interface'ler ise kısıtlama yoktur. Abstract Class'lar daha çok Business iş süreçlerinde karşımıza çıkar.
+- Polimorfizmle (çok biçimlilik)
 ...
 
 
@@ -156,7 +171,7 @@ Aynı zamanda yeni bir teknoloji(Entity Framework,NHibernate vb.) kullandığım
 Veritabanı tablo nesne karşılığı olan class'larımız için burada;
 IEntity : Veritabanı nesnesi olduğunu belirten imzadır(boş bir interface)
 IDto : Veritabanı nesnesi olan sınıfların join edilerek birleşiminden oluşmuş nesneyi belirten imzadır.
-
+Veri Aktarım Nesneleri (Data Transfer Objects) : public değişkenleri olan ve hiç fonksiyonu olmayan sınıftır. Buna bazen DTO da deriz; ki bu nesneler özellikle veritabanı vb. yerlerle haberleşiyorken oldukça kullanışlıdır.
 ### Katmanlar arası iletişim için Public belirtecinden faydalanılınır.
 
 
@@ -190,7 +205,7 @@ Dahada genelleme yapılarak core katmanında ilgili teknolojiyi base repository 
 
 ### 📚 UI Katmanı
 Bir kullanıcıya birşeyler göstermek. Kullanıcıdan bilgi almak kısacası kullanıcı ile yapılan her etkileşim bu katmanın işidir. Yazılımın Frontend kısmına karşılık gelir. Diğer katmanlar Backend kısmını oluşturur.
-Refactory işlemleriyle benzer operasyonler metod veya sınıf olarak tanımlanır.Tekrar tekrar kullanılır.
+Bir kaç metot sadeleştirmesi, bir kaç yeniden adlandırma ve yeniden yapılandırmadan (refactoring) işlemleriyle benzer operasyonler metod veya sınıf olarak tanımlanır.Tekrar tekrar kullanılır.
 Programlama tekniklerinden Intelligence programing / Niyet güdümlü programlama : Olmayan metod yazılır. Genereate Metod(sağ click) ile otomatik metodu oluşturur. Test First Devolopment / Önce test yap sonra kodu yaz yaklaşımı yapılır. F12 ile progrm içinde gezilir. Refactoring işlemlerinde code generide edilmesi rSharper ile daha rahat oluyor. Solution Buid edilerek çıkan hataya tıklanır. Interface'lerden implemente sınıf yeni kod için tekrar implemente edilir. new'li Dal katmanı içinde yeni delege tanımlanır. Bu işlemler aşağıdaki programcının adımlarının tersine gidilmesi olarakta düşünülenebilinir.
 Hata yönetimi arayüzün işi değildir. Try catch ile sadece hatayı nasıl göstereceğiyle ilgilenir.
 New'lemeler için .NET CORE içerisinde IoC Container amacı ile MVC tarafında implementasyonlar var. Fakat Backend'de bizim yine IoC Containerlardan destek vermemiz gerekiyor. Ayrıca WepApi yaptığımızda MVC'nin içinde kalan IoC Container işimize yaramayacaktır.
@@ -224,6 +239,7 @@ Bundan sonra artık UI katmanında katmanlı mimarinin nimetlerini kullanma zama
 
 
 ## 📌 Exception Yönetimi(Hata Yönetimi) Süreçleri
+Hata işleme (Error handling) : İstisnaları (exception) işleyebileceğimiz ve raporlayabileceğimiz teknikler.  Bir hata ile karşılaşıldığında istisna fırlatmak (throw) daha iyidir. Çağıranın kodunu daha temiz hale getirir. İlk Önce Try-Catch-Finally Bloklarını Yazın
 ----
 
 
