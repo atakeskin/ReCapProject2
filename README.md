@@ -230,3 +230,4 @@ VS çok kullandığımız bloklar varsa sağ tıklayıp sinppet oluşturabilinir
 - [kodlama.io](https://www.kodlama.io/)
 - Udemy/YouTube - Engin DEMİROĞ Eğitim Serileri
 - Clean Code - Robert C. Martin
+- [DevArchitecture](https://www.devarchitecture.net/)
