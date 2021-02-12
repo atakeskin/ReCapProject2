@@ -28,7 +28,10 @@ Programın (Handel)üstesinden gelemeyiz. İyi programcı hemen hemen hiç new y
 - Değer tipler : Belleğin Stek bölümünü kullanır.Örneğin int,decimal vb.
 - Referans tipler : Belleğin Stek ve Heap bölümlerini kullanırlar.Örneğin Class'lar,Interface vb.
 - String : Ör:TcNo sayısal bir işlem yapılmadığından bu tiptir.
-Anti Patern oluşturan magic string'lerden kaçınılmalıdır. 
+Anti Patern oluşturan magic string'lerden kaçınılmalıdır.
+
+## Field
+Bir class yada struct içinde tanımlanan her tipten değişkendir.
 
 ## Constance(Sabitler)
 - Enum programcılıkta en fazla suistimal edilen konuların başında gelir. Gerçekten ona ihtiyaç var mı? Dikkat.
@@ -97,9 +100,10 @@ Bir çok araç ile yapılabilinir.
 
 
 ## 📌 OOP
-##### Getter Setter
+##### Properties
+Property : Property, field ve metotları(Getter Setter) birleştirir.
 Getter Readonly'lidir Constructor'da set edilebilinir.
-##### Static Class
+##### Static Metod
 Newlenmez ve uygulama hayatında tek bir instance'ı vardır. Deirek çağırılır.
 ##### Cunstructor
 Cunstructor kendi base'i içinde kendini tekrar etme ilkesi içerisinde nested kullanılır.
