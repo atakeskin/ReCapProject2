@@ -27,9 +27,10 @@ Programın (Handel)üstesinden gelemeyiz. İyi programcı hemen hemen hiç new y
 ## Değişkenler
 - Değer tipler : Belleğin Stek bölümünü kullanır.Örneğin int,decimal vb.
 - Referans tipler : Belleğin Stek ve Heap bölümlerini kullanırlar.Örneğin Class'lar,Interface vb.
-- String : TcNo sayısal bir işlem yapılmadığından bu tiptir.
+- String : Ör:TcNo sayısal bir işlem yapılmadığından bu tiptir.
+Anti Patern oluşturan magic string'lerden kaçınılmalıdır. 
 
-## Sabitler
+## Constance(Sabitler)
 - Enum programcılıkta en fazla suistimal edilen konuların başında gelir. Gerçekten ona ihtiyaç var mı? Dikkat.
 ## Karar Verme Mekanizmaları
 - İf'ler koşullu yönlendirmeler için kullanılır. Sadece lojik anlamında dağılım(Dallanmak) için kullanılır. Birbirin alternatifi olan işler için kullanılmaz.
@@ -98,6 +99,8 @@ Bir çok araç ile yapılabilinir.
 ## 📌 OOP
 ##### Getter Setter
 Getter Readonly'lidir Constructor'da set edilebilinir.
+##### Static Class
+Newlenmez ve uygulama hayatında tek bir instance'ı vardır. Deirek çağırılır.
 ##### Cunstructor
 Cunstructor kendi base'i içinde kendini tekrar etme ilkesi içerisinde nested kullanılır.
 ##### Encapsulation: 
