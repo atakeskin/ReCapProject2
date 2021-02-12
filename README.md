@@ -176,7 +176,8 @@ Programlama tekniklerinden Intelligence programing / Niyet güdümlü programlam
 Hata yönetimi arayüzün işi değildir. Try catch ile sadece hatayı nasıl göstereceğiyle ilgilenir.
 New'lemeler için .NET CORE içerisinde IoC Container amacı ile MVC tarafında implementasyonlar var. Fakat Backend'de bizim yine IoC Containerlardan destek vermemiz gerekiyor. Ayrıca WepApi yaptığımızda MVC'nin içinde kalan IoC Container işimize yaramayacaktır.
 
-
+### 📚 WebAPI Katmanı
+...
 
 
 ## 📌 Programcının Adımları
