@@ -19,7 +19,7 @@ namespace WindowsFormUI.Forms
 
         private void ColorForm_Load(object sender, EventArgs e)
         {
-            ColorGridControl.DataSource = _colorService.GetAll();
+            ColorGridControl.DataSource = _colorService.GetAll().Data;
         }
 
         private void ColorRefreceBtn_Click(object sender, EventArgs e)
@@ -39,7 +39,7 @@ namespace WindowsFormUI.Forms
 
         private void GetAllToColorGridControl()
         {
-            ColorGridControl.DataSource = _colorService.GetAll();
+            ColorGridControl.DataSource = _colorService.GetAll().Data;
         }
 
         private void ColorUpdateBtn_Click(object sender, EventArgs e)
@@ -78,9 +78,9 @@ namespace WindowsFormUI.Forms
                 id = Convert.ToInt32(ColorGridView.GetRowCellValue(index, "Id").ToString());
             }
 
-            var color = _colorService.GetById(id);
-            ColorIdTextEdit.Text = color.Data.Id.ToString();
-            ColorNameTextEdit.Text = color.Data.Name;
+            var color = _colorService.GetById(id).Data;
+            ColorIdTextEdit.Text = color.Id.ToString();
+            ColorNameTextEdit.Text = color.Name;
         }
     }
 }

@@ -37,16 +37,16 @@ namespace WindowsFormUI.Forms
 
         private void GetAllToCarGridControl()
         {
-            CarGridControl.DataSource = _carService.GetCarDetails();
+            CarGridControl.DataSource = _carService.GetCarDetails().Data;
             BranIdTextEdit.Properties.ValueMember = "Id";
             BranIdTextEdit.Properties.DisplayMember = "Name";
-            BranIdTextEdit.Properties.DataSource = _brandService.GetAll();
+            BranIdTextEdit.Properties.DataSource = _brandService.GetAll().Data;
             ColorIdTextEdit.Properties.ValueMember = "Id";
             ColorIdTextEdit.Properties.DisplayMember = "Name";
-            ColorIdTextEdit.Properties.DataSource = _colorService.GetAll();
+            ColorIdTextEdit.Properties.DataSource = _colorService.GetAll().Data;
             lUEBrandName.Properties.ValueMember = "Id";
             lUEBrandName.Properties.DisplayMember = "Name";
-            lUEBrandName.Properties.DataSource = _brandService.GetAll();
+            lUEBrandName.Properties.DataSource = _brandService.GetAll().Data;
         }
 
         private void labelControl1_Click(object sender, EventArgs e)
@@ -69,15 +69,15 @@ namespace WindowsFormUI.Forms
             }
 
 
-            var car = _carService.GetById(id);
-            CarIdTextEdit.Text = car.Data.Id.ToString();
-            BranIdTextEdit.Text = _brandService.GetById(car.Data.BrandId).Data.Name;
-            ColorIdTextEdit.Text = _colorService.GetById(car.Data.ColorId).Data.Name;
-            PlakaNoTextEdit.Text = car.Data.PlakaNo;
-            DailyPriceTextEdit.Text = car.Data.DailyPrice.ToString();
-            DescriptionTextEdit.Text = car.Data.Description;
-            ModelYearTextEdit.Text = car.Data.ModelYear.ToString();
-            CarNameTextEdit.Text = car.Data.Name;
+            var car = _carService.GetById(id).Data;
+            CarIdTextEdit.Text = car.Id.ToString();
+            BranIdTextEdit.Text = _brandService.GetById(car.BrandId).Data.Name;
+            ColorIdTextEdit.Text = _colorService.GetById(car.ColorId).Data.Name;
+            PlakaNoTextEdit.Text = car.PlakaNo;
+            DailyPriceTextEdit.Text = car.DailyPrice.ToString();
+            DescriptionTextEdit.Text = car.Description;
+            ModelYearTextEdit.Text = car.ModelYear.ToString();
+            CarNameTextEdit.Text = car.Name;
         }
 
         private void AddCarBtn_Click(object sender, EventArgs e)

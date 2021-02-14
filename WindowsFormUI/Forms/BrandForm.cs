@@ -24,7 +24,7 @@ namespace WindowsFormUI.Forms
 
         private void GetAllToBrandGridControl()
         {
-            BrandGridControl.DataSource = _brandService.GetAll();
+            BrandGridControl.DataSource = _brandService.GetAll().Data;
         }
 
         private void BrandAddBtn_Click(object sender, EventArgs e)
@@ -90,9 +90,9 @@ namespace WindowsFormUI.Forms
                 id = Convert.ToInt32(BrandGridView.GetRowCellValue(index, "Id").ToString());
             }
 
-            var brand = _brandService.GetById(id);
-            BrandIdTextEdit.Text = brand.Data.Id.ToString();
-            BrandNameTextEdit.Text = brand.Data.Name;
+            var brand = _brandService.GetById(id).Data;
+            BrandIdTextEdit.Text = brand.Id.ToString();
+            BrandNameTextEdit.Text = brand.Name;
         }
     }
 }

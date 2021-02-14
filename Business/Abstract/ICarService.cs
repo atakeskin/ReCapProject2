@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq.Expressions;
 using Core.Utilities.Results;
 using Entities.Concrete;
 using Entities.DTOs;
@@ -16,12 +18,13 @@ namespace Business.Abstract
         #endregion
 
         #region Other CRUD Signatures
-        IDataResult<List<Car>> GetByDailyPrice(decimal min, decimal max);
-        IDataResult<List<Car>> GetByModelYear(int year);
-        IDataResult<List<CarDetailDto>> GetCarDetails();
-        IDataResult<List<CarDetailDto>> GetCarsByColorId(int id);
-        IDataResult<List<CarDetailDto>> GetCarsByBrandId(int id);
-        IDataResult<List<CarDetailDto>> GetCarDetailsByPlate(string plate);
+        IDataResult<List<Car>> GetByX(Expression<Func<Car, bool>> filter);
+        //IDataResult<List<Car>> GetByDailyPrice(decimal min, decimal max);
+        //IDataResult<List<Car>> GetByModelYear(int year);
+        IDataResult<List<CarDetailDto>> GetCarDetails(Expression<Func<Car, bool>> filter = null);
+        //IDataResult<List<CarDetailDto>> GetCarsByColorId(int id);
+        //IDataResult<List<CarDetailDto>> GetCarsByBrandId(int id);
+        //IDataResult<List<CarDetailDto>> GetCarDetailsByPlate(string plate);
         #endregion
     }
 }

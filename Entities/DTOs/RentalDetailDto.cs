@@ -16,6 +16,6 @@ namespace Entities.DTOs
         public string Email { get; set; }
         public string CarPlakaNo { get; set; }
         public DateTime RentDate { get; set; }
-        public DateTime ReturnDate { get; set; }
+        public DateTime? ReturnDate { get; set; }
     }
 }

@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using Business.Abstract;
 using Business.Constants;
 using Core.Utilities.Results;
@@ -46,38 +48,51 @@ namespace Business.Concrete
             return new SuccessResult(Messages.CarDeleted);
         }
 
-        public IDataResult<List<Car>> GetByDailyPrice(decimal min, decimal max)
+        public IDataResult<List<Car>> GetByX(Expression<Func<Car, bool>> filter)
         {
+            //c => c.DailyPrice > min && c.DailyPrice < max // UI içerisindeyazılacak
             return new SuccessDataResult<List<Car>>(
-                _carDal.GetAll(c => c.DailyPrice > min && c.DailyPrice < max).ToList(), 
+                _carDal.GetAll(filter).ToList(),
                 Messages.CarsListed);
         }
 
-        public IDataResult<List<Car>> GetByModelYear(int year)
+        public IDataResult<List<CarDetailDto>> GetCarDetails(Expression<Func<Car, bool>> filter=null)
         {
-            return new SuccessDataResult<List<Car>>(
-                _carDal.GetAll(c => c.ModelYear.Year == year),
-                Messages.CarsListed);
+            return new SuccessDataResult<List<CarDetailDto>>(_carDal.GetCarDetails(filter), Messages.CarsListed);
         }
 
-        public IDataResult<List<CarDetailDto>> GetCarDetails()
-        {
-            return new SuccessDataResult<List<CarDetailDto>>(_carDal.GetCarDetails(),Messages.CarsListed);
-        }
+        //public IDataResult<List<Car>> GetByDailyPrice(decimal min, decimal max)
+        //{
+        //    return new SuccessDataResult<List<Car>>(
+        //        _carDal.GetAll(c => c.DailyPrice > min && c.DailyPrice < max).ToList(), 
+        //        Messages.CarsListed);
+        //}
 
-        public IDataResult<List<CarDetailDto>> GetCarsByColorId(int id)
-        {
-            return new SuccessDataResult<List<CarDetailDto>>(_carDal.GetCarDetails(c => c.ColorId == id).ToList(),Messages.CarsListed);
-        }
+        //public IDataResult<List<Car>> GetByModelYear(int year)
+        //{
+        //    return new SuccessDataResult<List<Car>>(
+        //        _carDal.GetAll(c => c.ModelYear.Year == year),
+        //        Messages.CarsListed);
+        //}
 
-        public IDataResult<List<CarDetailDto>> GetCarsByBrandId(int id)
-        {
-            return new SuccessDataResult<List<CarDetailDto>>(_carDal.GetCarDetails(c => c.BrandId == id).ToList(),Messages.CarsListed);
-        }
+        //public IDataResult<List<CarDetailDto>> GetCarDetails()
+        //{
+        //    return new SuccessDataResult<List<CarDetailDto>>(_carDal.GetCarDetails(),Messages.CarsListed);
+        //}
 
-        public IDataResult<List<CarDetailDto>> GetCarDetailsByPlate(string plate)
-        {
-            return new SuccessDataResult<List<CarDetailDto>>(_carDal.GetCarDetails(c => c.PlakaNo.ToLower().Contains(plate.ToLower())),Messages.CarsListed);
-        }
+        //public IDataResult<List<CarDetailDto>> GetCarsByColorId(int id)
+        //{
+        //    return new SuccessDataResult<List<CarDetailDto>>(_carDal.GetCarDetails(c => c.ColorId == id).ToList(),Messages.CarsListed);
+        //}
+
+        //public IDataResult<List<CarDetailDto>> GetCarsByBrandId(int id)
+        //{
+        //    return new SuccessDataResult<List<CarDetailDto>>(_carDal.GetCarDetails(c => c.BrandId == id).ToList(),Messages.CarsListed);
+        //}
+
+        //public IDataResult<List<CarDetailDto>> GetCarDetailsByPlate(string plate)
+        //{
+        //    return new SuccessDataResult<List<CarDetailDto>>(_carDal.GetCarDetails(c => c.PlakaNo.ToLower().Contains(plate.ToLower())),Messages.CarsListed);
+        //}
     }
 }

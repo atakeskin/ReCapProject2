@@ -2,6 +2,7 @@
 using Business.Concrete;
 using DataAccess.Concrete.EntityFramework;
 using Entities.Concrete;
+using Entities.DTOs;
 
 namespace ConsoleUI
 {
@@ -31,7 +32,8 @@ namespace ConsoleUI
             #endregion
 
             #region BrandTest
-            //BrandTest(brandManager);
+            //BrandGetAllTest(brandManager);
+            //BrandAddTest(brandManager);
             #endregion
 
             #region ColorTest
@@ -46,11 +48,12 @@ namespace ConsoleUI
             #region CustomerTest
             //CustomerAddTest(customerManager);
             //CustomerGetAllTest(customerManager, userManager);
+            //GetUserIdById(customerManager,userManager);
             #endregion
 
             #region RentalTest
-            RentalAddTest(rentalManager);
-            RentalGetAllTest(rentalManager);
+            //RentalAddTest(rentalManager);
+            //RentalGetAllTest(rentalManager);
             #endregion
 
 
@@ -79,8 +82,7 @@ namespace ConsoleUI
         #endregion
 
         #region BrandTest Methods
-
-        //private static void BrandTest(BrandManager brandManager)
+        //private static void BrandGetAllTest(BrandManager brandManager)
         //{
         //    Designer.Baslik("Brand All Lists");
         //    Designer.PrintRow("Brand ID", "Brand Name");
@@ -89,15 +91,15 @@ namespace ConsoleUI
         //    {
         //        Designer.PrintRow(brand.Id.ToString(), brand.Name);
         //    }
-
+        //}
+        //private static void BrandAddTest(BrandManager brandManager)
+        //{
         //    Designer.Baslik("New Brand Add");
         //    brandManager.Add(new Brand
         //    {
         //        Name = "Kia"
         //    });
-
         //}
-
         #endregion
 
         #region UserTest Methods
@@ -135,98 +137,95 @@ namespace ConsoleUI
 
         #region CarTest Methods
 
-        //private static void CarTest(CarManager carManager, BrandManager brandManager, ColorManager colorManager)
+        private static void CarTest(CarManager carManager, BrandManager brandManager, ColorManager colorManager)
+        {
+            //Designer.Baslik("Tümünü Liste");
+            //Designer.PrintRow("Car ID", "Brand Name", "Color Name", "Model Year", "Daily Price", "Description");
+
+            //foreach (var car in carManager.GetAll().Data)
+            //{
+            //    Designer.PrintRow(car.Id.ToString(), brandManager.GetById(car.BrandId).Data.Name,
+            //        colorManager.GetById(car.ColorId).Data.Name, car.ModelYear.ToString(), car.DailyPrice.ToString(),
+            //        car.Description);
+            //}
+
+            //Designer.Baslik("Yeni Araba Ekleme");
+            //var result =carManager.Add(new Car
+            //{
+            //    BrandId = 1,
+            //    ColorId = 1,
+            //    Name = "Renault Megan",
+            //    PlakaNo = "34AS245",
+            //    DailyPrice = 150,
+            //    Description = "3 teker",
+            //    ModelYear = new DateTime(2019, 02, 12)
+            //}).Message;
+            //Console.WriteLine(result);
+
+            //Console.WriteLine($"-------------Araba Güncelleme--------------------");
+            //var result = carManager.Update(new Car
+            //{
+            //    Id = 24,
+            //    BrandId = 1,
+            //    ColorId = 1,
+            //    Name = "Renault Megan3",
+            //    PlakaNo = "52PUK451",
+            //    DailyPrice = 150,
+            //    Description = "Hibrit",
+            //    ModelYear = new DateTime(2019, 02, 12)
+            //}).Message;
+            //Console.WriteLine(result);
+
+            //Console.WriteLine($"-------------Arabayı Sistemden Silme--------------------");
+            //var result = carManager.Delete(new Car
+            //{
+            //    Id = 1028
+            //}).Message;
+            //Console.WriteLine(result);
+
+            //Designer.Baslik("MarkayaId'ye Göre Liste");
+            //Designer.PrintRow("Car ID", "Plaka No", "Model Year", "Daily Price", "Description");
+            //foreach (var car in carManager.GetCarDetails(c=>c.BrandId==1).Data)
+            //{
+            //  ListCars(car);
+            //}
+
+            //Designer.Baslik("ColorId'ye Göre Liste");
+            //Designer.PrintRow("Car ID", "Plaka No", "Model Year", "Daily Price", "Description");
+            //foreach (var car in carManager.GetCarDetails(c=>c.ColorId==1).Data)
+            //{
+            //  ListCars(car);
+            //}
+
+            //Designer.Baslik("(250TL-400TL)Fiyat aralığına Göre Liste");
+            //Designer.PrintRow("Car ID", "Plaka No", "Model Year", "Daily Price", "Description");
+            //foreach (var car in carManager.GetCarDetails(c=>c.DailyPrice>250 && c.DailyPrice<400).Data)
+            //{
+            //    ListCars(car);
+            //}
+
+
+            //Designer.Baslik("2020 Model Arabaları Liste");
+            //Designer.PrintRow("Car ID", "Plaka No", "Model Year", "Daily Price", "Description");
+            //foreach (var car in carManager.GetCarDetails(c=>c.ModelYear.Year==2014).Data)
+            //{
+            //    ListCars(car);
+            //}
+
+            //Designer.Baslik("Detay Tüm Liste");
+            //Designer.PrintRow("Car ID", "Plaka No", "Model Year", "Daily Price", "Description");
+            //foreach (var car in carManager.GetCarDetails().Data)
+            //{
+            //    ListCars(car);
+            //}
+        }
+        //private static void ListCars(CarDetailDto car)
         //{
-        //    Designer.Baslik("Tümünü Liste");
-        //    Designer.PrintRow("Car ID", "Brand Name", "Color Name", "Model Year", "Daily Price", "Description");
-
-        //    foreach (var car in carManager.GetAll())
-        //    {
-        //        Designer.PrintRow(car.Id.ToString(), brandManager.GetById(car.BrandId).Name,
-        //            colorManager.GetById(car.ColorId).Name, car.ModelYear.ToString(), car.DailyPrice.ToString(),
-        //            car.Description);
-        //    }
-
-        //Designer.Baslik("Yeni Araba Ekleme");
-        //carManager.Add(new Car
-        //{
-        //    BrandId = 1,
-        //    ColorId = 1,
-        //    Name = "Renault Megan",
-        //    PlakaNo = "34AS245",
-        //    DailyPrice = 150,
-        //    Description = "3 teker",
-        //    ModelYear = new DateTime(2019, 02, 12)
-        //});
-
-        //Console.WriteLine($"-------------Araba Güncelleme--------------------");
-        //carManager.Update(new Car
-        //{
-        //    Id = 9,
-        //    BrandId = 1,
-        //    ColorId = 1,
-        //    PlakaNo = "52PUK451",
-        //    DailyPrice = 150,
-        //    Description = "Hibrit",
-        //    ModelYear = new DateTime(2019, 02, 12)
-        //});
-
-        //Console.WriteLine($"-------------Arabayı Sistemden Silme--------------------");
-        //carManager.Delete(new Car
-        //{
-        //    Id = 2
-        //});
-
-        //Console.WriteLine("-------------MarkayaId'ye Göre Liste---------------------");
-        //foreach (var car in carManager.GetCarsByBrandId(1))
-        //{
-        //    Console.WriteLine($"Id:{car.Id} " +
-        //                      $"PlakaNo:{car.PlakaNo} " +
-        //                      $"DailyPrice:{car.DailyPrice} " +
-        //                      $"Description:{car.Description} " +
-        //                      $"ModelYear:{car.ModelYear.Year}");
-        //}
-
-
-        //Console.WriteLine("-------------ColorId'ye Göre Liste---------------------");
-        //foreach (var car in carManager.GetCarsByColorId(1))
-        //{
-        //    Console.WriteLine($"Id:{car.Id} " +
-        //                      $"PlakaNo:{car.PlakaNo} " +
-        //                      $"DailyPrice:{car.DailyPrice} " +
-        //                      $"Description:{car.Description} " +
-        //                      $"ModelYear:{car.ModelYear.Year}");
-        //}
-
-        //Console.WriteLine("-------------(100TL-200TL)Fiyat aralığına Göre Liste---------------------");
-        //foreach (var car in carManager.GetByDailyPrice(100,400))
-        //{
-        //    Console.WriteLine($"Id:{car.Id} " +
-        //                      $"PlakaNo:{car.PlakaNo} " +
-        //                      $"DailyPrice:{car.DailyPrice} " +
-        //                      $"Description:{car.Description} " +
-        //                      $"ModelYear:{car.ModelYear.Year}");
-        //}
-
-
-        //Console.WriteLine("-------------2020 Model Arabaları Liste---------------------");
-        //foreach (var car in carManager.GetByModelYear(2020))
-        //{
-        //    Console.WriteLine($"Id:{car.Id} " +
-        //                      $"PlakaNo:{car.PlakaNo} " +
-        //                      $"DailyPrice:{car.DailyPrice} " +
-        //                      $"Description:{car.Description} " +
-        //                      $"ModelYear:{car.ModelYear.Year}");
-        //}
-
-        //Console.WriteLine("-------------Detay Tüm Liste---------------------");
-        //foreach (var car in carManager.GetCarDetails())
-        //{
-        //    Console.WriteLine($"Id:{car.Id} " +
-        //                      $"Plaka No:{car.PlakaNo} " +
-        //                      $"Brand:{car.BrandName} " +
-        //                      $"Color Name:{car.ColorName} " +
-        //                      $"Daily Price:{car.DailyPrice}");
+        //    Designer.PrintRow(car.Id.ToString(),
+        //        car.PlakaNo,
+        //        car.DailyPrice.ToString(),
+        //        car.Description,
+        //        car.ModelYear.Year.ToString());
         //}
         #endregion
 
@@ -244,65 +243,71 @@ namespace ConsoleUI
         //    }
         //}
 
-        private static string GetCustomerFullNameById(int userId, UserManager userManager)
-        {
-            var user = userManager.GetById(userId).Data;
-            return $"{user.FirstName} {user.LastName}";
-        }
+        //private static string GetCustomerFullNameById(int userId, UserManager userManager)
+        //{
+        //    var user = userManager.GetById(userId).Data;
+        //    return $"{user.FirstName} {user.LastName}";
+        //}
 
-        private static int GetUserIdById(int customerId, CustomerManager customerManager)
-        {
-            var customer = customerManager.GetById(customerId).Data;
-            return customer.UserId;
-        }
+        //private static void GetUserIdById(CustomerManager customerManager, UserManager userManager)
+        //{
+        //    Designer.Baslik("Id=4 Göre Customer Detay Listesi");
+        //    Designer.PrintRow("ID", "User FullName", "Company Name");
+        //    var user = userManager.GetById(customerManager.GetById(1).Data.UserId).Data;
+        //    var customer = customerManager.GetById(1).Data;
+        //    Designer.PrintRow(customer.Id.ToString(),
+        //        user.FirstName+" "+user.LastName,
+        //        customer.CompanyName);
+        //}
 
         //private static void CustomerAddTest(CustomerManager customerManager)
         //{
         //    Designer.Baslik("New Customer Add");
         //    var customerAdded = customerManager.Add(new Customer
         //    {
-        //        UserId = 3,
+        //        UserId = 4,
         //        CompanyName = "Dardanell"
         //    });
         //    Designer.Baslik(customerAdded.Message.ToString());
-
         //}
+
         #endregion
 
         #region RentalTest Methots
-        private static void RentalGetAllTest(RentalManager rentalManager)
-        {
-            Designer.Baslik("Rental All Lists");
-            Designer.PrintRow("ID", "Car Name", "User First Name", "User Last Name", "Company Name", "Email", "Car Plaka No", "Rent Date", "Return Date");
+        //private static void RentalGetAllTest(RentalManager rentalManager)
+        //{
+        //    Designer.Baslik("Rental All Lists");
+        //    Designer.PrintRow("ID",
+        //        "Car Name", "User First Name", "User Last Name", "Company Name", "Email", "Car Plaka No", "Rent Date", "Return Date");
 
-            foreach (var rental in rentalManager.RentalDetails().Data)
-            {
-                Designer.PrintRow(rental.Id.ToString(),
-                    rental.CarName,
-                    rental.UserFirstName,
-                    rental.UserLastName,
-                    rental.CompanyName,
-                    rental.Email,
-                    rental.CarPlakaNo,
-                    rental.RentDate.ToString(),
-                    rental.ReturnDate.ToString());
-            }
-        }
+        //    foreach (var rental in rentalManager.RentalDetails().Data)
+        //    {
+        //        Designer.PrintRow(rental.Id.ToString(),
+        //            rental.CarName,
+        //            rental.UserFirstName,
+        //            rental.UserLastName,
+        //            rental.CompanyName,
+        //            rental.Email,
+        //            rental.CarPlakaNo,
+        //            rental.RentDate.ToString(),
+        //            rental.ReturnDate.ToString());
+        //    }
+        //}
 
 
-        private static void RentalAddTest(RentalManager rentalManager)
-        {
-            Designer.Baslik("New Rental Add");
-            var rentalAdded = rentalManager.Add(new Rental()
-            {
-                CustomerId = 2,
-                CarId = 15,
-                RentDate = new DateTime(2021, 02, 13),
-                ReturnDate = new DateTime(2021, 02, 15),
-            });
-            Designer.Baslik(rentalAdded.Message.ToString());
+        //private static void RentalAddTest(RentalManager rentalManager)
+        //{
+        //    Designer.Baslik("New Rental Add");
+        //    var rentalAdded = rentalManager.Add(new Rental()
+        //    {
+        //        CustomerId = 3,//2
+        //        CarId = 21,//15
+        //        RentDate = new DateTime(2021, 02, 13),
+        //        ReturnDate = new DateTime(2021, 02, 15),
+        //    });
+        //    Designer.Baslik(rentalAdded.Message.ToString());
 
-        }
+        //}
         #endregion
 
 

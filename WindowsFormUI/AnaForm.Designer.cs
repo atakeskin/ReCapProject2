@@ -35,10 +35,15 @@ namespace WindowsFormUI
             this.CarCrudBtn = new DevExpress.XtraBars.BarButtonItem();
             this.BrandCrudBtn = new DevExpress.XtraBars.BarButtonItem();
             this.ColorCrudBtn = new DevExpress.XtraBars.BarButtonItem();
+            this.btnUser = new DevExpress.XtraBars.BarButtonItem();
+            this.btnCustomer = new DevExpress.XtraBars.BarButtonItem();
+            this.btnRental = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage2 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPageGroup5 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage3 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.AnaFrmMdiManager = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(this.components);
@@ -54,9 +59,12 @@ namespace WindowsFormUI
             this.ribbonControl1.SearchEditItem,
             this.CarCrudBtn,
             this.BrandCrudBtn,
-            this.ColorCrudBtn});
+            this.ColorCrudBtn,
+            this.btnUser,
+            this.btnCustomer,
+            this.btnRental});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControl1.MaxItemId = 4;
+            this.ribbonControl1.MaxItemId = 7;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1,
@@ -66,18 +74,19 @@ namespace WindowsFormUI
             // 
             // CarCrudBtn
             // 
-            this.CarCrudBtn.Caption = "CRUD";
+            this.CarCrudBtn.Caption = "Araba";
             this.CarCrudBtn.Id = 1;
-            this.CarCrudBtn.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.Image")));
-            this.CarCrudBtn.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.LargeImage")));
+            this.CarCrudBtn.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("CarCrudBtn.ImageOptions.Image")));
+            this.CarCrudBtn.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("CarCrudBtn.ImageOptions.LargeImage")));
             this.CarCrudBtn.Name = "CarCrudBtn";
             this.CarCrudBtn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.CarCrudBtn_ItemClick);
             // 
             // BrandCrudBtn
             // 
-            this.BrandCrudBtn.Caption = "CRUD";
+            this.BrandCrudBtn.Caption = "Marka";
             this.BrandCrudBtn.Id = 2;
-            this.BrandCrudBtn.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem2.ImageOptions.Image")));
+            this.BrandCrudBtn.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BrandCrudBtn.ImageOptions.Image")));
+            this.BrandCrudBtn.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("BrandCrudBtn.ImageOptions.LargeImage")));
             this.BrandCrudBtn.Name = "BrandCrudBtn";
             this.BrandCrudBtn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.BrandCrudBtn_ItemClick);
             // 
@@ -85,15 +94,43 @@ namespace WindowsFormUI
             // 
             this.ColorCrudBtn.Caption = "Color";
             this.ColorCrudBtn.Id = 3;
-            this.ColorCrudBtn.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem3.ImageOptions.Image")));
-            this.ColorCrudBtn.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem3.ImageOptions.LargeImage")));
+            this.ColorCrudBtn.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("ColorCrudBtn.ImageOptions.Image")));
+            this.ColorCrudBtn.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("ColorCrudBtn.ImageOptions.LargeImage")));
             this.ColorCrudBtn.Name = "ColorCrudBtn";
             this.ColorCrudBtn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.ColorCrudBtn_ItemClick);
+            // 
+            // btnUser
+            // 
+            this.btnUser.Caption = "User";
+            this.btnUser.Id = 4;
+            this.btnUser.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.Image")));
+            this.btnUser.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.LargeImage")));
+            this.btnUser.Name = "btnUser";
+            this.btnUser.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnUser_ItemClick);
+            // 
+            // btnCustomer
+            // 
+            this.btnCustomer.Caption = "Customer";
+            this.btnCustomer.Id = 5;
+            this.btnCustomer.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem2.ImageOptions.Image")));
+            this.btnCustomer.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem2.ImageOptions.LargeImage")));
+            this.btnCustomer.Name = "btnCustomer";
+            this.btnCustomer.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnCustomer_ItemClick);
+            // 
+            // btnRental
+            // 
+            this.btnRental.Caption = "Rental";
+            this.btnRental.Id = 6;
+            this.btnRental.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem3.ImageOptions.Image")));
+            this.btnRental.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem3.ImageOptions.LargeImage")));
+            this.btnRental.Name = "btnRental";
+            this.btnRental.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnRental_ItemClick);
             // 
             // ribbonPage1
             // 
             this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.ribbonPageGroup1});
+            this.ribbonPageGroup1,
+            this.ribbonPageGroup4});
             this.ribbonPage1.Name = "ribbonPage1";
             this.ribbonPage1.Text = "Car";
             // 
@@ -101,33 +138,47 @@ namespace WindowsFormUI
             // 
             this.ribbonPageGroup1.ItemLinks.Add(this.CarCrudBtn);
             this.ribbonPageGroup1.Name = "ribbonPageGroup1";
-            this.ribbonPageGroup1.Text = "Araba CRUD İşlemleri";
+            this.ribbonPageGroup1.Text = "CRUD";
+            // 
+            // ribbonPageGroup4
+            // 
+            this.ribbonPageGroup4.ItemLinks.Add(this.BrandCrudBtn);
+            this.ribbonPageGroup4.ItemLinks.Add(this.ColorCrudBtn);
+            this.ribbonPageGroup4.Name = "ribbonPageGroup4";
+            this.ribbonPageGroup4.Text = "Detay CRUD";
             // 
             // ribbonPage2
             // 
             this.ribbonPage2.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.ribbonPageGroup2});
+            this.ribbonPageGroup2,
+            this.ribbonPageGroup5});
             this.ribbonPage2.Name = "ribbonPage2";
-            this.ribbonPage2.Text = "Marka";
+            this.ribbonPage2.Text = "User";
             // 
             // ribbonPageGroup2
             // 
-            this.ribbonPageGroup2.ItemLinks.Add(this.BrandCrudBtn);
+            this.ribbonPageGroup2.ItemLinks.Add(this.btnUser);
             this.ribbonPageGroup2.Name = "ribbonPageGroup2";
-            this.ribbonPageGroup2.Text = "Marka CRUD İşlemleri";
+            this.ribbonPageGroup2.Text = "CRUD";
+            // 
+            // ribbonPageGroup5
+            // 
+            this.ribbonPageGroup5.ItemLinks.Add(this.btnCustomer);
+            this.ribbonPageGroup5.Name = "ribbonPageGroup5";
+            this.ribbonPageGroup5.Text = "CRUD";
             // 
             // ribbonPage3
             // 
             this.ribbonPage3.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.ribbonPageGroup3});
             this.ribbonPage3.Name = "ribbonPage3";
-            this.ribbonPage3.Text = "Color";
+            this.ribbonPage3.Text = "Rental";
             // 
             // ribbonPageGroup3
             // 
-            this.ribbonPageGroup3.ItemLinks.Add(this.ColorCrudBtn);
+            this.ribbonPageGroup3.ItemLinks.Add(this.btnRental);
             this.ribbonPageGroup3.Name = "ribbonPageGroup3";
-            this.ribbonPageGroup3.Text = "Renk CRUD İşlemleri";
+            this.ribbonPageGroup3.Text = "CRUD";
             // 
             // AnaFrmMdiManager
             // 
@@ -162,6 +213,11 @@ namespace WindowsFormUI
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage3;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup3;
         private DevExpress.XtraTabbedMdi.XtraTabbedMdiManager AnaFrmMdiManager;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup4;
+        private DevExpress.XtraBars.BarButtonItem btnUser;
+        private DevExpress.XtraBars.BarButtonItem btnCustomer;
+        private DevExpress.XtraBars.BarButtonItem btnRental;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup5;
     }
 }
 

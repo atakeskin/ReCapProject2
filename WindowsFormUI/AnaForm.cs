@@ -1,5 +1,6 @@
 ﻿using System.Windows.Forms;
 using WindowsFormUI.Forms;
+using WindowsFormUI.Forms.Users;
 
 namespace WindowsFormUI
 {
@@ -35,6 +36,24 @@ namespace WindowsFormUI
         {
             form.MdiParent = this;
             form.Show();
+        }
+
+        private void btnUser_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            UserFrm userFrm = new UserFrm();
+            GetForm(userFrm);
+        }
+
+        private void btnCustomer_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            CustomerFrm customerFrm = new CustomerFrm();
+            GetForm(customerFrm);
+        }
+
+        private void btnRental_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            RentalFrm rentalFrm = new RentalFrm();
+            GetForm(rentalFrm);
         }
     }
 }
