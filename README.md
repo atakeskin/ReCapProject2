@@ -11,6 +11,7 @@ Burası mümkün olduğunca Code Smell / Kötü kokan, içinde tekrarlanmış (d
 ## 📌 Tanımlar :
 Bazı kelimeleri aşağıdaki manaları ile anlamlandırınız. 
 - Teknoloji = EntityFramework,NHibernate,Dapper vb.
+- Client = Angular, React, Vue, Flutter, React Native, Kotlin, Android için java uygulamaları vb.
 - Database = MsSQL,ORAGLE,MySQL vb.
 - Katmanlar = Business,DataAccess,Entitiy,Core,UI vb.
 - Soyutlama = Interface vb.
@@ -180,13 +181,6 @@ Veri Aktarım Nesneleri (Data Transfer Objects) : public değişkenleri olan ve 
 
 ## 📌 N KATMANLI MİMARİ
 
-### 📚 Entities Katmanı
-Dikey mimaride çalışır.
-
-### 📚 DataAccess Katmanı - Veri erişim Katmanı
-Abstract klasörü içerisinde tanımlı veritabanı nesneli repository'den implemente interface'dir. Ayrıca DTO nesneleri imzalarını barındırır.
-Concrete klasöründe yine ayrıca kullanılan teknolojiye bağlı olarak veritabanı nesnesi ve veritabanı context nesnesini tutan base repository inherit - DTO nesnelerini tutan interface'i imlemente class barındırır.
-
 ### 📚 Core Katmanı
 Evrensel katmandır. Birkere yazılır. Kurumsal mimaride tüm projelerde kullanabilirdir.
 DataAccess katmanında operasyon sınıfları genel olarak birbirini tekrarlayandır. Bunun önüne geçmek için Repository Dizayn Paterni kullanılır.  Generic tipte TEntity kısıtlamaları tanımlı olarak yazılır. Yani TEntity referans tipte veritabanı nesnesi ve newlenebilir somut bir sınıf olmalıdır. İçerisinde operasyonlara kullanıcı parametre vermek isterse Linq expresion ile filtreleme yapacak şekilde IEntityRepository imza interface si oluşturulur. Buna generic constraint denir.
@@ -200,22 +194,38 @@ veritabanında ekleme/güncelleme/silme kodunu çalıştır ve SaveChanges metod
 
 Dahada genelleme yapılarak core katmanında ilgili teknolojiyi base repository haline getirerek klasörü içerisinde tutulur. Bütün CRUD işlemler için böylece metodlar yazmış olunur.
 
+### 📚 Entities Katmanı
+Dikey mimaride çalışır.
+
+### 📚 DataAccess Katmanı - Veri erişim Katmanı
+Abstract klasörü içerisinde tanımlı veritabanı nesneli repository'den implemente interface'dir. Ayrıca DTO nesneleri imzalarını barındırır.
+Concrete klasöründe yine ayrıca kullanılan teknolojiye bağlı olarak veritabanı nesnesi ve veritabanı context nesnesini tutan base repository inherit - DTO nesnelerini tutan interface'i imlemente class barındırır.
+
 ### 📚 Bussines Katmanı
 İş kodlarının tutulduğu katmandır. Validasyon yönetimi bu katmanda yapılır. 
 
-### 📚 UI Katmanı
-Bir kullanıcıya birşeyler göstermek. Kullanıcıdan bilgi almak kısacası kullanıcı ile yapılan her etkileşim bu katmanın işidir. Yazılımın Frontend kısmına karşılık gelir. Diğer katmanlar Backend kısmını oluşturur.
-Bir kaç metot sadeleştirmesi, bir kaç yeniden adlandırma ve yeniden yapılandırmadan (refactoring) işlemleriyle benzer operasyonler metod veya sınıf olarak tanımlanır.Tekrar tekrar kullanılır.
-Programlama tekniklerinden Intelligence programing / Niyet güdümlü programlama : Olmayan metod yazılır. Genereate Metod(sağ click) ile otomatik metodu oluşturur. Test First Devolopment / Önce test yap sonra kodu yaz yaklaşımı yapılır. F12 ile progrm içinde gezilir. Refactoring işlemlerinde code generide edilmesi rSharper ile daha rahat oluyor. Solution Buid edilerek çıkan hataya tıklanır. Interface'lerden implemente sınıf yeni kod için tekrar implemente edilir. new'li Dal katmanı içinde yeni delege tanımlanır. Bu işlemler aşağıdaki programcının adımlarının tersine gidilmesi olarakta düşünülenebilinir.
-Hata yönetimi arayüzün işi değildir. Try catch ile sadece hatayı nasıl göstereceğiyle ilgilenir.
-New'lemeler için .NET CORE içerisinde IoC Container amacı ile MVC tarafında implementasyonlar var. Fakat Backend'de bizim yine IoC Containerlardan destek vermemiz gerekiyor. Ayrıca WepApi yaptığımızda MVC'nin içinde kalan IoC Container işimize yaramayacaktır.
-
 ### 📚 WebAPI Katmanı
-Farklı client'lar ile backend katmanlı mimarinin arasında iletişim kurulmasını sağlar. WepApi'de RestFul(Json vb.) gibi Standart bulunan servise client'lardan    istek (Request) yapılır. Ör: Şu kategorideki ürünler estenebilinir. Yanıt olarakta Response veilir.
-...
+Yeni modern ve populer geliştirme ortamıdır. Farklı client'lar ile backend katmanlı mimarinin arasında data yönetimi için iletişim kurulmasını sağlar. WepApi'de RestFul(Json vb.) Mimarisi gibi Standartları bulunur. Servise client'lardan istek (Request) yapılır. Ör: Şu kategorideki ürünleri getir. Yanıt olarakta Response veilir. Microsoft tafında bu mimari ASP.NET WebAPI'dır. Test ortamı olarak Postman kullanılabilinir.
+
+### 📚 UnitTest Katmanı
+
+### 📚 UI Katmanı
+- Bir kullanıcıya birşeyler göstermek. Kullanıcıdan bilgi almak kısacası kullanıcı ile yapılan her etkileşim bu katmanın işidir. Yazılımın Frontend kısmına karşılık gelir. Diğer katmanlar Backend kısmını oluşturur.
+- Bir kaç metot sadeleştirmesi, yeniden adlandırma, kendini tekrar etme yaklaşımı gibi benzer operasyonel metod veya sınıf yeniden yapılandırımı (refactoring) işlemleri yürütülür. Oluşturulan kod blokları tekrar tekrar kullanılır.
+- Hata yönetimi arayüzün işi değildir. Try catch ile sadece hatayı nasıl göstereceğiyle ilgilenir.
+
+New'lemeler için .NET CORE içerisinde IoC Container amacı ile MVC tarafında implementasyonlar var. Fakat Backend'de bizim yine IoC Containerlardan destek vermemiz gerekiyor. Çünkü Microsoft teknolojileri sadece kendi yapıları-frameworkleri tanıyacak şekildedir. Bizim oluşturduğumuz katmanlar için ayrıca IoC container'ler sisteme tanımlamamız gerekir. Ayrıca WepApi yaptığımızda MVC yapısının içinde kalan IoC Container işimize yaramayacaktır.
+
 
 
 ## 📌 Programcının Adımları
+
+- Programlama tekniklerinden Intelligence programing / Niyet güdümlü programlama : Olmayan metod yazılır. Genereate Metod(sağ click) ile otomatik metodu oluşturur.
+- Test First Devolopment / Önce test yap sonra kodu yaz yaklaşımı yapılır. F12 ile program içinde gezilir. 
+- Refactoring işlemlerinde code generide edilmesi rSharper ile daha rahat oluyor. 
+- Solution Buid edilerek çıkan hataya tıklanır. 
+- Interface'lerden implemente sınıf yeni kod için tekrar implemente edilir. new'li Dal katmanı içinde yeni delege tanımlanır. Bu işlemler aşağıdaki programcının adımlarının tersine gidilmesi olarakta düşünülenebilinir.
+
 ## I.Adım:
 Entities/Concrate'de veritabanı nesnesi IEntity'den implemente ve gerekli veritabanında tabloda veri karşılıklarını tutan propertileri verilerek oluşturulan classdır.
 ## II.Adım:
