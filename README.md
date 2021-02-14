@@ -24,7 +24,7 @@ Aşağıdaki yazılar ile beyin kısa devre yapabilir. O yüzden Spaghetti Kodla
 Veritabanında aşırı Normalizasyon(var olan 5 seviyenin 3. seviyesinde bırakılır) programlamada over design(aşırı tasarım'dan) kaçınılmalıdır.
 Programın (Handel)üstesinden gelemeyiz. İyi programcı hemen hemen hiç new yazmaz. 
 - Bunun için IoC Container teknojilerinden faydalanırız. En çok kullanılanlar;Ninject,AutoFac,Structure Map, Castle Windsor vb. IoC Container'lar bu newlemeleri bizim için bir konfigurasyon vasıtasıyla yapmamızı sağlayan dolayısıyla sistemde istediğimiz zaman değişiklik yapmamızı sağlayan ortamdır.
-- Yada çalışma anında Activator.CreateInstance'la reflection kullanılarak çalışma anında dinamik instance'ı üretilir. Dolayısıyla bu instance'e bağlı metod çalışma anında getMethod ile çağrılır ve invok ile çalıştırılır. Çalışma anında bir classın propertilerine,metodlarına,atribitlerine vb ve bunlar objeden gelen özelliklerinin listelenmesi içinde kullanılır. Bellek için pahalı bir işlem olduğundan ancak ihtiyaç doğrultusunda kullanılır. 
+- Yada çalışma anında Activator.CreateInstance'la reflection kullanılarak çalışma anında dinamik instance'ı üretilir. Dolayısıyla bu instance'e bağlı metod çalışma anında getMethod ile çağrılır ve invok ile çalıştırılır. Çalışma anında bir classın propertilerine,metodlarına,atribitlerine vb ve bunlar objeden gelen özelliklerinin listelenmesi için oradanda parametrelerinin listelenmesinde kullanılır. Bellek için pahalı bir işlem olduğundan ancak ihtiyaç doğrultusunda kullanılmalıdır.
 
 
 ## 📌 Programcılığın ABC'si
@@ -112,6 +112,10 @@ Bir çok araç ile yapılabilinir.
 + IoC Container
 + Sarmallama Tekniği
 Örneğin; Add operasyonu üzerinde {Validasyon}{Tansaction-Unit of work}{Caching}{Loglama}{Authorized}{Perforance} Aspec'ler yazılarak Single Responsibility Principle uyulur.
+
+## [Attribute]
+- Nesneye bir imza koyma işlemidir. Class'a,Metoda,Property bir anlam yüklüyoruz. Attribute Reflection ilişkisiyle beslenen bir mimaridir. Üzerine konulması gereken derin konulardan bir tanesidir.
+- DataAnnotations'lar vasıtasıyla nesne veritabanıyla ilişkilendiriliyor veya arayüzde doğrulamalar ile ilişkilendiriliyor.
 
 ## Dört basit tasarım kuralı
 - Tüm testleri çalıştırın : Bir tasarım, amaçlandığı gibi hareket eden bir sistem üretmelidir.
