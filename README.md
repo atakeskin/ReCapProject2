@@ -38,6 +38,16 @@ Anti Patern oluşturan magic string'lerden kaçınılmalıdır.
 ## Field
 Bir class yada struct içinde tanımlanan her tipten değişkendir.Private isimlendirme pascalCase yazılır. Public ise CamelCase yazılır.
 
+## Properties
+Property : Property, field ve metotları(Getter Setter) birleştirir.
+Getter Readonly'lidir Constructor'da set edilebilinir.
+
+## Delegate
+- Elçi. Yapılmak istenen operasyonlar eklenir ve/veya çıkarılır. Void türünde özel bir tür döndermeyen kod blokları için Action kullanılır. Buna ek olarak dönüş tipi olan parametreler için Func kullanılır. Bunlar Mevcut kod bloklarını başka bir kod bloklarıyla sarmallayarak void veya bir değer döndürürler. Ve delegedirler. CrossCutting işlemleri bu türdendir.
+
+## Events
+- Uygulamada bir hareket olduğunda ve o harekete ek olarak yapmak istediğimiz bir işlem var olduğunda kullanılırlar. Yanlızca o nesne için abone isek çalışır. Delegelerin kullanımından faydalanılır. Events bir delegedir. Bir delegate tanımlanır. event bu delegate tipinde ve isminin sonunda ..Event olacak şekilde tanımlanır.
+
 ## Constance(Sabitler)
 - Enum programcılıkta en fazla suistimal edilen konuların başında gelir. Gerçekten ona ihtiyaç var mı? Dikkat.
 
@@ -124,9 +134,7 @@ Bir çok araç ile yapılabilinir.
 - Sınıf ve metot sayısını en aza indirin : Sınıflarımızı ve metotlarımızı küçültmek için çabalarken, küçük küçük bir çok sınıf ve metot yaratabiliriz. Bu kural ise bu sayıyı minimumda tutmamız gerektiğini söylüyor.
 
 ## 📌 OOP
-##### Properties
-Property : Property, field ve metotları(Getter Setter) birleştirir.
-Getter Readonly'lidir Constructor'da set edilebilinir.
+
 ##### Static Metod
 Newlenmez ve uygulama hayatında tek bir instance'ı vardır. Deirek çağırılır.
 ##### Cunstructor
