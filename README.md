@@ -210,6 +210,7 @@ Concrete klasöründe yine ayrıca kullanılan teknolojiye bağlı olarak verita
 Yeni modern ve populer geliştirme ortamıdır. Farklı client'lar ile backend katmanlı mimarinin arasında data yönetimi için iletişim kurulmasını sağlar. WepApi'de RestFul(Json vb.) Mimarisi gibi Standartları bulunur. Servise client'lardan istek (Request) yapılır. Ör: Şu kategorideki ürünleri getir. Yanıt olarakta Response veilir. Microsoft tafında bu mimari ASP.NET WebAPI'dır. Test ortamı olarak Postman kullanılabilinir.
 
 ### 📚 UnitTest Katmanı
+...
 
 ### 📚 UI Katmanı
 - Bir kullanıcıya birşeyler göstermek. Kullanıcıdan bilgi almak kısacası kullanıcı ile yapılan her etkileşim bu katmanın işidir. Yazılımın Frontend kısmına karşılık gelir. Diğer katmanlar Backend kısmını oluşturur.
