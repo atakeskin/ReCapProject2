@@ -280,5 +280,5 @@ VS çok kullandığımız bloklar varsa sağ tıklayıp sinppet oluşturabilinir
 ## 📌 Kaynakça
 - [kodlama.io](https://www.kodlama.io/)
 - [Udemy](https://www.udemy.com/courses/search/?src=ukw&q=%22engin+demiro%C4%9F%22)/[YouTube](https://www.youtube.com/channel/UCRjiquPh4mjPNoOV9eCilXQ) - Engin DEMİROĞ Eğitim Serileri
-- Clean Code - Robert C. Martin
+- [Clean Code](https://www.amazon.com.tr/Clean-Code-Handbook-Software-Craftsmanship/dp/0132350882) - Robert C. Martin
 - [DevArchitecture](https://www.devarchitecture.net/)
