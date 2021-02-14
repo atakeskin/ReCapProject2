@@ -165,7 +165,7 @@ Abstractlar inherittır. Aynı zamanda bir nesnel class gibide davranır. Kullan
 İçindeki dosyalarda bu klasörleme yapısına göre Namespace adı verilir.
 Aynı şey dosya isimleri içinde geçerlidir. Teknolojiye bağlı olarak dosya ismi verilir.(Ör: EfProductDall gibi)
 
-### Çıplak Class kalmasın.
+### Uzmanından bir söz : "Çıplak class kalmasın. _Engin Demiroğ"
 Bir Class'ın base'inin inherit veya implementasyonunun olması gerekir. SOLID'in - sürdürülebilirliğin sağlanması için olmazsa olmaz kuraldır.
 O yüzden Abstract klasöründe implementasyonlar için Interface'ler yazılır.
 İlgili Classımızın imzaları bu Interface'den implemente edilmesi sağlanır.
