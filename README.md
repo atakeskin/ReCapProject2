@@ -1,12 +1,14 @@
 # DevRentACar
 
 ## 📌 Takdim :
-Başta bu kampı bizlere hediye eden [Engin DEMİROĞ](https://github.com/engindemirog) hocama çok çok teşekkür ederim. Hiçbir maddi ve manevi fedakarlığından vazgeçmeden bizleri spaghetti kodlamadan best practice lerle dolu programcılığa çıkarma arzusunu hayranlıkla izlemekteyim. Sizin derslerdeki enerjiniz bizleri ilerki kodlama hayatımız için şevklendiriyor.
+Başta bu kampı bizlere hediye eden [Engin DEMİROĞ](https://github.com/engindemirog) hocamıza çok çok teşekkür ederim. Hiçbir maddi ve manevi fedakarlığından vazgeçmeden bizleri spaghetti kodlamadan best practice'lerle dolu programcılığa çıkarma arzusunu hayranlıkla izlemekteyim. Sizin derslerdeki enerjiniz bizleri ilerki kodlama hayatımız için motive ediyor. Bizlere yapmacık örneklerle değil gerçek hayatta karşımıza çıkacak güncel, bire bir uygulanan kodlarla örnekleme yapmanız önümüze ışık tutuyor. Ezberleten değil öğreten yaklaşımınız bizlerin yeni teknolojik gelişmelere daha kolay adapte olmamızı sağlıyor. Bizleri sektörde nitelikli kılıyor. Size nekadar teşekkür etsek az.
 
 
 ## 📌 Ön Söz :
-Burası mümkün olduğunca Code Smell / Kötü kokan, içinde tekrarlanmış (duplicate) kodlar arındırılmış olacaktır. SOLID Prensiplere uyulmaya çalışılmıştır. Temiz Mimariye odaklanır. Profesyonelliğe ulaşım için en ileri teknikler ile implemente etmeye odaklanınılmıştır.
+Burası mümkün olduğunca Code Smell / Kötü kokan, içinde tekrarlanmış (duplicate) kodlar arındırılmış olacaktır. SOLID Prensiplere uyulmaya çalışılmıştır. Temiz Mimariye odaklanır. Profesyonelliğe ulaşım için en ileri teknikler ile implemente etmeye odaklanınılmıştır. İnanın bu yaklaşımlar sizlere çok teorik gelebilir. Biliniz ki bunları şimdi uygulamakla ileride çok rahat edeceksiniz, beklenmedik şeylerin farkında olmadan üstesinden gelmiş ve çok ekmeğini yiyeceksiniz. 
 
+## 📌 Teşekkür :
+Eğer bu yazım birilerine ilham olduysa hayrını ; yazılım için zorlu çalışmalarımda(benim için zevkli :)) başta Engin DEMİROĞ hocam olmak üzere boylarından büyük sabır gösteren ve bende hakları olan eşim ve çocuklarıma adarım.
 
 ## 📌 Tanımlar :
 Bazı kelimeleri aşağıdaki manaları ile anlamlandırınız. 
@@ -20,7 +22,9 @@ Bazı kelimeleri aşağıdaki manaları ile anlamlandırınız.
 ## ⚠ Dikkat!!!
 Aşağıdaki yazılar ile beyin kısa devre yapabilir. O yüzden Spaghetti Kodlama yazanları uzak tutunuz. :)) Engin Hoca öğrencilerine serbestir.
 Veritabanında aşırı Normalizasyon(var olan 5 seviyenin 3. seviyesinde bırakılır) programlamada over design(aşırı tasarım'dan) kaçınılmalıdır.
-Programın (Handel)üstesinden gelemeyiz. İyi programcı hemen hemen hiç new yazmaz. Bunun için IoC Container teknojilerinden faydalanırız. En çok kullanılanlar;Ninject,AutoFac,Structure Map, Castle Windsor vb. IoC Container'lar bu newlemeleri bizim için bir konfigurasyon vasıtasıyla yapmamızı sağlayan dolayısıyla sistemde istediğimiz zaman değişiklik yapmamızı sağlayan ortamdır.
+Programın (Handel)üstesinden gelemeyiz. İyi programcı hemen hemen hiç new yazmaz. 
+- Bunun için IoC Container teknojilerinden faydalanırız. En çok kullanılanlar;Ninject,AutoFac,Structure Map, Castle Windsor vb. IoC Container'lar bu newlemeleri bizim için bir konfigurasyon vasıtasıyla yapmamızı sağlayan dolayısıyla sistemde istediğimiz zaman değişiklik yapmamızı sağlayan ortamdır.
+- Yada çalışma anında Activator.CreateInstance'la reflection kullanılarak çalışma anında dinamik instance'ı üretilir. Dolayısıyla bu instance'e bağlı metod çalışma anında getMethod ile çağrılır ve invok ile çalıştırılır. Çalışma anında bir classın propertilerine,metodlarına,atribitlerine vb ve bunlar objeden gelen özelliklerinin listelenmesi için oradanda parametrelerinin listelenmesinde kullanılır. Bellek için pahalı bir işlem olduğundan ancak ihtiyaç doğrultusunda kullanılmalıdır.
 
 
 ## 📌 Programcılığın ABC'si
@@ -33,6 +37,16 @@ Anti Patern oluşturan magic string'lerden kaçınılmalıdır.
 
 ## Field
 Bir class yada struct içinde tanımlanan her tipten değişkendir.Private isimlendirme pascalCase yazılır. Public ise CamelCase yazılır.
+
+## Properties
+Property : Property, field ve metotları(Getter Setter) birleştirir.
+Getter Readonly'lidir Constructor'da set edilebilinir.
+
+## Delegate
+- Elçi. Yapılmak istenen operasyonlar eklenir ve/veya çıkarılır. Void türünde özel bir tür döndermeyen kod blokları için Action kullanılır. Buna ek olarak dönüş tipi olan parametreler için Func kullanılır. Bunlar Mevcut kod bloklarını başka bir kod bloklarıyla sarmallayarak void veya bir değer döndürürler. Ve delegedirler. CrossCutting işlemleri bu türdendir.
+
+## Events
+- Uygulamada bir hareket olduğunda ve o harekete ek olarak yapmak istediğimiz bir işlem var olduğunda kullanılırlar. Yanlızca o nesne için abone isek çalışır. Delegelerin kullanımından faydalanılır. Events bir delegedir. Bir delegate tanımlanır. event bu delegate tipinde ve isminin sonunda ..Event olacak şekilde tanımlanır.
 
 ## Constance(Sabitler)
 - Enum programcılıkta en fazla suistimal edilen konuların başında gelir. Gerçekten ona ihtiyaç var mı? Dikkat.
@@ -109,6 +123,10 @@ Bir çok araç ile yapılabilinir.
 + Sarmallama Tekniği
 Örneğin; Add operasyonu üzerinde {Validasyon}{Tansaction-Unit of work}{Caching}{Loglama}{Authorized}{Perforance} Aspec'ler yazılarak Single Responsibility Principle uyulur.
 
+## [Attribute]
+- Nesneye bir imza koyma işlemidir. Class'a,Metoda,Property bir anlam yüklüyoruz. Attribute Reflection ilişkisiyle beslenen bir mimaridir. Üzerine konulması gereken derin konulardan bir tanesidir.
+- DataAnnotations'lar vasıtasıyla nesne veritabanıyla ilişkilendiriliyor veya arayüzde doğrulamalar ile ilişkilendiriliyor.
+
 ## Dört basit tasarım kuralı
 - Tüm testleri çalıştırın : Bir tasarım, amaçlandığı gibi hareket eden bir sistem üretmelidir.
 - Tekrarlanmış kodlar yazmayın : Tekrarlanmış kodlar, ek iş, ek risk ve gereksiz karmaşa demektir. 
@@ -116,9 +134,7 @@ Bir çok araç ile yapılabilinir.
 - Sınıf ve metot sayısını en aza indirin : Sınıflarımızı ve metotlarımızı küçültmek için çabalarken, küçük küçük bir çok sınıf ve metot yaratabiliriz. Bu kural ise bu sayıyı minimumda tutmamız gerektiğini söylüyor.
 
 ## 📌 OOP
-##### Properties
-Property : Property, field ve metotları(Getter Setter) birleştirir.
-Getter Readonly'lidir Constructor'da set edilebilinir.
+
 ##### Static Metod
 Newlenmez ve uygulama hayatında tek bir instance'ı vardır. Deirek çağırılır.
 ##### Cunstructor
@@ -163,7 +179,7 @@ Abstractlar inherittır. Aynı zamanda bir nesnel class gibide davranır. Kullan
 İçindeki dosyalarda bu klasörleme yapısına göre Namespace adı verilir.
 Aynı şey dosya isimleri içinde geçerlidir. Teknolojiye bağlı olarak dosya ismi verilir.(Ör: EfProductDall gibi)
 
-### Çıplak Class kalmasın.
+### Uzmanından bir söz : "Çıplak class kalmasın. _Engin Demiroğ"
 Bir Class'ın base'inin inherit veya implementasyonunun olması gerekir. SOLID'in - sürdürülebilirliğin sağlanması için olmazsa olmaz kuraldır.
 O yüzden Abstract klasöründe implementasyonlar için Interface'ler yazılır.
 İlgili Classımızın imzaları bu Interface'den implemente edilmesi sağlanır.
@@ -208,6 +224,7 @@ Concrete klasöründe yine ayrıca kullanılan teknolojiye bağlı olarak verita
 Yeni modern ve populer geliştirme ortamıdır. Farklı client'lar ile backend katmanlı mimarinin arasında data yönetimi için iletişim kurulmasını sağlar. WepApi'de RestFul(Json vb.) Mimarisi gibi Standartları bulunur. Servise client'lardan istek (Request) yapılır. Ör: Şu kategorideki ürünleri getir. Yanıt olarakta Response veilir. Microsoft tafında bu mimari ASP.NET WebAPI'dır. Test ortamı olarak Postman kullanılabilinir.
 
 ### 📚 UnitTest Katmanı
+...
 
 ### 📚 UI Katmanı
 - Bir kullanıcıya birşeyler göstermek. Kullanıcıdan bilgi almak kısacası kullanıcı ile yapılan her etkileşim bu katmanın işidir. Yazılımın Frontend kısmına karşılık gelir. Diğer katmanlar Backend kısmını oluşturur.
@@ -277,8 +294,10 @@ Abstract Class'lar ve Normal Class'lar inheritince'dır.
 VS çok kullandığımız bloklar varsa sağ tıklayıp sinppet oluşturabilinir.
 
 
-## 📌 Kaynakça
+## 📌 Referans Kaynakça
 - [kodlama.io](https://www.kodlama.io/)
-- Udemy/YouTube - Engin DEMİROĞ Eğitim Serileri
-- Clean Code - Robert C. Martin
+- [YouTube](https://www.youtube.com/channel/UCRjiquPh4mjPNoOV9eCilXQ) - Engin DEMİROĞ Videoları
+- [C# - btkakademi](https://www.btkakademi.gov.tr) - Engin DEMİROĞ C#
+- [Udemy](https://www.udemy.com/courses/search/?src=ukw&q=%22engin+demiro%C4%9F%22) - Engin DEMİROĞ Eğitim Serileri
+- [Clean Code](https://www.amazon.com.tr/Clean-Code-Handbook-Software-Craftsmanship/dp/0132350882) - Robert C. Martin
 - [DevArchitecture](https://www.devarchitecture.net/)
