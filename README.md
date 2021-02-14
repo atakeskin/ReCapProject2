@@ -5,7 +5,7 @@ Başta bu kampı bizlere hediye eden [Engin DEMİROĞ](https://github.com/engind
 
 
 ## 📌 Ön Söz :
-Burası mümkün olduğunca Code Smell / Kötü kokan, içinde tekrarlanmış (duplicate) kodlar arındırılmış olacaktır. SOLID Prensiplere uyulmaya çalışılmıştır. Temiz Mimariye odaklanır. Profesyonelliğe ulaşım için en ileri teknikler ile implemente etmeye odaklanınılmıştır.
+Burası mümkün olduğunca Code Smell / Kötü kokan, içinde tekrarlanmış (duplicate) kodlar arındırılmış olacaktır. SOLID Prensiplere uyulmaya çalışılmıştır. Temiz Mimariye odaklanır. Profesyonelliğe ulaşım için en ileri teknikler ile implemente etmeye odaklanınılmıştır. İnanın bu yaklaşımlar sizlere çok teorik gelebilir. Biliniz ki bunları şimdi uygulamakla ileride çok rahat edeceksiniz, beklenmedik şeylerin farkında olmadan üstesinden gelmiş ve çok ekmeğini yiyeceksiniz. 
 
 ## 📌 Teşekkür :
 Eğer bu yazım birilerine ilham olduysa hayrını ; yazılım için zorlu çalışmalarımda(benim için zevkli :)) başta Engin DEMİROĞ hocam olmak üzere boylarından büyük sabır gösteren ve bende hakları olan eşim ve çocuklarıma adarım.
