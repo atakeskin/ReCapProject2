@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 using Business.Abstract;
 using Business.Constants;
 using Core.Utilities.Results;
@@ -55,9 +56,9 @@ namespace Business.Concrete
             return new SuccessResult(Messages.RentalDeleted);
         }
 
-        public IDataResult<List<RentalDetailDto>> RentalDetails()
+        public IDataResult<List<RentalDetailDto>> RentalDetails(Expression<Func<Rental, bool>> filter = null)
         {
-            return new SuccessDataResult<List<RentalDetailDto>>(_rentalDal.GetRentalDetails().Data);
+            return new SuccessDataResult<List<RentalDetailDto>>(_rentalDal.GetRentalDetails(filter).Data);
         }
     }
 }

@@ -11,6 +11,7 @@ namespace ConsoleUI
     /// </summary>
     class Program
     {
+        public delegate void MyDelegate();
         static void Main(string[] args)
         {
 
@@ -56,7 +57,10 @@ namespace ConsoleUI
             //RentalGetAllTest(rentalManager);
             #endregion
 
-
+            CustomerManager1 customerManager1 = new CustomerManager1();
+            MyDelegate myDelegate = customerManager1.SendMessage;
+            myDelegate += customerManager1.SowAlert;
+            myDelegate();
 
 
             Console.ReadKey();
@@ -136,96 +140,95 @@ namespace ConsoleUI
         #endregion
 
         #region CarTest Methods
-
-        private static void CarTest(CarManager carManager, BrandManager brandManager, ColorManager colorManager)
-        {
-            //Designer.Baslik("Tümünü Liste");
-            //Designer.PrintRow("Car ID", "Brand Name", "Color Name", "Model Year", "Daily Price", "Description");
-
-            //foreach (var car in carManager.GetAll().Data)
-            //{
-            //    Designer.PrintRow(car.Id.ToString(), brandManager.GetById(car.BrandId).Data.Name,
-            //        colorManager.GetById(car.ColorId).Data.Name, car.ModelYear.ToString(), car.DailyPrice.ToString(),
-            //        car.Description);
-            //}
-
-            //Designer.Baslik("Yeni Araba Ekleme");
-            //var result =carManager.Add(new Car
-            //{
-            //    BrandId = 1,
-            //    ColorId = 1,
-            //    Name = "Renault Megan",
-            //    PlakaNo = "34AS245",
-            //    DailyPrice = 150,
-            //    Description = "3 teker",
-            //    ModelYear = new DateTime(2019, 02, 12)
-            //}).Message;
-            //Console.WriteLine(result);
-
-            //Console.WriteLine($"-------------Araba Güncelleme--------------------");
-            //var result = carManager.Update(new Car
-            //{
-            //    Id = 24,
-            //    BrandId = 1,
-            //    ColorId = 1,
-            //    Name = "Renault Megan3",
-            //    PlakaNo = "52PUK451",
-            //    DailyPrice = 150,
-            //    Description = "Hibrit",
-            //    ModelYear = new DateTime(2019, 02, 12)
-            //}).Message;
-            //Console.WriteLine(result);
-
-            //Console.WriteLine($"-------------Arabayı Sistemden Silme--------------------");
-            //var result = carManager.Delete(new Car
-            //{
-            //    Id = 1028
-            //}).Message;
-            //Console.WriteLine(result);
-
-            //Designer.Baslik("MarkayaId'ye Göre Liste");
-            //Designer.PrintRow("Car ID", "Plaka No", "Model Year", "Daily Price", "Description");
-            //foreach (var car in carManager.GetCarDetails(c=>c.BrandId==1).Data)
-            //{
-            //  ListCars(car);
-            //}
-
-            //Designer.Baslik("ColorId'ye Göre Liste");
-            //Designer.PrintRow("Car ID", "Plaka No", "Model Year", "Daily Price", "Description");
-            //foreach (var car in carManager.GetCarDetails(c=>c.ColorId==1).Data)
-            //{
-            //  ListCars(car);
-            //}
-
-            //Designer.Baslik("(250TL-400TL)Fiyat aralığına Göre Liste");
-            //Designer.PrintRow("Car ID", "Plaka No", "Model Year", "Daily Price", "Description");
-            //foreach (var car in carManager.GetCarDetails(c=>c.DailyPrice>250 && c.DailyPrice<400).Data)
-            //{
-            //    ListCars(car);
-            //}
-
-
-            //Designer.Baslik("2020 Model Arabaları Liste");
-            //Designer.PrintRow("Car ID", "Plaka No", "Model Year", "Daily Price", "Description");
-            //foreach (var car in carManager.GetCarDetails(c=>c.ModelYear.Year==2014).Data)
-            //{
-            //    ListCars(car);
-            //}
-
-            //Designer.Baslik("Detay Tüm Liste");
-            //Designer.PrintRow("Car ID", "Plaka No", "Model Year", "Daily Price", "Description");
-            //foreach (var car in carManager.GetCarDetails().Data)
-            //{
-            //    ListCars(car);
-            //}
-        }
-        //private static void ListCars(CarDetailDto car)
+        //private static void CarTest(CarManager carManager, BrandManager brandManager, ColorManager colorManager)
         //{
-        //    Designer.PrintRow(car.Id.ToString(),
-        //        car.PlakaNo,
-        //        car.DailyPrice.ToString(),
-        //        car.Description,
-        //        car.ModelYear.Year.ToString());
+        //    //Designer.Baslik("Tümünü Liste");
+        //    //Designer.PrintRow("Car ID", "Brand Name", "Color Name", "Model Year", "Daily Price", "Description");
+
+        //    //foreach (var car in carManager.GetAll().Data)
+        //    //{
+        //    //    Designer.PrintRow(car.Id.ToString(), brandManager.GetById(car.BrandId).Data.Name,
+        //    //        colorManager.GetById(car.ColorId).Data.Name, car.ModelYear.ToString(), car.DailyPrice.ToString(),
+        //    //        car.Description);
+        //    //}
+
+        //    //Designer.Baslik("Yeni Araba Ekleme");
+        //    //var result =carManager.Add(new Car
+        //    //{
+        //    //    BrandId = 1,
+        //    //    ColorId = 1,
+        //    //    Name = "Renault Megan",
+        //    //    PlakaNo = "34AS245",
+        //    //    DailyPrice = 150,
+        //    //    Description = "3 teker",
+        //    //    ModelYear = new DateTime(2019, 02, 12)
+        //    //}).Message;
+        //    //Console.WriteLine(result);
+
+        //    //Console.WriteLine($"-------------Araba Güncelleme--------------------");
+        //    //var result = carManager.Update(new Car
+        //    //{
+        //    //    Id = 24,
+        //    //    BrandId = 1,
+        //    //    ColorId = 1,
+        //    //    Name = "Renault Megan3",
+        //    //    PlakaNo = "52PUK451",
+        //    //    DailyPrice = 150,
+        //    //    Description = "Hibrit",
+        //    //    ModelYear = new DateTime(2019, 02, 12)
+        //    //}).Message;
+        //    //Console.WriteLine(result);
+
+        //    //Console.WriteLine($"-------------Arabayı Sistemden Silme--------------------");
+        //    //var result = carManager.Delete(new Car
+        //    //{
+        //    //    Id = 1028
+        //    //}).Message;
+        //    //Console.WriteLine(result);
+
+        //    //Designer.Baslik("MarkayaId'ye Göre Liste");
+        //    //Designer.PrintRow("Car ID", "Plaka No", "Model Year", "Daily Price", "Description");
+        //    //foreach (var car in carManager.GetCarDetails(c=>c.BrandId==1).Data)
+        //    //{
+        //    //  ListCars(car);
+        //    //}
+
+        //    //Designer.Baslik("ColorId'ye Göre Liste");
+        //    //Designer.PrintRow("Car ID", "Plaka No", "Model Year", "Daily Price", "Description");
+        //    //foreach (var car in carManager.GetCarDetails(c=>c.ColorId==1).Data)
+        //    //{
+        //    //  ListCars(car);
+        //    //}
+
+        //    //Designer.Baslik("(250TL-400TL)Fiyat aralığına Göre Liste");
+        //    //Designer.PrintRow("Car ID", "Plaka No", "Model Year", "Daily Price", "Description");
+        //    //foreach (var car in carManager.GetCarDetails(c=>c.DailyPrice>250 && c.DailyPrice<400).Data)
+        //    //{
+        //    //    ListCars(car);
+        //    //}
+
+
+        //    //Designer.Baslik("2020 Model Arabaları Liste");
+        //    //Designer.PrintRow("Car ID", "Plaka No", "Model Year", "Daily Price", "Description");
+        //    //foreach (var car in carManager.GetCarDetails(c=>c.ModelYear.Year==2014).Data)
+        //    //{
+        //    //    ListCars(car);
+        //    //}
+
+        //    //Designer.Baslik("Detay Tüm Liste");
+        //    //Designer.PrintRow("Car ID", "Plaka No", "Model Year", "Daily Price", "Description");
+        //    //foreach (var car in carManager.GetCarDetailsByCarProperty().Data)
+        //    //{
+        //    //    ListCars(car);
+        //    //}
+        ////}
+        ////private static void ListCars(CarDetailDto car)
+        ////{
+        ////    Designer.PrintRow(car.Id.ToString(),
+        ////        car.PlakaNo,
+        ////        car.DailyPrice.ToString(),
+        ////        car.Description,
+        ////        car.ModelYear.Year.ToString());
         //}
         #endregion
 
@@ -311,5 +314,18 @@ namespace ConsoleUI
         #endregion
 
 
+    }
+
+    public class CustomerManager1
+    {
+        public void SendMessage()
+        {
+            Console.WriteLine("Hello");
+        }
+
+        public void SowAlert()
+        {
+            Console.WriteLine("Be craful!");
+        }
     }
 }

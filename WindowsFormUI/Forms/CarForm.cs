@@ -37,7 +37,7 @@ namespace WindowsFormUI.Forms
 
         private void GetAllToCarGridControl()
         {
-            CarGridControl.DataSource = _carService.GetCarDetails().Data;
+            CarGridControl.DataSource = _carService.GetCarDetailsByCarProperty().Data;
             BranIdTextEdit.Properties.ValueMember = "Id";
             BranIdTextEdit.Properties.DisplayMember = "Name";
             BranIdTextEdit.Properties.DataSource = _brandService.GetAll().Data;
@@ -164,7 +164,7 @@ namespace WindowsFormUI.Forms
         private void lUEBrandName_EditValueChanged(object sender, EventArgs e)
         {
 
-            CarGridControl.DataSource = _carService.GetCarsByBrandId(Convert.ToInt32(lUEBrandName.EditValue.ToString()));
+            CarGridControl.DataSource = _carService.GetCarDetailsByCarProperty(c=>c.BrandId==Convert.ToInt32(lUEBrandName.EditValue.ToString())).Data;
         }
 
         private void CarGridControl_Click(object sender, EventArgs e)
@@ -181,7 +181,7 @@ namespace WindowsFormUI.Forms
         {
             if (!String.IsNullOrEmpty(txtSearchByPlate.Text))
             {
-                CarGridControl.DataSource = _carService.GetCarDetailsByPlate(txtSearchByPlate.Text);
+                CarGridControl.DataSource = _carService.GetCarDetailsByCarProperty(c=>c.PlakaNo.ToLower().Contains(txtSearchByPlate.Text.ToLower())).Data;
 
             }
             else

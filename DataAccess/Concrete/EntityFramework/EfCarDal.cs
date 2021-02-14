@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using Core.DataAccess.EntityFramework;
+using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
 using Entities.DTOs;
@@ -12,11 +13,12 @@ namespace DataAccess.Concrete.EntityFramework
     public class EfCarDal : EfEntityRepositoryBase<Car,DevRentACarContext>,ICarDal
     {
         
-        public List<CarDetailDto> GetCarDetails(Expression<Func<Car, bool>> filter = null)
+
+        public IDataResult<List<CarDetailDto>> GetCarDetailsByCarProperty(Expression<Func<Car, bool>> filter = null)
         {
             using (DevRentACarContext context = new DevRentACarContext())
             {
-                var result = from c in filter is null ? context.Cars : context.Cars.Where(filter)
+                var result = (from c in filter is null ? context.Cars : context.Cars.Where(filter)
                     join co in context.Colors on c.ColorId equals co.Id
                     join b in context.Brands on c.BrandId equals b.Id
 
@@ -30,8 +32,8 @@ namespace DataAccess.Concrete.EntityFramework
                         ColorName = co.Name,
                         DailyPrice = c.DailyPrice,
                         Description = c.Description
-                    };
-                return result.ToList();
+                    }).ToList();
+                return new SuccessDataResult<List<CarDetailDto>>(result);
             }
         }
     }

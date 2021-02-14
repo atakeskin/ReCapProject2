@@ -1,4 +1,6 @@
-﻿namespace Core.Utilities.Results
+﻿using System.Linq;
+
+namespace Core.Utilities.Results
 {
     /// <summary>
     /// T Data and/or success : True and/or message returns
@@ -17,8 +19,5 @@
         {
         }
 
-        public SuccessDataResult() : base(default,true)
-        {
-        }
     }
 }

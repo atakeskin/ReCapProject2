@@ -29,7 +29,7 @@ namespace WindowsFormUI.Forms
         /// </summary>
         private void InitializeComponent()
         {
-            DevExpress.XtraGrid.GridLevelNode gridLevelNode1 = new DevExpress.XtraGrid.GridLevelNode();
+            DevExpress.XtraGrid.GridLevelNode gridLevelNode2 = new DevExpress.XtraGrid.GridLevelNode();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CarForm));
             this.CarGridControl = new DevExpress.XtraGrid.GridControl();
             this.CarGridView = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -85,9 +85,9 @@ namespace WindowsFormUI.Forms
             // 
             this.CarGridControl.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.CarGridControl.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            gridLevelNode1.RelationName = "Level1";
+            gridLevelNode2.RelationName = "Level1";
             this.CarGridControl.LevelTree.Nodes.AddRange(new DevExpress.XtraGrid.GridLevelNode[] {
-            gridLevelNode1});
+            gridLevelNode2});
             this.CarGridControl.Location = new System.Drawing.Point(0, 281);
             this.CarGridControl.MainView = this.CarGridView;
             this.CarGridControl.Name = "CarGridControl";
@@ -170,11 +170,11 @@ namespace WindowsFormUI.Forms
             // 
             this.labelControl9.Appearance.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.labelControl9.Appearance.Options.UseFont = true;
-            this.labelControl9.Location = new System.Drawing.Point(20, 50);
+            this.labelControl9.Location = new System.Drawing.Point(42, 50);
             this.labelControl9.Name = "labelControl9";
-            this.labelControl9.Size = new System.Drawing.Size(188, 19);
+            this.labelControl9.Size = new System.Drawing.Size(166, 19);
             this.labelControl9.TabIndex = 3;
-            this.labelControl9.Text = "Search by Category Name ";
+            this.labelControl9.Text = "Search by Brand Name ";
             // 
             // groupControl1
             // 

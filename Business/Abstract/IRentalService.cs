@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq.Expressions;
 using Core.Utilities.Results;
 using Entities.Concrete;
 using Entities.DTOs;
@@ -16,7 +18,7 @@ namespace Business.Abstract
         #endregion
 
         #region Private CRUD Signatures
-        IDataResult<List<RentalDetailDto>> RentalDetails();
+        IDataResult<List<RentalDetailDto>> RentalDetails(Expression<Func<Rental, bool>> filter = null);
         #endregion
     }
 }

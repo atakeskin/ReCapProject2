@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
+using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
 using Entities.DTOs;
@@ -73,6 +74,12 @@ namespace DataAccess.Concrete.InMemory
         {
             _cars.Remove(GetToBeProcessedCar(entity));
         }
+
+        public IDataResult<List<CarDetailDto>> GetCarDetailsByCarProperty(Expression<Func<Car, bool>> filter = null)
+        {
+            throw new NotImplementedException();
+        }
+
 
         public List<CarDetailDto> GetCarDetails(Expression<Func<Car, bool>> filter = null)
         {

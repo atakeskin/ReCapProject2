@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq.Expressions;
 using Business.Abstract;
 using Business.Constants;
 using Core.Utilities.Results;
@@ -15,7 +17,6 @@ namespace Business.Concrete
         {
             _brandDal = brandDal;
         }
-
 
         public IDataResult<List<Brand>> GetAll()
         {
