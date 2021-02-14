@@ -1,12 +1,14 @@
 # DevRentACar
 
 ## 📌 Takdim :
-Başta bu kampı bizlere hediye eden [Engin DEMİROĞ](https://github.com/engindemirog) hocamıza çok çok teşekkür ederim. Hiçbir maddi ve manevi fedakarlığından vazgeçmeden bizleri spaghetti kodlamadan best practice'lerle dolu programcılığa çıkarma arzusunu hayranlıkla izlemekteyim. Sizin derslerdeki enerjiniz bizleri ilerki kodlama hayatımız için motive ediyor. Bizlere yapmacık örneklerle değil gerçek hayatta güncel, bire bir uygulanan kodlarla örnekleme yapmanız önümüze ışık tutuyor. Ezberleten değil öğreten yaklaşımınız bizlerin yeni teknolojik gelişmelere daha kolay adapte olmamızı sağlıyor. Bizleri sektörde nitelikli kılıyor. Size nekadar teşekkür etsek az.
+Başta bu kampı bizlere hediye eden [Engin DEMİROĞ](https://github.com/engindemirog) hocamıza çok çok teşekkür ederim. Hiçbir maddi ve manevi fedakarlığından vazgeçmeden bizleri spaghetti kodlamadan best practice'lerle dolu programcılığa çıkarma arzusunu hayranlıkla izlemekteyim. Sizin derslerdeki enerjiniz bizleri ilerki kodlama hayatımız için motive ediyor. Bizlere yapmacık örneklerle değil gerçek hayatta karşımıza çıkacak güncel, bire bir uygulanan kodlarla örnekleme yapmanız önümüze ışık tutuyor. Ezberleten değil öğreten yaklaşımınız bizlerin yeni teknolojik gelişmelere daha kolay adapte olmamızı sağlıyor. Bizleri sektörde nitelikli kılıyor. Size nekadar teşekkür etsek az.
 
 
 ## 📌 Ön Söz :
 Burası mümkün olduğunca Code Smell / Kötü kokan, içinde tekrarlanmış (duplicate) kodlar arındırılmış olacaktır. SOLID Prensiplere uyulmaya çalışılmıştır. Temiz Mimariye odaklanır. Profesyonelliğe ulaşım için en ileri teknikler ile implemente etmeye odaklanınılmıştır.
 
+## 📌 Teşekkür :
+Bu yazım birilerine ilham olduysa eğer hayrını ; yazılım için zorlu çalışmalarımda(benim için zevkli :)) boylarından büyük sabır gösteren ve bende hakları olan eşim ve çocuklarıma adarım.
 
 ## 📌 Tanımlar :
 Bazı kelimeleri aşağıdaki manaları ile anlamlandırınız. 
