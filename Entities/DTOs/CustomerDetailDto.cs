@@ -1,10 +1,10 @@
 ﻿using Core.Entities;
+using Entities.Abstract;
 
 namespace Entities.DTOs
 {
-    public class CustomerDetailDto : IDto
+    public class CustomerDetailDto : BaseEntity,IDto
     {
-        public int Id { get; set; }
         public string UserName { get; set; }
         public string CompanyName { get; set; }
     }

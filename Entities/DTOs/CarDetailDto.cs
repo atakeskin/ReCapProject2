@@ -1,5 +1,6 @@
 ﻿using System;
 using Core.Entities;
+using Entities.Abstract;
 
 namespace Entities.DTOs
 {
@@ -8,9 +9,8 @@ namespace Entities.DTOs
     /// CarName, BrandName, ColorName, DailyPrice.
     /// (İpucu : IDto oluşturup 3 tabloya join yazınız)
     /// </summary>
-    public class CarDetailDto : IDto
+    public class CarDetailDto : BaseEntity,IDto
     {
-        public int Id { get; set; }
         public string Name { get; set; }
         public string PlakaNo { get; set; }
         public string BrandName { get; set; }

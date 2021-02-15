@@ -1,11 +1,12 @@
 ﻿using System;
 using Core.Entities;
+using Entities.Abstract;
 
 namespace Entities.Concrete
 {
-    public class Rental : IEntity
+    public class Rental : BaseEntity,IEntity
     {
-        public int Id { get; set; }
+        //public int Id { get; set; }
         public int CarId { get; set; }
         public int CustomerId { get; set; }
         public DateTime RentDate { get; set; }

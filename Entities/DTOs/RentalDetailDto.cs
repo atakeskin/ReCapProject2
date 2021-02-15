@@ -1,14 +1,14 @@
 ﻿using System;
 using Core.Entities;
+using Entities.Abstract;
 
 namespace Entities.DTOs
 {
     /// <summary>
     /// Rental,Car,User
     /// </summary>
-    public class RentalDetailDto : IDto
+    public class RentalDetailDto : BaseEntity,IDto
     {
-        public int Id { get; set; }
         public string CarName { get; set; }
         public string UserFirstName { get; set; }
         public string UserLastName { get; set; }

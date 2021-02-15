@@ -1,10 +1,11 @@
 ﻿using Core.Entities;
+using Entities.Abstract;
 
 namespace Entities.Concrete
 {
-    public class Brand : IEntity
+    public class Brand : BaseEntity,IEntity
     {
-        public int Id { get; set; }
+        //public int Id { get; set; }
         public string Name { get; set; }
     }
 }
