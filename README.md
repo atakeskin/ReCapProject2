@@ -121,9 +121,12 @@ Nesneleri sırf birbirine benziyor diye birbirinin yerine kullanma. Ör: İlişk
 Kullanmayacağın bir şeyi yazma. Güçlü interface'i parçalara ayırarak ör:IPayable,IWorkable,IEatable vb. ilgili nesnel classlar tarafından ihtiyaçları doğrultusunda bir veya daha fazla implemente edilmesi sağlanır. Böylece gereksiz implementasyonun önüne geçilerek clean code yazımı gerçekleştirilir.
 
 #### Dependency Inversion Principle:
-En kaba tabir ile bir katman diğer katmanı new'leyemez. Bağımlılıkların azaltımıdır. 
-Dependency Injection(DI) Deseni kullanılır. Gereken nesnenin ya Constructor’dan ya da Setter metoduyla parametre olarak alınması gerektiğini vurgulamaktadır. Böylece iki classı birbirinden izole ederiz. Örneğin IProductDall Interface ini bu desen ile sınıfın yapıcı metodu içerisinde kullandığımızda aynı implementasyondan oluşan ve iş kodları kendilerine özgü olan teknojileri bağımlılığımız olmadan çağırabilmiş oluruz. Bir katman bir katmana gevşek bağlılığı sağlar.
-Bu olay micro servis yazımına kadar gider. İş katmanında başka bir iş katmanını dahi newleyemessiniz.
+En kaba tabir ile bir katman diğer katmanı new'leyemez. Bir katman bir katmana gevşek bağlılığı sağlar. Bağımlılıkların azaltımıdır. Bu olay micro servis yazımına kadar gider. İş katmanında başka bir iş katmanını dahi newleyemessiniz.
+Dependency Injection(DI) Deseni kullanılır. Gereken nesnenin ya Constructor’dan ya da Setter metoduyla parametre olarak alınması gerektiğini vurgulamaktadır. Böylece iki classı birbirinden izole ederiz. Örneğin IProductDall Interface ini bu desen ile sınıfın yapıcı metodu içerisinde kullandığımızda aynı implementasyondan oluşan ve iş kodları kendilerine özgü olan teknojileri bağımlılığımız olmadan çağırabilmiş oluruz.
+- AddScoped : Request bazlı çalışır. Request için birkez instance create edilir.
+- AddSingleton : Sadece uygulama ayağa kalktığı zaman ilk çağrıldığında instance create edilir.
+- AddTransient : Hem request başlangıcında ve aynırequest çağrıldığında yeniden instance create edilir.
+
 
 ## 6-(AOP) Aspect Oriented Programming Yaklaşımı
 Bir çok araç ile yapılabilinir.
