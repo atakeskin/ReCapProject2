@@ -23,8 +23,8 @@ Bazı kelimeleri aşağıdaki manaları ile anlamlandırınız.
 Aşağıdaki yazılar ile beyin kısa devre yapabilir. O yüzden Spaghetti Kodlama yazanları uzak tutunuz. :)) Engin Hoca öğrencilerine serbestir.
 Veritabanında aşırı Normalizasyon(var olan 5 seviyenin 3. seviyesinde bırakılır) programlamada over design(aşırı tasarım'dan) kaçınılmalıdır.
 Programın (Handel)üstesinden gelemeyiz. İyi programcı hemen hemen hiç new yazmaz. 
-- Bunun için IoC Container teknojilerinden faydalanırız. En çok kullanılanlar;Ninject,AutoFac,Structure Map, Castle Windsor vb. IoC Container'lar bu newlemeleri bizim için bir konfigurasyon vasıtasıyla yapmamızı sağlayan dolayısıyla sistemde istediğimiz zaman değişiklik yapmamızı sağlayan ortamdır.
-- Yada çalışma anında Activator.CreateInstance'la reflection kullanılarak çalışma anında dinamik instance'ı üretilir. Dolayısıyla bu instance'e bağlı metod çalışma anında getMethod ile çağrılır ve invok ile çalıştırılır. Çalışma anında bir classın propertilerine,metodlarına,atribitlerine vb ve bunlar objeden gelen özelliklerinin listelenmesi için oradanda parametrelerinin listelenmesinde kullanılır. Bellek için pahalı bir işlem olduğundan ancak ihtiyaç doğrultusunda kullanılmalıdır.
+- Bunun için IoC Container teknojilerinden faydalanırız. En çok kullanılanlar;Ninject,AutoFac,Structure Map, Castle Windsor vb. IoC Container'lar bu newlemeleri bizim için bir konfigurasyon vasıtasıyla yapmamızı sağlayan dolayısıyla sistemde istediğimiz zaman değişiklik yapmamızı sağlayan ortamdır. Bir nevi Factory Tasarım Desenidir.
+- Yada çalışma anında Activator.CreateInstance'la reflection kullanılarak çalışma anında dinamik instance'ı üretilir. Dolayısıyla bu instance'e bağlı metod çalışma anında getMethod ile çağrılır ve invok ile çalıştırılır. Çalışma anında bir classın propertilerine,metodlarına,attribute'lerine vb ve bunlar objeden gelen özelliklerinin listelenmesi için oradanda parametrelerinin listelenmesinde kullanılır. Bellek için pahalı bir işlem olduğundan ancak ihtiyaç doğrultusunda kullanılmalıdır.
 
 
 ## 📌 Programcılığın ABC'si
@@ -42,11 +42,19 @@ Bir class yada struct içinde tanımlanan her tipten değişkendir.Private isiml
 Property : Property, field ve metotları(Getter Setter) birleştirir.
 Getter Readonly'lidir Constructor'da set edilebilinir.
 
+## Linq
+- .Net içerisinde C# diline gömülü dil mimarisidir.
+- Nesneler için array, Koleksiyon(liste,dizi) linq to object
+- EntityFramework(Veri tabanını sorgulama) linq to entity
+
 ## Delegate
 - Elçi. Yapılmak istenen operasyonlar eklenir ve/veya çıkarılır. Void türünde özel bir tür döndermeyen kod blokları için Action kullanılır. Buna ek olarak dönüş tipi olan parametreler için Func kullanılır. Bunlar Mevcut kod bloklarını başka bir kod bloklarıyla sarmallayarak void veya bir değer döndürürler. Ve delegedirler. CrossCutting işlemleri bu türdendir.
 
 ## Events
 - Uygulamada bir hareket olduğunda ve o harekete ek olarak yapmak istediğimiz bir işlem var olduğunda kullanılırlar. Yanlızca o nesne için abone isek çalışır. Delegelerin kullanımından faydalanılır. Events bir delegedir. Bir delegate tanımlanır. event bu delegate tipinde ve isminin sonunda ..Event olacak şekilde tanımlanır.
+
+## Lambda
+Predicate delegasyondur.
 
 ## Constance(Sabitler)
 - Enum programcılıkta en fazla suistimal edilen konuların başında gelir. Gerçekten ona ihtiyaç var mı? Dikkat.
@@ -231,6 +239,10 @@ Yeni modern ve populer geliştirme ortamıdır. Farklı client'lar ile backend k
 - Bir kaç metot sadeleştirmesi, yeniden adlandırma, kendini tekrar etme yaklaşımı gibi benzer operasyonel metod veya sınıf yeniden yapılandırımı (refactoring) işlemleri yürütülür. Oluşturulan kod blokları tekrar tekrar kullanılır.
 - Hata yönetimi arayüzün işi değildir. Try catch ile sadece hatayı nasıl göstereceğiyle ilgilenir.
 
+### 📚 Servis Tabanlı Mimari
+...
+
+Bir katman bir katmanı new'leyemez. Çünkü projeler büyüdükçe onlarca sayfa içinde bağımlılıkları değiştirmek güçleşir.
 New'lemeler için .NET CORE içerisinde IoC Container amacı ile MVC tarafında implementasyonlar var. Fakat Backend'de bizim yine IoC Containerlardan destek vermemiz gerekiyor. Çünkü Microsoft teknolojileri sadece kendi yapıları-frameworkleri tanıyacak şekildedir. Bizim oluşturduğumuz katmanlar için ayrıca IoC container'ler sisteme tanımlamamız gerekir. Ayrıca WepApi yaptığımızda MVC yapısının içinde kalan IoC Container işimize yaramayacaktır.
 
 
