@@ -36,7 +36,7 @@ Programın (Handel)üstesinden gelemeyiz. İyi programcı hemen hemen hiç new y
 Anti Patern oluşturan magic string'lerden kaçınılmalıdır.
 
 ## Field
-Bir class yada struct içinde tanımlanan her tipten değişkendir.Private isimlendirme PascalCase yazılır. Public ise camelCase yazılır.
+Bir class yada struct içinde tanımlanan her tipten değişkendir.Private isimlendirme camelCase yazılır. Public ise PascalCase yazılır.
 
 ## Properties
 Property : Property, field ve metotları(Getter Setter) birleştirir.
