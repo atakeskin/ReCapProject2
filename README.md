@@ -23,7 +23,7 @@ Bazı kelimeleri aşağıdaki manaları ile anlamlandırınız.
 Aşağıdaki yazılar ile beyin kısa devre yapabilir. O yüzden Spaghetti Kodlama yazanları uzak tutunuz. :)) Engin Hoca öğrencilerine serbestir.
 Veritabanında aşırı Normalizasyon(var olan 5 seviyenin 3. seviyesinde bırakılır) programlamada over design(aşırı tasarım'dan) kaçınılmalıdır.
 Programın (Handel)üstesinden gelemeyiz. İyi programcı hemen hemen hiç new yazmaz. 
-- Instance üretimini için IoC Container yapılandırma teknojilerinden faydalanırız. En çok kullanılanlar;Postsharp,AutoFac,Ninject,Structure Map,Castle Windsor vb. IoC Container'lar bu newlemeleri bizim için bir konfigurasyon vasıtasıyla yapmamızı dolayısıyla sistemde istediğimiz zaman değişiklik yaparak sağlayan ortamdır. Bir nevi Factory Tasarım Desenidir.Hangi interface in karşılığı nedir şeklinde.
+- Instance üretimini için IoC Container yapılandırma teknojilerinden faydalanırız. En çok kullanılanlar;Postsharp,AutoFac,Ninject,Structure Map,Castle Windsor,  Microsoft Enterprise Library içerisinde bulunan Unity bloğu vb. IoC Container'lar bu newlemeleri bizim için bir konfigurasyon vasıtasıyla yapmamızı dolayısıyla sistemde istediğimiz zaman değişiklik yaparak sağlayan ortamdır. Bir nevi Factory Tasarım Desenidir.Hangi interface in karşılığı nedir şeklinde.
 - Birde çalışma anında Activator.CreateInstance'la reflection kullanılarak çalışma anında dinamik instance'ı üretilir. Dolayısıyla bu instance'e bağlı metod çalışma anında getMethod ile çağrılır ve invok ile çalıştırılır. Çalışma anında bir classın propertilerine,metodlarına,attribute'lerine vb ve bunlar objeden gelen özelliklerinin listelenmesi için oradanda parametrelerinin listelenmesinde kullanılır. Bellek için pahalı bir işlem olduğundan ancak ihtiyaç doğrultusunda kullanılmalıdır.
 
 
@@ -125,7 +125,7 @@ En kaba tabir ile bir katman diğer katmanı new'leyemez. Bir katman bir katmana
 Dependency Injection(DI) Deseni kullanılır. Gereken nesnenin ya Constructor’dan ya da Setter metoduyla parametre olarak alınması gerektiğini vurgulamaktadır. Böylece iki classı birbirinden izole ederiz. Örneğin IProductDall Interface ini bu desen ile sınıfın yapıcı metodu içerisinde kullandığımızda aynı implementasyondan oluşan ve iş kodları kendilerine özgü olan teknojileri bağımlılığımız olmadan çağırabilmiş oluruz.
 - AddScoped : Request bazlı çalışır. Request için birkez instance create edilir.
 - AddSingleton : Sadece uygulama ayağa kalktığı zaman ilk çağrıldığında instance create edilir.
-- AddTransient : Hem request başlangıcında ve aynırequest çağrıldığında yeniden instance create edilir.
+- AddTransient : Hem request başlangıcında ve aynı request çağrıldığında yeniden instance create edilir.
 
 
 ## 6-(AOP) Aspect Oriented Programming Yaklaşımı
@@ -148,6 +148,8 @@ Bir çok araç ile yapılabilinir.
 
 ##### Static Metod
 Newlenmez ve uygulama hayatında tek bir instance'ı vardır. Deirek çağırılır.
+##### Virtual Metod
+Virtual yazılan metodlar daha sonra override edilerek ezilirler.
 ##### Cunstructor
 Cunstructor kendi base'i içinde kendini tekrar etme ilkesi içerisinde nested kullanılır.
 ##### Class
@@ -158,11 +160,12 @@ Bir nesnenin bazı özellik ve işlevlerini başka sınıflardan ve nesnelerden 
 Fonksiyonlarda parametreler-->model/DTO/ComplexType gibi ortak nesneler içine koyup öyle gönderilir.
 Bir metotda sadece bir değer döndürülür. Mesela liste gibi. Ama aynı anda birden fazla değer döndürmek isteniyorsa encapsulation yapılır. Bunun için 
 ##### Soyutlama Tekniği:
-İnterfaceler kullanılır.
+İnterfaceler kullanılır. Referans tutuculardır.
 - Özellik tutan Classların yönetimi
 - Katmanlar arasında iletişimi sağlarlar. İş katmanı veri erişim katmanıyla Dependency Inversion Principle ayağa kaldırılarak interface vasıtasıyla iletişim kurar.
 - Bir proje içerisinde kullanırken oradaki referans yönetimini yakalanır. Utilities / Results içerisinde Data veya işlem sonucu ve kullanıcıyı bilgilendirmek için mesaj olur.
 - SOLID'in I harfine göre bir interface bir interface'i implemente ettiğinde otomatikmen kodlarını içerir.
+- 
 ##### Abstract Class :
 Abstractlar inherittır. Aynı zamanda bir nesnel class gibide davranır. Kullanım konusunda cimri olmak gerekir. Interfacelerden farkı nesnel class'lara bir abstract class verilebilinir. Interface'ler ise kısıtlama yoktur. Abstract Class'lar daha çok Business iş süreçlerinde karşımıza çıkar.
 - Polimorfizmle (çok biçimlilik)
@@ -229,7 +232,7 @@ Abstract klasörü içerisinde tanımlı veritabanı nesneli repository'den impl
 Concrete klasöründe yine ayrıca kullanılan teknolojiye bağlı olarak veritabanı nesnesi ve veritabanı context nesnesini tutan base repository inherit - DTO nesnelerini tutan interface'i imlemente class barındırır.
 
 ### 📚 Bussines Katmanı
-İş kodlarının tutulduğu katmandır. Validasyon yönetimi bu katmanda yapılır. 
+İş kodlarının tutulduğu katmandır. Validasyon yönetimi bu katmanda yapılır. Bağımlılıkları çözümu burada yapılır. Klasörlenen teknoloji içerisinde bağımlılık konfigürasyonu yapılır.
 
 ### 📚 WebAPI Katmanı
 Yeni modern ve populer geliştirme ortamıdır. Farklı client'lar ile backend katmanlı mimarinin arasında data yönetimi için iletişim kurulmasını sağlar. WepApi'de RestFul(Json vb.) Mimarisi gibi Standartları bulunur. Servise client'lardan istek (Request) yapılır. Ör: Şu kategorideki ürünleri getir. Yanıt olarakta Response veilir. Microsoft tafında bu mimari ASP.NET WebAPI'dır. Test ortamı olarak Postman kullanılabilinir.
