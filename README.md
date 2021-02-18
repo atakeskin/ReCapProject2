@@ -5,7 +5,7 @@ Başta bu kampı bizlere hediye eden [Engin DEMİROĞ](https://github.com/engind
 
 
 ## 📌 Ön Söz :
-Burası mümkün olduğunca Code Smell / Kötü kokan, içinde tekrarlanmış (duplicate) kodlar arındırılmış olacaktır. SOLID Prensiplere uyulmaya çalışılmıştır. Temiz Mimariye odaklanır. Profesyonelliğe ulaşım için en ileri teknikler ile implemente etmeye odaklanınılmıştır. İnanın bu yaklaşımlar sizlere çok teorik gelebilir. Biliniz ki bunları şimdi uygulamakla ileride çok rahat edeceksiniz, beklenmedik şeylerin farkında olmadan üstesinden gelmiş ve çok ekmeğini yiyeceksiniz. 
+Burası mümkün olduğunca Code Smell / Kötü kokan, DRY - Do not repeat yourself yazılım kalıpları içinde tekrarlanmış (code duplication) kodlardan arındırılmış olacaktır. SOLID Prensiplere uyulmaya çalışılmıştır. Temiz Mimariye odaklanır. Profesyonelliğe ulaşım için en ileri teknikler ile implemente etmeye odaklanınılmıştır. İnanın bu yaklaşımlar sizlere çok teorik gelebilir. Biliniz ki bunları şimdi uygulamakla ileride çok rahat edeceksiniz, beklenmedik şeylerin farkında olmadan üstesinden gelmiş ve çok ekmeğini yiyeceksiniz. 
 
 ## 📌 Teşekkür :
 Eğer bu yazım birilerine ilham olduysa hayrını ; yazılım için zorlu çalışmalarımda(benim için zevkli :)) başta Engin DEMİROĞ hocam olmak üzere boylarından büyük sabır gösteren ve bende hakları olan eşim ve çocuklarıma adarım.
@@ -23,8 +23,8 @@ Bazı kelimeleri aşağıdaki manaları ile anlamlandırınız.
 Aşağıdaki yazılar ile beyin kısa devre yapabilir. O yüzden Spaghetti Kodlama yazanları uzak tutunuz. :)) Engin Hoca öğrencilerine serbestir.
 Veritabanında aşırı Normalizasyon(var olan 5 seviyenin 3. seviyesinde bırakılır) programlamada over design(aşırı tasarım'dan) kaçınılmalıdır.
 Programın (Handel)üstesinden gelemeyiz. İyi programcı hemen hemen hiç new yazmaz. 
-- Bunun için IoC Container teknojilerinden faydalanırız. En çok kullanılanlar;Ninject,AutoFac,Structure Map, Castle Windsor vb. IoC Container'lar bu newlemeleri bizim için bir konfigurasyon vasıtasıyla yapmamızı sağlayan dolayısıyla sistemde istediğimiz zaman değişiklik yapmamızı sağlayan ortamdır. Bir nevi Factory Tasarım Desenidir.
-- Yada çalışma anında Activator.CreateInstance'la reflection kullanılarak çalışma anında dinamik instance'ı üretilir. Dolayısıyla bu instance'e bağlı metod çalışma anında getMethod ile çağrılır ve invok ile çalıştırılır. Çalışma anında bir classın propertilerine,metodlarına,attribute'lerine vb ve bunlar objeden gelen özelliklerinin listelenmesi için oradanda parametrelerinin listelenmesinde kullanılır. Bellek için pahalı bir işlem olduğundan ancak ihtiyaç doğrultusunda kullanılmalıdır.
+- Instance üretimini için IoC Container yapılandırma teknojilerinden faydalanırız. En çok kullanılanlar;Postsharp,AutoFac,Ninject,Structure Map,Castle Windsor vb. IoC Container'lar bu newlemeleri bizim için bir konfigurasyon vasıtasıyla yapmamızı dolayısıyla sistemde istediğimiz zaman değişiklik yaparak sağlayan ortamdır. Bir nevi Factory Tasarım Desenidir.Hangi interface in karşılığı nedir şeklinde.
+- Birde çalışma anında Activator.CreateInstance'la reflection kullanılarak çalışma anında dinamik instance'ı üretilir. Dolayısıyla bu instance'e bağlı metod çalışma anında getMethod ile çağrılır ve invok ile çalıştırılır. Çalışma anında bir classın propertilerine,metodlarına,attribute'lerine vb ve bunlar objeden gelen özelliklerinin listelenmesi için oradanda parametrelerinin listelenmesinde kullanılır. Bellek için pahalı bir işlem olduğundan ancak ihtiyaç doğrultusunda kullanılmalıdır.
 
 
 ## 📌 Programcılığın ABC'si
@@ -291,7 +291,12 @@ Hata işleme (Error handling) : İstisnaları (exception) işleyebileceğimiz ve
 ## 📌 Best Practice
 ## UI katmanında nesne isimleri mutlaka değiştirilerek yeniden verilmelidir.(Ör:gbxCategory)
 
-
+## 📌 DRY Prensibinin Avantajları
+- Sürdürülebilirlik (Maintainability)
+- Okunaklılık (Readability)
+- Tekrar Kullanılabilirlik (Reuse)
+- Test Edilebilirlik (Testing)
+- 
 
 
 
