@@ -135,7 +135,7 @@ Bir çok araç ile yapılabilinir.
 Örneğin; Add operasyonu üzerinde {Validasyon}{Tansaction-Unit of work}{Caching}{Loglama}{Authorized}{Perforance} Aspec'ler yazılarak Single Responsibility Principle uyulur.
 
 ## [Attribute]
-- Nesneye bir imza koyma işlemidir. Class'a,Metoda,Property bir anlam yüklüyoruz. Attribute Reflection ilişkisiyle beslenen bir mimaridir. Üzerine konulması gereken derin konulardan bir tanesidir.
+- Nesneye bir imza koyma işlemidir. Classlara,Metodlara,Propertys,Fields bir anlam yüklüyoruz. Attribute Reflection ilişkisiyle beslenen bir mimaridir. Üzerine konulması gereken derin konulardan bir tanesidir.
 - DataAnnotations'lar vasıtasıyla nesne veritabanıyla ilişkilendiriliyor veya arayüzde doğrulamalar ile ilişkilendiriliyor.
 
 ## Dört basit tasarım kuralı
