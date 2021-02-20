@@ -32,15 +32,15 @@ namespace Business.Concrete
 
         public IResult Add(Rental rental)
         {
-            try
-            {
+            //try
+            //{
                 _rentalDal.Add(rental);
                 return new SuccessResult(Messages.RentalAdded);
-            }
-            catch (Exception e)
-            {
-                return new ErrorResult(Messages.RentalIsInvalid);
-            }
+            //}
+            //catch (Exception e)
+            //{
+            //    return new ErrorResult(Messages.RentalIsInvalid);
+            //}
 
         }
 
