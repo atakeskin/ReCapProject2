@@ -27,7 +27,7 @@ Aşağıdaki yazılar bazıları için beyin yakıcı olabilir. O yüzden Spaghe
 
 Veritabanında aşırı Normalizasyon(var olan 5 seviyenin 3. seviyesinde bırakılır) programlamada over design(aşırı tasarım'dan) kaçınılmalıdır.
 Programın (Handel)üstesinden gelemeyiz. İyi programcı hemen hemen hiç new yazmaz. 
-- Instance üretimini için IoC Container yapılandırma teknojilerinden faydalanırız. En çok kullanılanlar;Postsharp,AutoFac,Ninject,Structure Map,Castle Windsor,  Microsoft Enterprise Library içerisinde bulunan Unity bloğu vb. IoC Container'lar bu newlemeleri bizim için bir konfigurasyon vasıtasıyla yapmamızı dolayısıyla sistemde istediğimiz zaman değişiklik yapmayı sağlayan ortamdır. Bir nevi Factory Tasarım Desenidir. Hangi interface in karşılığı nedir şeklinde.
+- Kayıt/Instance üretimini için IoC Container yapılandırma teknojilerinden faydalanırız. En çok kullanılanlar;Postsharp,AutoFac,Ninject,Structure Map,Castle Windsor,  Microsoft Enterprise Library içerisinde bulunan Unity bloğu vb. IoC Container'lar bu newlemeleri bizim için bir konfigurasyon vasıtasıyla yapmamızı dolayısıyla sistemde istediğimiz zaman değişiklik yapmayı sağlayan ortamdır. Bir nevi Factory Tasarım Desenidir. Hangi interface in karşılığı nedir şeklinde.
 - Birde çalışma anında Activator.CreateInstance'la reflection kullanılarak çalışma anında dinamik instance'ı üretilir. Dolayısıyla bu instance'e bağlı metod çalışma anında getMethod ile çağrılır ve invok ile çalıştırılır. Çalışma anında bir classın propertilerine,metodlarına,attribute'lerine vb ve bunlar objeden gelen özelliklerinin listelenmesi için oradanda parametrelerinin listelenmesinde kullanılır. Bellek için pahalı bir işlem olduğundan ancak ihtiyaç doğrultusunda kullanılmalıdır.
 
 
@@ -223,11 +223,8 @@ Veritabanı tablo nesne karşılığı olan class'larımız için burada;
 IEntity : Veritabanı nesnesi olduğunu belirten imzadır(boş bir interface)
 IDto : Veritabanı nesnesi olan sınıfların join edilerek birleşiminden oluşmuş nesneyi belirten imzadır.
 Veri Aktarım Nesneleri (Data Transfer Objects) : public değişkenleri olan ve hiç fonksiyonu olmayan sınıftır. Buna bazen DTO da deriz; ki bu nesneler özellikle veritabanı vb. yerlerle haberleşiyorken oldukça kullanışlıdır.
-### Katmanlar arası iletişim için Public belirtecinden faydalanılınır.
 
-
-
-
+### Default olarak katmanlı bir mimaride çalıştığımız ve diğer taraflarda bunu kullandığı için katmanlar arası iletişim amacından dolayı Public belirtecinden faydalanılınır.
 
 ## 📌 BİRAZDA TEK TEK N KATMANLI MİMARİYİ TANIYALIM
 
