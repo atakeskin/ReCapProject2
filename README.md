@@ -132,7 +132,7 @@ Dependency Injection(DI) Deseni kullanılır. Gereken nesnenin ya Constructor’
 
 
 ## 6-(AOP) Aspect Oriented Programming Yaklaşımı
-Bir çok araç ile yapılabilinir.
+Bir çok araç ile yapılabilinir.Separation of Cross-Cutting Concerns'dir.AOP özellikle encapsulation konusunda bir tamamlayıcı olarak düşünülür.
 + IoC Container
 + Sarmallama Tekniği
 Örneğin; Add operasyonu üzerinde {Validasyon}{Tansaction-Unit of work}{Caching}{Loglama}{Authorized}{Perforance} Aspec'ler yazılarak Single Responsibility Principle uyulur.
@@ -163,7 +163,7 @@ Cunstructor kendi base'i içinde kendini tekrar etme ilkesi içerisinde nested k
 - SOLID'in I harfine göre bir class bir class'ı inherit ettiğinde sen aslında base'inin structerini içeriyorsun.Haberin olsun demektir. O da diyor ki constructorları varsa implente et o zaman diye bizi uyarır.
 - 
 ##### Encapsulation: 
-Bir nesnenin bazı özellik ve işlevlerini başka sınıflardan ve nesnelerden saklamak.
+Bir nesnenin bazı özellik ve işlevlerini başka sınıflardan ve nesnelerden saklamak. Encapsulation OOP’daki nihai amaçdır.
 Fonksiyonlarda parametreler-->model/DTO/ComplexType gibi ortak nesneler içine koyup öyle gönderilir.
 Bir metotda sadece bir değer döndürülür. Mesela liste gibi. Ama aynı anda birden fazla değer döndürmek isteniyorsa encapsulation yapılır. Bunun için 
 
@@ -217,7 +217,7 @@ Veri Aktarım Nesneleri (Data Transfer Objects) : public değişkenleri olan ve 
 
 
 
-## 📌 N KATMANLI MİMARİ
+## 📌 BİRAZDA TEK TEK N KATMANLI MİMARİYİ TANIYALIM
 
 ### 📚 Core Katmanı
 Evrensel katmandır. Birkere yazılır. Kurumsal mimaride tüm projelerde kullanabilirdir.
@@ -303,11 +303,11 @@ Hata işleme (Error handling) : İstisnaları (exception) işleyebileceğimiz ve
 ## UI katmanında nesne isimleri mutlaka değiştirilerek yeniden verilmelidir.(Ör:gbxCategory)
 
 ## 📌 DRY Prensibinin Avantajları
-- Sürdürülebilirlik (Maintainability)
+- Tekrar Kullanılabilirlik (reusability)
 - Okunaklılık (Readability)
-- Tekrar Kullanılabilirlik (Reuse)
+- Sürdürülebilirlik (Maintainability)
 - Test Edilebilirlik (Testing)
-- 
+Kendini tekrar etmemek, aynı şeyi defalarca yazmamak. Sık kullandığımız kodları, library’lere taşırız yeri geldimi yine bu library’lerimizi kullanarak belli bir işe özel framework’ler yazarız. Object Oriented diller de bize bu konuda oldukça yardımcı olurlar. Bir süre sonra yazdığımız kodların anlaşılabilirliği ve maintainability(bakım yapılabilirlik)’si düşmekte. Aspect-Oriented Programming bu noktada bize yardımcı olmakta. AOP’un en büyük hedefi modularity’i arttırmak ve Cross-Cutting Concern’lerimiz arasındaki ayrımı daha net sağlamaktır.
 
 
 
