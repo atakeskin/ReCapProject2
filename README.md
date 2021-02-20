@@ -147,18 +147,23 @@ Bir çok araç ile yapılabilinir.
 ## 📌 OOP
 
 ##### Static Metod
-Newlenmez ve uygulama hayatında tek bir instance'ı vardır. Deirek çağırılır.
+Newlenmez ve uygulama hayatında tek bir instance'ı vardır. Direk çağırılabilirler.
+
 ##### Virtual Metod
-Virtual yazılan metodlar daha sonra override edilerek ezilirler.
+Virtual yazılan metodlar istenirse daha sonra override edilerek ezilirler.
+
 ##### Cunstructor
 Cunstructor kendi base'i içinde kendini tekrar etme ilkesi içerisinde nested kullanılır.
+
 ##### Class
 - newlenebilirler. Sınıf tasarımı konusundaki ilk kural sınıfların küçük olmaları gerektiğidir. 
 - SOLID'in I harfine göre bir class bir class'ı inherit ettiğinde sen aslında base'inin structerini içeriyorsun.Haberin olsun demektir. O da diyor ki constructorları varsa implente et o zaman diye bizi uyarır.
+- 
 ##### Encapsulation: 
 Bir nesnenin bazı özellik ve işlevlerini başka sınıflardan ve nesnelerden saklamak.
 Fonksiyonlarda parametreler-->model/DTO/ComplexType gibi ortak nesneler içine koyup öyle gönderilir.
 Bir metotda sadece bir değer döndürülür. Mesela liste gibi. Ama aynı anda birden fazla değer döndürmek isteniyorsa encapsulation yapılır. Bunun için 
+
 ##### Soyutlama Tekniği:
 İnterfaceler kullanılır. Referans tutuculardır.
 - Özellik tutan Classların yönetimi
@@ -181,7 +186,7 @@ Abstractlar inherittır. Aynı zamanda bir nesnel class gibide davranır. Kullan
 
 ## 📌  Design Pattern
 ###### ⚠ Tasarım kalıpları ezberlenmeye çalışılmaz. Tasarım kalıplarında amaç SOLID'i ayağa kaldırmaktır. 
-###### ⚠ Unutma!!Kodlamamızda SOLID'e uyarak yazdığımızda ismini bilmesekte tasarımkalıplarını otomatik olarak yazarız.
+###### ⚠ Unutma!! Kodlamamızda SOLID'e uyarak oluşturduğumuzda ismini bilmesekte tasarım kalıplarını otomatik olarak yazarız.
 ...
 
 
@@ -253,7 +258,7 @@ New'lemeler için .NET CORE içerisinde IoC Container amacı ile MVC tarafında 
 
 
 
-## 📌 Programcının Adımları
+## 📌 Programcının Katmanlı Mimari içinde ki Adımları
 
 - Programlama tekniklerinden Intelligence programing / Niyet güdümlü programlama : Olmayan metod yazılır. Genereate Metod(sağ click) ile otomatik metodu oluşturur.
 - Test First Devolopment / Önce test yap sonra kodu yaz yaklaşımı yapılır. F12 ile program içinde gezilir. 
