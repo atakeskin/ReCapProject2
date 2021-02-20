@@ -235,6 +235,9 @@ Dahada genelleme yapılarak core katmanında ilgili teknolojiyi base repository 
 ### 📚 Entities Katmanı
 Dikey mimaride çalışır.
 
+### 📚 Cross-Cutting Concern
+Çapraz kesmek manasındadır. Her katmanı dikey olarak kesmekteler, yani her katmanda kullanılabilirler. Kaba bir tabirle Aspect-Oriented kullanarak Loglama, Exception Handling, Security, Caching, Transaction bunların hepsi katman bağımsız parçalar, modüller, her katmanda birbirlerinden bağımsız şekilde kullanılabilirler. 
+
 ### 📚 DataAccess Katmanı - Veri erişim Katmanı
 Abstract klasörü içerisinde tanımlı veritabanı nesneli repository'den implemente interface'dir. Ayrıca DTO nesneleri imzalarını barındırır.
 Concrete klasöründe yine ayrıca kullanılan teknolojiye bağlı olarak veritabanı nesnesi ve veritabanı context nesnesini tutan base repository inherit - DTO nesnelerini tutan interface'i imlemente class barındırır.
