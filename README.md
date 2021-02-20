@@ -17,6 +17,7 @@ Bazı kelimeleri aşağıdaki manaları ile anlamlandırınız.
 - Database = MsSQL,ORAGLE,MySQL vb.
 - Katmanlar = Business,DataAccess,Entitiy,Core,UI vb.
 - Soyutlama = Interface vb.
+- Versiyonlama = Program yazımında kullandığımız anadil ve ek olarak teknolojik library'lerin versiyon uyumluluğu için hassasiyet gösterilmesidir.
 
 
 ## ⚠ Dikkat!!!
