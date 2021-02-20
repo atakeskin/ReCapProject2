@@ -133,7 +133,18 @@ Dependency Injection(DI) Deseni kullanılır. Gereken nesnenin ya Constructor’
 
 
 ## 6-(AOP) Aspect Oriented Programming Yaklaşımı
-Bir çok araç ile yapılabilinir.Separation of Cross-Cutting Concerns'dir.AOP özellikle encapsulation konusunda bir tamamlayıcı olarak düşünülür.
+Uygulama kodunda belirli bir yerde execute edilecek olan Loglama mekanizmasının (concern) loglama metodunun (pointcut) hangi şartlar altında ne zaman (join point) execute edileceği (bir araya girme bir interception) olgusuna aspect denir. AOP özellikle encapsulation konusunda bir tamamlayıcı olarak düşünülür.
+Bir çok araç ile yapılabilinir.Separation of Cross-Cutting Concerns'dir.
+- Side-Effect Concern:
+Pointcut’ların kendisiyle ilişkilendirilmiş olan bir kod parçacı olduğundan, intercept ettiğinden yani araya girer. Bu araya girme işlemi kodun akışında davranışsal (behavior) olarak bir değişikliğe sebep olmuyorsa bu bir side-effect concern’dür. Logging bu açıdan baktığımızda iyi bir örnek.
+- Advice Concern: 
+AOP ve functional programming’de (prosedürel programlama) execute edildiğinde join point olarak yer aldığı fonksiyonun veya metotdun davranışını değiştiren fonksiyon veya metotlara denir. Ör:Caching
+- Weaving :
+Bir kod parçasının çalıştırılması (executing) esnasında bir aspect’in araya nasıl gireceği yöntemiyle alakalı.(interception model) İki yöntemleyapılır. Compile-Time Weaving ve Run-Time Weaving.
+- Dynamic Proxy Yöntemi
+Run-time Weaving yöntemleri arasında en popüler olanı. Bu yöntemin öncülerinden biri Castle Projesi. Dinamik olmasının sebebi yukarıda bahsettiğim gibi proxy’lerin oluşturulması işleminin run-time’da dinamik olarak oluşturulması. Bu size müthiş bir esneknik sağlıyor, run-time’da pointcut ve join point’lerini dinamik olarak değiştirebilirsiniz veya aynı nesnenin farklı proxy’lerini kullanabiliriz.
+Castle DynamicProxy’nin belli kısıtları var. Mesela intercept edeceğiniz metotlar ya virtual olmalı yada interface metotları olmalı. Bu kısıtların sebebi DynamicProxy’nin yapısından kaynaklanıyor.
+
 + IoC Container
 + Sarmallama Tekniği
 Örneğin; Add operasyonu üzerinde {Validasyon}{Tansaction-Unit of work}{Caching}{Loglama}{Authorized}{Perforance} Aspec'ler yazılarak Single Responsibility Principle uyulur.
