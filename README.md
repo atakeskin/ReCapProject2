@@ -20,10 +20,13 @@ Bazı kelimeleri aşağıdaki manaları ile anlamlandırınız.
 
 
 ## ⚠ Dikkat!!!
-Aşağıdaki yazılar ile beyin kısa devre yapabilir. O yüzden Spaghetti Kodlama yazanları uzak tutunuz. :)) Engin Hoca öğrencilerine serbestir.
+Aşağıdaki yazılar bazıları için beyin yakıcı olabilir. O yüzden Spaghetti Kodlama yazanları uzak tutunuz. :)) Engin Hoca öğrencileri hariç.
+
+## Over Design(Aşırı Tasarım) 'dan kaçın
+
 Veritabanında aşırı Normalizasyon(var olan 5 seviyenin 3. seviyesinde bırakılır) programlamada over design(aşırı tasarım'dan) kaçınılmalıdır.
 Programın (Handel)üstesinden gelemeyiz. İyi programcı hemen hemen hiç new yazmaz. 
-- Instance üretimini için IoC Container yapılandırma teknojilerinden faydalanırız. En çok kullanılanlar;Postsharp,AutoFac,Ninject,Structure Map,Castle Windsor,  Microsoft Enterprise Library içerisinde bulunan Unity bloğu vb. IoC Container'lar bu newlemeleri bizim için bir konfigurasyon vasıtasıyla yapmamızı dolayısıyla sistemde istediğimiz zaman değişiklik yaparak sağlayan ortamdır. Bir nevi Factory Tasarım Desenidir.Hangi interface in karşılığı nedir şeklinde.
+- Instance üretimini için IoC Container yapılandırma teknojilerinden faydalanırız. En çok kullanılanlar;Postsharp,AutoFac,Ninject,Structure Map,Castle Windsor,  Microsoft Enterprise Library içerisinde bulunan Unity bloğu vb. IoC Container'lar bu newlemeleri bizim için bir konfigurasyon vasıtasıyla yapmamızı dolayısıyla sistemde istediğimiz zaman değişiklik yapmayı sağlayan ortamdır. Bir nevi Factory Tasarım Desenidir. Hangi interface in karşılığı nedir şeklinde.
 - Birde çalışma anında Activator.CreateInstance'la reflection kullanılarak çalışma anında dinamik instance'ı üretilir. Dolayısıyla bu instance'e bağlı metod çalışma anında getMethod ile çağrılır ve invok ile çalıştırılır. Çalışma anında bir classın propertilerine,metodlarına,attribute'lerine vb ve bunlar objeden gelen özelliklerinin listelenmesi için oradanda parametrelerinin listelenmesinde kullanılır. Bellek için pahalı bir işlem olduğundan ancak ihtiyaç doğrultusunda kullanılmalıdır.
 
 
