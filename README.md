@@ -227,7 +227,8 @@ Veri Aktarım Nesneleri (Data Transfer Objects) : public değişkenleri olan ve 
 ### Default olarak katmanlı bir mimaride çalıştığımız ve diğer taraflarda bunu kullandığı için katmanlar arası iletişim amacından dolayı Public belirtecinden faydalanılınır.
 
 ## 📌 BİRAZDA TEK TEK N KATMANLI MİMARİYİ TANIYALIM
-Backend ve Frontend olarak ikiye ayrabiliriz. Backendde asıl olan  DRY Prensiblerin (reusability,Maintainability vb.) oluşumunu sağlamaktır. 
+Backend ve Frontend olarak ikiye ayrabiliriz. Backendde asıl olan  DRY Prensiblerin (reusability,Maintainability vb.) oluşumunu sağlayan nesnel sistemlerin kurulumunu sağlamaktır. Bu ihtiyaçların çeşitlenmesinden ötürüdür. - Mobil(IOS,Android...), Desktop(MT,Windows...), Web -
+Frontend uygulamanın ön yüzünü oluşturur. - Html,Css,JS -
 ### 📚 Core Katmanı
 Evrensel katmandır. Birkere yazılır. Kurumsal mimaride tüm projelerde kullanabilirdir.
 DataAccess katmanında operasyon sınıfları genel olarak birbirini tekrarlayandır. Bunun önüne geçmek için Repository Dizayn Paterni kullanılır.  Generic tipte TEntity kısıtlamaları tanımlı olarak yazılır. Yani TEntity referans tipte veritabanı nesnesi ve newlenebilir somut bir sınıf olmalıdır. İçerisinde operasyonlara kullanıcı parametre vermek isterse Linq expresion ile filtreleme yapacak şekilde IEntityRepository imza interface si oluşturulur. Buna generic constraint denir.
