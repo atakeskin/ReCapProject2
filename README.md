@@ -228,6 +228,7 @@ Veri Aktarım Nesneleri (Data Transfer Objects) : public değişkenleri olan ve 
 ### Default olarak katmanlı bir mimaride çalıştığımız ve diğer taraflarda bunu kullandığı için katmanlar arası iletişim amacından dolayı Public belirtecinden faydalanılınır.
 
 ## 📌 BİRAZDA TEK TEK N KATMANLI MİMARİYİ TANIYALIM
+Kurumsal mimari hafızası standart bir alt yapıda oluşturulur.
 Backend ve Frontend olarak ikiye ayrabiliriz. Backendde asıl olan  DRY Prensiblerin (reusability,Maintainability vb.) oluşumunu sağlayan nesnel sistemlerin kurulumunu sağlamaktır. Bu ihtiyaçların çeşitlenmesinden ötürüdür. - Mobil(IOS,Android...), Desktop(MT,Windows...), Web -
 Frontend uygulamanın ön yüzünü oluşturur. - Html,Css,JS -
 
