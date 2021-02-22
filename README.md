@@ -341,8 +341,8 @@ Abstract Class'lar ve Normal Class'lar inheritince'dır.
 
 
 ## 📌 Ek Bilgiler
-VS çok kullandığımız bloklar varsa sağ tıklayıp sinppet oluşturabilinir.
-
+- VS çok kullandığımız bloklar varsa sağ tıklayıp sinppet oluşturabilinir.
+- Kodları düzenlemek için Ctrl+K , Ctrl+D
 
 ## 📌 Referans Kaynakça
 - [kodlama.io](https://www.kodlama.io/)
