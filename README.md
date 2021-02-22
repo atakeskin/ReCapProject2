@@ -173,7 +173,8 @@ Cunstructor kendi base'i içinde kendini tekrar etme ilkesi içerisinde nested k
 ##### Class
 - newlenebilirler. Sınıf tasarımı konusundaki ilk kural sınıfların küçük olmaları gerektiğidir. 
 - SOLID'in I harfine göre bir class bir class'ı inherit ettiğinde sen aslında base'inin structerini içeriyorsun.Haberin olsun demektir. O da diyor ki constructorları varsa implente et o zaman diye bizi uyarır.
-- Static Class'ın C#'da metodlarıd static olmalıdır. Javada böyle değildir.
+- Static Class'ın C#'da metodlarıda static olmalıdır. Javada böyle değildir.
+- Gerçek hayatta varlıklar/programlamada nesneler class'ların newlenmeleriyle oluşturulur. Nesnelerin özellik ve metodlarına bu şekilde ulaşılınır.
 ##### Encapsulation: 
 Bir nesnenin bazı özellik ve işlevlerini başka sınıflardan ve nesnelerden saklamak. Encapsulation OOP’daki nihai amaçdır.
 Fonksiyonlarda parametreler-->model/DTO/ComplexType gibi ortak nesneler içine koyup öyle gönderilir.
@@ -256,7 +257,7 @@ Concrete klasöründe yine ayrıca kullanılan teknolojiye bağlı olarak verita
 İş kodlarının tutulduğu katmandır. Validasyon yönetimi bu katmanda yapılır. Bağımlılıkların çözümü burada yapılır. Klasörlenen teknoloji içerisinde bağımlılık konfigürasyonu yapılır. Örneğin WebAPI startup içerisinde instance konfigurasyon yapılanmasını bu katmana bağlı kalmamak adına dahada geriye çekerek katmanlı mimari içerisinde Business katmanında gerçekleştirilir.
 
 ### 📚 WebAPI Katmanı
-Yeni modern ve populer geliştirme ortamıdır. Farklı client'lar ile backend katmanlı mimarinin arasında data yönetimi için iletişim kurulmasını sağlar. WepApi'de RestFul(Json vb.) Mimarisi gibi Standartları bulunur. Servise client'lardan istek (Request) yapılır. Ör: Şu kategorideki ürünleri getir. Yanıt olarakta Response veilir. Microsoft tafında bu mimari ASP.NET WebAPI'dır. Test ortamı olarak Postman kullanılabilinir.
+Yeni modern ve popüler geliştirme ortamıdır. Farklı client'lar ile backend katmanlı mimarinin arasında data yönetimi için iletişim kurulmasını sağlar. WepApi'de RestFul(Json vb.) Mimarisi gibi Standartları bulunur. Servise client'lardan istek (Request) yapılır. Ör: Şu kategorideki ürünleri getir. Yanıt olarakta Response veilir. Microsoft tafında bu mimari ASP.NET WebAPI'dır. Test ortamı olarak Postman kullanılabilinir. Controller isimlendirmeleri çoğul yapılır. Bu MVC'de tekil olmasına dikkat edilir.
 
 ### 📚 UnitTest Katmanı
 ...
