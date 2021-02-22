@@ -161,6 +161,11 @@ Castle DynamicProxy’nin belli kısıtları var. Mesela intercept edeceğiniz m
 
 ## 📌 OOP
 
+##### Erişim Belirteçleri
+- Public : Her(Solution) taraftan erişilebilir.
+- İnternal : Sadece ilgili proje katmanı altından erişilir.
+- Private : Sadece tanımlandığı yerde(blok) kullanılır.
+- Protected : Sadece inherid ettiği yerde kullanılır.
 ##### Static Metod
 Newlenmez ve uygulama hayatında tek bir instance'ı vardır. Direk çağırılabilirler.
 
