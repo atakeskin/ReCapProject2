@@ -161,6 +161,11 @@ Castle DynamicProxy’nin belli kısıtları var. Mesela intercept edeceğiniz m
 
 ## 📌 OOP
 
+##### Erişim Belirteçleri
+- Public : Her(Solution) taraftan erişilebilir.
+- İnternal : Sadece ilgili proje katmanı altından erişilir.
+- Private : Sadece tanımlandığı yerde(blok) kullanılır.
+- Protected : Sadece inherid ettiği yerde kullanılır.
 ##### Static Metod
 Newlenmez ve uygulama hayatında tek bir instance'ı vardır. Direk çağırılabilirler.
 
@@ -173,19 +178,22 @@ Cunstructor kendi base'i içinde kendini tekrar etme ilkesi içerisinde nested k
 ##### Class
 - newlenebilirler. Sınıf tasarımı konusundaki ilk kural sınıfların küçük olmaları gerektiğidir. 
 - SOLID'in I harfine göre bir class bir class'ı inherit ettiğinde sen aslında base'inin structerini içeriyorsun.Haberin olsun demektir. O da diyor ki constructorları varsa implente et o zaman diye bizi uyarır.
-- Static Class'ın C#'da metodlarıd static olmalıdır. Javada böyle değildir.
+- Static Class'ın C#'da metodlarıda static olmalıdır. Javada böyle değildir.
+- Gerçek hayatta varlıklar/programlamada nesneler class'ların newlenmeleriyle oluşturulur. Nesnelerin özellik ve metodlarına bu şekilde ulaşılınır.
+- C#'da Classın erişim belirteci default (internal)'dır. Private yaznızca iç içe klaslarda içerideki classa verilir. Pek kullanılmaz.
 ##### Encapsulation: 
 Bir nesnenin bazı özellik ve işlevlerini başka sınıflardan ve nesnelerden saklamak. Encapsulation OOP’daki nihai amaçdır.
 Fonksiyonlarda parametreler-->model/DTO/ComplexType gibi ortak nesneler içine koyup öyle gönderilir.
 Bir metotda sadece bir değer döndürülür. Mesela liste gibi. Ama aynı anda birden fazla değer döndürmek isteniyorsa encapsulation yapılır. Bunun için 
 
 ##### Soyutlama Tekniği:
-İnterfaceler kullanılır. Referans tutuculardır.
-- Özellik tutan Classların yönetimi
+
+- Özellik tutan Classların yönetimidir. İnterfaceler kullanılır. Referans tutuculardır.
 - Katmanlar arasında iletişimi sağlarlar. İş katmanı veri erişim katmanıyla Dependency Inversion Principle ayağa kaldırılarak interface vasıtasıyla iletişim kurar.
 - Bir proje içerisinde kullanırken oradaki referans yönetimini yakalanır. Utilities / Results içerisinde Data veya işlem sonucu ve kullanıcıyı bilgilendirmek için mesaj olur.
 - SOLID'in I harfine göre bir interface bir interface'i implemente ettiğinde otomatikmen kodlarını içerir.
-- 
+- İmplemantasyon eden diğer sınıflar için imza içerir.
+
 ##### Abstract Class :
 Abstractlar inherittır. Aynı zamanda bir nesnel class gibide davranır. Kullanım konusunda cimri olmak gerekir. Interfacelerden farkı nesnel class'lara bir abstract class verilebilinir. Interface'ler ise kısıtlama yoktur. Abstract Class'lar daha çok Business iş süreçlerinde karşımıza çıkar.
 - Polimorfizmle (çok biçimlilik)
@@ -227,35 +235,35 @@ Veri Aktarım Nesneleri (Data Transfer Objects) : public değişkenleri olan ve 
 ### Default olarak katmanlı bir mimaride çalıştığımız ve diğer taraflarda bunu kullandığı için katmanlar arası iletişim amacından dolayı Public belirtecinden faydalanılınır.
 
 ## 📌 BİRAZDA TEK TEK N KATMANLI MİMARİYİ TANIYALIM
+Kurumsal mimari hafızası standart bir alt yapıda oluşturulur.
+- Backend ve Frontend olarak ikiye ayrabiliriz. Backendde asıl olan  DRY Prensiblerin (reusability,Maintainability vb.) oluşumunu sağlayan nesnel sistemlerin kurulumunu sağlamaktır. Bu ihtiyaçların çeşitlenmesinden ötürüdür. Mobil(IOS,Android...), Desktop(MT,Windows...), Web
+- Frontend uygulamanın ön yüzünü oluşturur. - Html,Css,JS
+- Klasörleme ; Abstract:Soyut(Abstract,Interface,Base) sınıflar tutulur. Concrete:Somut sınıflar tutulur.
 
 ### 📚 Core Katmanı
-Evrensel katmandır. Birkere yazılır. Kurumsal mimaride tüm projelerde kullanabilirdir.
-DataAccess katmanında operasyon sınıfları genel olarak birbirini tekrarlayandır. Bunun önüne geçmek için Repository Dizayn Paterni kullanılır.  Generic tipte TEntity kısıtlamaları tanımlı olarak yazılır. Yani TEntity referans tipte veritabanı nesnesi ve newlenebilir somut bir sınıf olmalıdır. İçerisinde operasyonlara kullanıcı parametre vermek isterse Linq expresion ile filtreleme yapacak şekilde IEntityRepository imza interface si oluşturulur. Buna generic constraint denir.
+
+- Evrensel olan framework katmandır. Bir kere yazılır. Kurumsal mimaride tüm projelerde kullanabilir. Ör: JWT(Java web Tokun)işlemleri 
+- DataAccess katmanında operasyon sınıfları genel olarak birbirini tekrarlayandır. Bunun önüne geçmek için Repository Dizayn Paterni kullanılır.  Generic tipte TEntity kısıtlamaları tanımlı olarak yazılır. Yani TEntity referans tipte veritabanı nesnesi ve newlenebilir somut bir sınıf olmalıdır. İçerisinde operasyonlara kullanıcı parametre vermek isterse Linq expresion ile filtreleme yapacak şekilde IEntityRepository imza interface si oluşturulur. Buna generic constraint denir.
 Generic tipte TEntity ve database  genellemesi TContext için base sınıf yine aynı şekilde tiplere kısıtlamalar verilerek oluşturulur. 
-
-Base'de Add(),Update(),Delete() operasyonlarında buna abone ol / refere et 
-
-eklenecek/güncellenecek/silinecek olarak işaretle 
-
-veritabanında ekleme/güncelleme/silme kodunu çalıştır ve SaveChanges metoduyla burada UnitOfDizayn Paterni imlemente ederek onu gerçekleştirmiş olacağız.
-
-Dahada genelleme yapılarak core katmanında ilgili teknolojiyi base repository haline getirerek klasörü içerisinde tutulur. Bütün CRUD işlemler için böylece metodlar yazmış olunur.
+- Base'de Add(),Update(),Delete() operasyonlarında buna abone ol / refere et Eklenecek/güncellenecek/silinecek olarak işaretle Veritabanında ekleme/güncelleme/silme kodunu çalıştır ve SaveChanges metoduyla burada UnitOfDizayn Paterni imlemente ederek onu gerçekleştirmiş olacağız. Dahada genelleme yapılarak core katmanında ilgili teknolojiyi base repository haline getirerek klasörü içerisinde tutulur. Bütün CRUD işlemler için böylece metodlar yazmış olunur.
+- TEntity Database nesnesi interface'i tutulur.
 
 ### 📚 Entities Katmanı
-Dikey mimaride çalışır.
+Dikey mimaride çalışır. Temel manada Entity varlıktır. Veritabanı nesnelerini ve DTO'ları burada oluştururuz.
 
 ### 📚 Cross-Cutting Concern
-Çapraz kesmek manasındadır. Her katmanı dikey olarak kesmekteler, yani her katmanda kullanılabilirler. Kaba bir tabirle Aspect-Oriented kullanarak Loglama, Exception Handling, Security, Caching, Transaction bunların hepsi katman bağımsız parçalar, modüller, her katmanda birbirlerinden bağımsız şekilde kullanılabilirler. 
+Çapraz kesmek manasındadır. Her katmanı dikey olarak kesen ilgi alanlarıdır. Yani her katmanda kullanılabilirler. Kaba bir tabirle Aspect-Oriented kullanarak Loglama, Exception Handling, Security, Caching, Transaction bunların hepsi katman bağımsız parçalar, modüller, her katmanda birbirlerinden bağımsız şekilde kullanılabilirler. 
 
-### 📚 DataAccess Katmanı - Veri erişim Katmanı
+### 📚 DataAccess Katmanı 
+- Sadece Veri Erişim Katmanı işlerini yapar. Insert,Update,Delete ve Select kodları yazılır. ORM Teknolojileri kullanılır.
 Abstract klasörü içerisinde tanımlı veritabanı nesneli repository'den implemente interface'dir. Ayrıca DTO nesneleri imzalarını barındırır.
 Concrete klasöründe yine ayrıca kullanılan teknolojiye bağlı olarak veritabanı nesnesi ve veritabanı context nesnesini tutan base repository inherit - DTO nesnelerini tutan interface'i imlemente class barındırır.
 
 ### 📚 Bussines Katmanı
-İş kodlarının tutulduğu katmandır. Validasyon yönetimi bu katmanda yapılır. Bağımlılıkların çözümü burada yapılır. Klasörlenen teknoloji içerisinde bağımlılık konfigürasyonu yapılır. Örneğin WebAPI startup içerisinde instance konfigurasyon yapılanmasını bu katmana bağlı kalmamak adına dahada geriye çekerek katmanlı mimari içerisinde Business katmanında gerçekleştirilir.
+İş kurallarının/kodlarının tutulduğu merkezi katmandır. Validasyon yönetimi bu katmanda yapılır. Bağımlılıkların çözümü burada yapılır. Klasörlenen teknoloji içerisinde bağımlılık konfigürasyonu yapılır. Örneğin WebAPI startup içerisinde instance konfigurasyon yapılanmasını bu katmana bağlı kalmamak adına dahada geriye çekerek katmanlı mimari içerisinde Business katmanında gerçekleştirilir.
 
 ### 📚 WebAPI Katmanı
-Yeni modern ve populer geliştirme ortamıdır. Farklı client'lar ile backend katmanlı mimarinin arasında data yönetimi için iletişim kurulmasını sağlar. WepApi'de RestFul(Json vb.) Mimarisi gibi Standartları bulunur. Servise client'lardan istek (Request) yapılır. Ör: Şu kategorideki ürünleri getir. Yanıt olarakta Response veilir. Microsoft tafında bu mimari ASP.NET WebAPI'dır. Test ortamı olarak Postman kullanılabilinir.
+Yeni modern ve popüler geliştirme ortamıdır. Farklı client'lar ile backend katmanlı mimarinin arasında data yönetimi için iletişim kurulmasını sağlar. WepApi'de RestFul(Json vb.) Mimarisi gibi Standartları bulunur. Servise client'lardan istek (Request) yapılır. Ör: Şu kategorideki ürünleri getir. Yanıt olarakta Response veilir. Microsoft tafında bu mimari ASP.NET WebAPI'dır. Test ortamı olarak Postman kullanılabilinir. Controller isimlendirmeleri çoğul yapılır. Bu MVC'de tekil olmasına dikkat edilir.
 
 ### 📚 UnitTest Katmanı
 ...
@@ -334,8 +342,8 @@ Abstract Class'lar ve Normal Class'lar inheritince'dır.
 
 
 ## 📌 Ek Bilgiler
-VS çok kullandığımız bloklar varsa sağ tıklayıp sinppet oluşturabilinir.
-
+- VS çok kullandığımız bloklar varsa sağ tıklayıp sinppet oluşturabilinir.
+- Kodları düzenlemek için Ctrl+K , Ctrl+D
 
 ## 📌 Referans Kaynakça
 - [kodlama.io](https://www.kodlama.io/)
