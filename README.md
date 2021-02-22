@@ -187,12 +187,13 @@ Fonksiyonlarda parametreler-->model/DTO/ComplexType gibi ortak nesneler içine k
 Bir metotda sadece bir değer döndürülür. Mesela liste gibi. Ama aynı anda birden fazla değer döndürmek isteniyorsa encapsulation yapılır. Bunun için 
 
 ##### Soyutlama Tekniği:
-İnterfaceler kullanılır. Referans tutuculardır.
-- Özellik tutan Classların yönetimi
+
+- Özellik tutan Classların yönetimidir. İnterfaceler kullanılır. Referans tutuculardır.
 - Katmanlar arasında iletişimi sağlarlar. İş katmanı veri erişim katmanıyla Dependency Inversion Principle ayağa kaldırılarak interface vasıtasıyla iletişim kurar.
 - Bir proje içerisinde kullanırken oradaki referans yönetimini yakalanır. Utilities / Results içerisinde Data veya işlem sonucu ve kullanıcıyı bilgilendirmek için mesaj olur.
 - SOLID'in I harfine göre bir interface bir interface'i implemente ettiğinde otomatikmen kodlarını içerir.
-- 
+- İmplemantasyon eden diğer sınıflar için imza içerir.
+
 ##### Abstract Class :
 Abstractlar inherittır. Aynı zamanda bir nesnel class gibide davranır. Kullanım konusunda cimri olmak gerekir. Interfacelerden farkı nesnel class'lara bir abstract class verilebilinir. Interface'ler ise kısıtlama yoktur. Abstract Class'lar daha çok Business iş süreçlerinde karşımıza çıkar.
 - Polimorfizmle (çok biçimlilik)
@@ -240,17 +241,12 @@ Kurumsal mimari hafızası standart bir alt yapıda oluşturulur.
 - Klasörleme ; Abstract:Soyut(Abstract,Interface,Base) sınıflar tutulur. Concrete:Somut sınıflar tutulur.
 
 ### 📚 Core Katmanı
-Evrensel olan framework katmandır. Birkere yazılır. Kurumsal mimaride tüm projelerde kullanabilirdir. Ör: JWT(Java web Tokun)işlemleri 
-DataAccess katmanında operasyon sınıfları genel olarak birbirini tekrarlayandır. Bunun önüne geçmek için Repository Dizayn Paterni kullanılır.  Generic tipte TEntity kısıtlamaları tanımlı olarak yazılır. Yani TEntity referans tipte veritabanı nesnesi ve newlenebilir somut bir sınıf olmalıdır. İçerisinde operasyonlara kullanıcı parametre vermek isterse Linq expresion ile filtreleme yapacak şekilde IEntityRepository imza interface si oluşturulur. Buna generic constraint denir.
+
+- Evrensel olan framework katmandır. Bir kere yazılır. Kurumsal mimaride tüm projelerde kullanabilir. Ör: JWT(Java web Tokun)işlemleri 
+- DataAccess katmanında operasyon sınıfları genel olarak birbirini tekrarlayandır. Bunun önüne geçmek için Repository Dizayn Paterni kullanılır.  Generic tipte TEntity kısıtlamaları tanımlı olarak yazılır. Yani TEntity referans tipte veritabanı nesnesi ve newlenebilir somut bir sınıf olmalıdır. İçerisinde operasyonlara kullanıcı parametre vermek isterse Linq expresion ile filtreleme yapacak şekilde IEntityRepository imza interface si oluşturulur. Buna generic constraint denir.
 Generic tipte TEntity ve database  genellemesi TContext için base sınıf yine aynı şekilde tiplere kısıtlamalar verilerek oluşturulur. 
-
-Base'de Add(),Update(),Delete() operasyonlarında buna abone ol / refere et 
-
-eklenecek/güncellenecek/silinecek olarak işaretle 
-
-veritabanında ekleme/güncelleme/silme kodunu çalıştır ve SaveChanges metoduyla burada UnitOfDizayn Paterni imlemente ederek onu gerçekleştirmiş olacağız.
-
-Dahada genelleme yapılarak core katmanında ilgili teknolojiyi base repository haline getirerek klasörü içerisinde tutulur. Bütün CRUD işlemler için böylece metodlar yazmış olunur.
+- Base'de Add(),Update(),Delete() operasyonlarında buna abone ol / refere et Eklenecek/güncellenecek/silinecek olarak işaretle Veritabanında ekleme/güncelleme/silme kodunu çalıştır ve SaveChanges metoduyla burada UnitOfDizayn Paterni imlemente ederek onu gerçekleştirmiş olacağız. Dahada genelleme yapılarak core katmanında ilgili teknolojiyi base repository haline getirerek klasörü içerisinde tutulur. Bütün CRUD işlemler için böylece metodlar yazmış olunur.
+- TEntity Database nesnesi interface'i tutulur.
 
 ### 📚 Entities Katmanı
 Dikey mimaride çalışır. Temel manada Entity varlıktır. Veritabanı nesnelerini ve DTO'ları burada oluştururuz.
