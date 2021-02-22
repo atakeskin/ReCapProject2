@@ -134,7 +134,7 @@ Dependency Injection(DI) Deseni kullanılır. Gereken nesnenin ya Constructor’
 
 ## 6-(AOP) Aspect Oriented Programming Yaklaşımı
 Uygulama kodunda belirli bir yerde execute edilecek olan Loglama mekanizmasının (concern) loglama metodunun (pointcut) hangi şartlar altında ne zaman (join point) execute edileceği (bir araya girme bir interception) olgusuna aspect denir. AOP özellikle encapsulation konusunda bir tamamlayıcı olarak düşünülür.
-Bir çok araç ile yapılabilinir.Separation of Cross-Cutting Concerns'dir.
+Bir çok araç ile yapılabilinir.Separation of Cross-Cutting Concerns'dir. Bir yazılım geliştirme yaklaşımıdır.
 - Side-Effect Concern:
 Pointcut’ların kendisiyle ilişkilendirilmiş olan bir kod parçacı olduğundan, intercept ettiğinden yani araya girer. Bu araya girme işlemi kodun akışında davranışsal (behavior) olarak bir değişikliğe sebep olmuyorsa bu bir side-effect concern’dür. Logging bu açıdan baktığımızda iyi bir örnek.
 - Advice Concern: 
