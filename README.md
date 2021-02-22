@@ -229,8 +229,9 @@ Veri Aktarım Nesneleri (Data Transfer Objects) : public değişkenleri olan ve 
 
 ## 📌 BİRAZDA TEK TEK N KATMANLI MİMARİYİ TANIYALIM
 Kurumsal mimari hafızası standart bir alt yapıda oluşturulur.
-Backend ve Frontend olarak ikiye ayrabiliriz. Backendde asıl olan  DRY Prensiblerin (reusability,Maintainability vb.) oluşumunu sağlayan nesnel sistemlerin kurulumunu sağlamaktır. Bu ihtiyaçların çeşitlenmesinden ötürüdür. - Mobil(IOS,Android...), Desktop(MT,Windows...), Web -
-Frontend uygulamanın ön yüzünü oluşturur. - Html,Css,JS -
+- Backend ve Frontend olarak ikiye ayrabiliriz. Backendde asıl olan  DRY Prensiblerin (reusability,Maintainability vb.) oluşumunu sağlayan nesnel sistemlerin kurulumunu sağlamaktır. Bu ihtiyaçların çeşitlenmesinden ötürüdür. Mobil(IOS,Android...), Desktop(MT,Windows...), Web
+- Frontend uygulamanın ön yüzünü oluşturur. - Html,Css,JS
+- Klasörleme ; Abstract:Soyut(Abstract,Interface,Base) sınıflar tutulur. Concrete:Somut sınıflar tutulur.
 
 ### 📚 Core Katmanı
 Evrensel olan framework katmandır. Birkere yazılır. Kurumsal mimaride tüm projelerde kullanabilirdir. Ör: JWT(Java web Tokun)işlemleri 
