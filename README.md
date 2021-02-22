@@ -266,7 +266,7 @@ Concrete klasöründe yine ayrıca kullanılan teknolojiye bağlı olarak verita
 - Bağımlılıkların çözümü burada yapılır. Klasörlenen teknoloji içerisinde bağımlılık konfigürasyonu yapılır. Örneğin WebAPI startup içerisinde instance konfigurasyon yapılanmasını bu katmana bağlı kalmamak adına dahada geriye çekerek katmanlı mimari içerisinde Business katmanında gerçekleştirilir.
 
 ### 📚 WebAPI Katmanı
-Yeni modern ve popüler geliştirme ortamıdır. Farklı client'lar ile backend katmanlı mimarinin arasında data yönetimi için iletişim kurulmasını sağlar. WepApi'de RestFul(Json vb.) Mimarisi gibi Standartları bulunur. Servise client'lardan istek (Request) yapılır. Ör: Şu kategorideki ürünleri getir. Yanıt olarakta Response veilir. Microsoft tafında bu mimari ASP.NET WebAPI'dır. Test ortamı olarak Postman kullanılabilinir. Controller isimlendirmeleri çoğul yapılır. Bu MVC'de tekil olmasına dikkat edilir.
+Yeni modern ve popüler geliştirme ortamıdır. Farklı client'lar ile backend katmanlı mimarinin arasında data yönetimi için iletişim kurulmasını sağlar. WepApi'de RestFul(Json vb.) Mimarisi gibi Standartları bulunur. Servise client'lardan istek (Request) yapılır. Ör: Şu kategorideki ürünleri getir. Yanıt olarakta Response veilir. Microsoft tafında bu mimari ASP.NET WebAPI'dır. Test ortamı olarak Postman kullanılabilinir. Controller isimlendirmeleri çoğul yapılır. Bu MVC'de tekil olmasına dikkat edilir.Ataptor servis paterni görevi görür.
 
 ### 📚 UnitTest Katmanı
 ...
