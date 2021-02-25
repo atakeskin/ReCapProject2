@@ -68,8 +68,11 @@ Predicate delegasyondur.
 ## Karar Verme Mekanizmaları
 - İf'ler koşullu yönlendirmeler için kullanılır. Sadece lojik anlamında dağılım(Dallanmak) için kullanılır. Birbirin alternatifi olan işler için kullanılmaz.
 - switch doğaları gereği switch ifadeleri N tane şey yaparlar. Abstract Factory tasarım deseni (design pattern) temeline gömmek ve başka hiç kimsenin görmesine izin vermemektir.
-## Döngüler
-...
+- 
+## Loops
+- Verileri setlerini iterit etmek için kullanılır.
+- İndex(in) ve value(of)
+-
 ## Exception
 - try/catch Bloklarını çirkindir ve Ayırın
 
