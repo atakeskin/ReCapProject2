@@ -34,12 +34,12 @@ Programın (Handel)üstesinden gelemeyiz. İyi programcı hemen hemen hiç new y
 ## 📌 Programcılığın ABC'si
 
 ## Değişkenler
-- Değer tipler : Belleğin Stek bölümünü kullanır.Örneğin number: int,decimal vb. Tanımlanmadıysa undefine'dır.
-- Referans tipler : Belleğin Stek ve Heap bölümlerini kullanırlar.Örneğin Class'lar,Interface vb. Refarans oluşmadıysa null'dır.
+- Değer tipler : Belleğin Stek bölümünü kullanır.Örneğin number: int,decimal,boolean vb. Tanımlanmadıysa undefine'dır.
+- Referans tipler : Belleğin Stek ve Heap bölümlerini kullanırlar.Örneğin diziler,Class'lar,Interface vb. Refarans oluşmadıysa null'dır.
 - String : Anti Patern oluşturan magic string'lerden kaçınılmalıdır.
 
 ## Field
-Bir class yada struct içinde tanımlanan her tipten değişkendir.Private isimlendirme camelCase yazılır. Public ise PascalCase yazılır.
+Bir class yada struct içinde tanımlanan her tipten değişkendir. Private isimlendirme camelCase yazılır. Public ise PascalCase yazılır.
 
 ## Properties
 Property : Property, field ve metotları(Getter Setter) birleştirir.
@@ -177,9 +177,11 @@ Cunstructor kendi base'i içinde kendini tekrar etme ilkesi içerisinde nested k
 ##### Class
 - newlenebilirler. Sınıf tasarımı konusundaki ilk kural sınıfların küçük olmaları gerektiğidir. 
 - SOLID'in I harfine göre bir class bir class'ı inherit ettiğinde sen aslında base'inin structerini içeriyorsun.Haberin olsun demektir. O da diyor ki constructorları varsa implente et o zaman diye bizi uyarır.
-- Static Class'ın C#'da metodlarıda static olmalıdır. Javada böyle değildir.
+- Class'ın C#'da metodlarından biri static ise clasın static olasına gerek yoktur. Javada bu zorunludur.
 - Gerçek hayatta varlıklar/programlamada nesneler class'ların newlenmeleriyle oluşturulur. Nesnelerin özellik ve metodlarına bu şekilde ulaşılınır.
 - C#'da Classın erişim belirteci default (internal)'dır. Private yaznızca iç içe klaslarda içerideki classa verilir. Pek kullanılmaz.
+- Encapsulation gibi bir çok özelliğide beraberinde getirir. İçerisinde özellik ve operasyonları barındırır.
+- İnherit edilerek sürdürülebilirliği sağlar.
 ##### Encapsulation: 
 Bir nesnenin bazı özellik ve işlevlerini başka sınıflardan ve nesnelerden saklamak. Encapsulation OOP’daki nihai amaçdır.
 Fonksiyonlarda parametreler-->model/DTO/ComplexType gibi ortak nesneler içine koyup öyle gönderilir.
@@ -192,6 +194,7 @@ Bir metotda sadece bir değer döndürülür. Mesela liste gibi. Ama aynı anda 
 - Bir proje içerisinde kullanırken oradaki referans yönetimini yakalanır. Utilities / Results içerisinde Data veya işlem sonucu ve kullanıcıyı bilgilendirmek için mesaj olur.
 - SOLID'in I harfine göre bir interface bir interface'i implemente ettiğinde otomatikmen kodlarını içerir.
 - İmplemantasyon eden diğer sınıflar için imza içerir.
+- Getter ve setterler bir nevi class için soyutlama tekniğidir.
 
 ##### Abstract Class :
 Abstractlar inherittır. Aynı zamanda bir nesnel class gibide davranır. Kullanım konusunda cimri olmak gerekir. Interfacelerden farkı nesnel class'lara bir abstract class verilebilinir. Interface'ler ise kısıtlama yoktur. Abstract Class'lar daha çok Business iş süreçlerinde karşımıza çıkar.
