@@ -34,10 +34,9 @@ Programın (Handel)üstesinden gelemeyiz. İyi programcı hemen hemen hiç new y
 ## 📌 Programcılığın ABC'si
 
 ## Değişkenler
-- Değer tipler : Belleğin Stek bölümünü kullanır.Örneğin int,decimal vb.
-- Referans tipler : Belleğin Stek ve Heap bölümlerini kullanırlar.Örneğin Class'lar,Interface vb.
-- String : Ör:TcNo sayısal bir işlem yapılmadığından bu tiptir.
-Anti Patern oluşturan magic string'lerden kaçınılmalıdır.
+- Değer tipler : Belleğin Stek bölümünü kullanır.Örneğin number: int,decimal vb. Tanımlanmadıysa undefine'dır.
+- Referans tipler : Belleğin Stek ve Heap bölümlerini kullanırlar.Örneğin Class'lar,Interface vb. Refarans oluşmadıysa null'dır.
+- String : Anti Patern oluşturan magic string'lerden kaçınılmalıdır.
 
 ## Field
 Bir class yada struct içinde tanımlanan her tipten değişkendir.Private isimlendirme camelCase yazılır. Public ise PascalCase yazılır.
