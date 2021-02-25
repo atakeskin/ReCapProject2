@@ -63,7 +63,7 @@ Predicate delegasyondur.
 - Enum programcılıkta en fazla suistimal edilen konuların başında gelir. Gerçekten ona ihtiyaç var mı? Dikkat.
 
 ## Generic Tip
-- Herhangi bir değer/referans tiplerin genellemesidir. Kısıtlamalar where verilerek özele indirgenebilinir. 
+- Herhangi bir değer/referans tiplerin genellemesidir. Class, fonksiyon tekrar tekrar yazmamak için yapılır. Tip güvenli dediğimiz modelle çalışmayı sağlar. Kısıtlamalar where verilerek özele indirgenebilinir. 
 
 ## Karar Verme Mekanizmaları
 - İf'ler koşullu yönlendirmeler için kullanılır. Sadece lojik anlamında dağılım(Dallanmak) için kullanılır. Birbirin alternatifi olan işler için kullanılmaz.
@@ -185,6 +185,7 @@ Cunstructor kendi base'i içinde kendini tekrar etme ilkesi içerisinde nested k
 - C#'da Classın erişim belirteci default (internal)'dır. Private yaznızca iç içe klaslarda içerideki classa verilir. Pek kullanılmaz.
 - Encapsulation gibi bir çok özelliğide beraberinde getirir. İçerisinde özellik ve operasyonları barındırır.
 - İnherit edilerek sürdürülebilirliği sağlar.
+- 
 ##### Encapsulation: 
 Bir nesnenin bazı özellik ve işlevlerini başka sınıflardan ve nesnelerden saklamak. Encapsulation OOP’daki nihai amaçdır.
 Fonksiyonlarda parametreler-->model/DTO/ComplexType gibi ortak nesneler içine koyup öyle gönderilir.
@@ -201,7 +202,7 @@ Bir metotda sadece bir değer döndürülür. Mesela liste gibi. Ama aynı anda 
 
 ##### Abstract Class :
 Abstractlar inherittır. Aynı zamanda bir nesnel class gibide davranır. Kullanım konusunda cimri olmak gerekir. Interfacelerden farkı nesnel class'lara bir abstract class verilebilinir. Interface'ler ise kısıtlama yoktur. Abstract Class'lar daha çok Business iş süreçlerinde karşımıza çıkar.
-- Polimorfizmle (çok biçimlilik)
+- Polimorfizimle (çok biçimlilik)
 ...
 
 
