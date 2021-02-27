@@ -1,28 +1,27 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Linq.Expressions;
 using Business.Abstract;
 using Entities.Concrete;
+using Microsoft.AspNetCore.Http;
 
 namespace WebAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class RentalsController : ControllerBase
+    public class CarImagesController : ControllerBase
     {
-        private IRentalService _rentalService;
+        private ICarImageService _carImageService;
 
-        public RentalsController(IRentalService rentalService)
+        public CarImagesController(ICarImageService carImageService)
         {
-            _rentalService = rentalService;
+            _carImageService = carImageService;
         }
-
+        
         #region getall
 
         [HttpGet("getall")]
         public IActionResult GetAll()
         {
-            var result = _rentalService.GetAll();
+            var result = _carImageService.GetAll();
             if (result.Success)
             {
                 return Ok(result);
@@ -33,12 +32,12 @@ namespace WebAPI.Controllers
 
         #endregion
 
-        #region getbyid
+        #region getbyId
 
-        [HttpGet("getbyid")]
+        [HttpGet("getbyId")]
         public IActionResult GetById(int id)
         {
-            var result = _rentalService.GetById(id);
+            var result = _carImageService.GetById(id);
             if (result.Success)
             {
                 return Ok(result);
@@ -52,9 +51,9 @@ namespace WebAPI.Controllers
         #region add
 
         [HttpPost("add")]
-        public IActionResult Add(Rental rental)
+        public IActionResult Add([FromForm(Name = ("Image"))] IFormFile file, [FromForm] CarImage carImage)
         {
-            var result = _rentalService.Add(rental);
+            var result = _carImageService.Add(file, carImage);
             if (result.Success)
             {
                 return Ok(result);
@@ -68,9 +67,10 @@ namespace WebAPI.Controllers
         #region update
 
         [HttpPost("update")]
-        public IActionResult Update(Rental rental)
+        public IActionResult Update([FromForm(Name = ("Image"))] IFormFile file, [FromForm(Name = ("Id"))] int Id)
         {
-            var result = _rentalService.Update(rental);
+            var carImage = _carImageService.GetById(Id).Data;
+            var result = _carImageService.Update(file,carImage);
             if (result.Success)
             {
                 return Ok(result);
@@ -84,9 +84,9 @@ namespace WebAPI.Controllers
         #region delete
 
         [HttpPost("delete")]
-        public IActionResult Delete(Rental rental)
+        public IActionResult Delete(CarImage carImage)
         {
-            var result = _rentalService.Delete(rental);
+            var result = _carImageService.Delete(carImage);
             if (result.Success)
             {
                 return Ok(result);
@@ -97,21 +97,19 @@ namespace WebAPI.Controllers
 
         #endregion
 
-        #region rentaldetail
+        #region getimagesbycarid
 
-        [HttpGet("rentaldetail")]
-        public IActionResult RentalDetails(Expression<Func<Rental, bool>> filter = null)
+        [HttpGet("getimagesbycarid")]
+        public IActionResult GetImagesById(int id)
         {
-            var result = _rentalService.RentalDetails(filter);
+            var result = _carImageService.GetImagesByCarId(id);
             if (result.Success)
             {
                 return Ok(result);
             }
-
             return BadRequest(result);
         }
 
         #endregion
-
     }
 }

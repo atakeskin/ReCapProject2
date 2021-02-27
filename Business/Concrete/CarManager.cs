@@ -36,13 +36,37 @@ namespace Business.Concrete
         public IResult Add(Car car)
         {
             //Buraya iş motoru yazılacak.
+
+            IResult result = CheckIfNameAlreadyExists(car.Name);
+            if (result!=null)
+            {
+                return result;
+            }
+
             _carDal.Add(car);
             return new SuccessResult(Messages.CarAdded);
+        }
+
+        private IResult CheckIfNameAlreadyExists(string name)
+        {
+            if (_carDal.Get(c => c.Name == name) != null)
+            {
+                { 
+                    return new ErrorResult(Messages.CarNameAlreadyExists);
+                }
+            }
+
+            return null;
         }
 
         [ValidationAspect(typeof(CarValidator))]
         public IResult Update(Car car)
         {
+            IResult result = CheckIfNameAlreadyExists(car.Name);
+            if (result != null)
+            {
+                return result;
+            }
             _carDal.Update(car);
             return new SuccessResult(Messages.CarUpdated);
         }
