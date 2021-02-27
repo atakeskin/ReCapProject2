@@ -34,13 +34,12 @@ Programın (Handel)üstesinden gelemeyiz. İyi programcı hemen hemen hiç new y
 ## 📌 Programcılığın ABC'si
 
 ## Değişkenler
-- Değer tipler : Belleğin Stek bölümünü kullanır.Örneğin int,decimal vb.
-- Referans tipler : Belleğin Stek ve Heap bölümlerini kullanırlar.Örneğin Class'lar,Interface vb.
-- String : Ör:TcNo sayısal bir işlem yapılmadığından bu tiptir.
-Anti Patern oluşturan magic string'lerden kaçınılmalıdır.
+- Değer tipler : Belleğin Stek bölümünü kullanır.Örneğin number: int,decimal,boolean vb. Tanımlanmadıysa undefine'dır.
+- Referans tipler : Belleğin Stek ve Heap bölümlerini kullanırlar.Örneğin diziler,Class'lar,Interface vb. Refarans oluşmadıysa null'dır.
+- String : Anti Patern oluşturan magic string'lerden kaçınılmalıdır.
 
 ## Field
-Bir class yada struct içinde tanımlanan her tipten değişkendir.Private isimlendirme camelCase yazılır. Public ise PascalCase yazılır.
+Bir class yada struct içinde tanımlanan her tipten değişkendir. Private isimlendirme camelCase yazılır. Public ise PascalCase yazılır.
 
 ## Properties
 Property : Property, field ve metotları(Getter Setter) birleştirir.
@@ -64,13 +63,16 @@ Predicate delegasyondur.
 - Enum programcılıkta en fazla suistimal edilen konuların başında gelir. Gerçekten ona ihtiyaç var mı? Dikkat.
 
 ## Generic Tip
-- Herhangi bir değer/referans tiplerin genellemesidir. Kısıtlamalar where verilerek özele indirgenebilinir. 
+- Herhangi bir değer/referans tiplerin genellemesidir. Class, fonksiyon tekrar tekrar yazmamak için yapılır. Tip güvenli dediğimiz modelle çalışmayı sağlar. Kısıtlamalar where verilerek özele indirgenebilinir. 
 
 ## Karar Verme Mekanizmaları
 - İf'ler koşullu yönlendirmeler için kullanılır. Sadece lojik anlamında dağılım(Dallanmak) için kullanılır. Birbirin alternatifi olan işler için kullanılmaz.
 - switch doğaları gereği switch ifadeleri N tane şey yaparlar. Abstract Factory tasarım deseni (design pattern) temeline gömmek ve başka hiç kimsenin görmesine izin vermemektir.
-## Döngüler
-...
+- 
+## Loops
+- Verileri setlerini iterit etmek için kullanılır.
+- İndex(in) ve value(of)
+-
 ## Exception
 - try/catch Bloklarını çirkindir ve Ayırın
 
@@ -134,7 +136,7 @@ Dependency Injection(DI) Deseni kullanılır. Gereken nesnenin ya Constructor’
 
 ## 6-(AOP) Aspect Oriented Programming Yaklaşımı
 Uygulama kodunda belirli bir yerde execute edilecek olan Loglama mekanizmasının (concern) loglama metodunun (pointcut) hangi şartlar altında ne zaman (join point) execute edileceği (bir araya girme bir interception) olgusuna aspect denir. AOP özellikle encapsulation konusunda bir tamamlayıcı olarak düşünülür.
-Bir çok araç ile yapılabilinir.Separation of Cross-Cutting Concerns'dir.
+Bir çok araç ile yapılabilinir.Separation of Cross-Cutting Concerns'dir. Bir yazılım geliştirme yaklaşımıdır.
 - Side-Effect Concern:
 Pointcut’ların kendisiyle ilişkilendirilmiş olan bir kod parçacı olduğundan, intercept ettiğinden yani araya girer. Bu araya girme işlemi kodun akışında davranışsal (behavior) olarak bir değişikliğe sebep olmuyorsa bu bir side-effect concern’dür. Logging bu açıdan baktığımızda iyi bir örnek.
 - Advice Concern: 
@@ -178,9 +180,12 @@ Cunstructor kendi base'i içinde kendini tekrar etme ilkesi içerisinde nested k
 ##### Class
 - newlenebilirler. Sınıf tasarımı konusundaki ilk kural sınıfların küçük olmaları gerektiğidir. 
 - SOLID'in I harfine göre bir class bir class'ı inherit ettiğinde sen aslında base'inin structerini içeriyorsun.Haberin olsun demektir. O da diyor ki constructorları varsa implente et o zaman diye bizi uyarır.
-- Static Class'ın C#'da metodlarıda static olmalıdır. Javada böyle değildir.
+- Class'ın C#'da metodlarından biri static ise clasın static olasına gerek yoktur. Javada bu zorunludur.
 - Gerçek hayatta varlıklar/programlamada nesneler class'ların newlenmeleriyle oluşturulur. Nesnelerin özellik ve metodlarına bu şekilde ulaşılınır.
 - C#'da Classın erişim belirteci default (internal)'dır. Private yaznızca iç içe klaslarda içerideki classa verilir. Pek kullanılmaz.
+- Encapsulation gibi bir çok özelliğide beraberinde getirir. İçerisinde özellik ve operasyonları barındırır.
+- İnherit edilerek sürdürülebilirliği sağlar.
+- 
 ##### Encapsulation: 
 Bir nesnenin bazı özellik ve işlevlerini başka sınıflardan ve nesnelerden saklamak. Encapsulation OOP’daki nihai amaçdır.
 Fonksiyonlarda parametreler-->model/DTO/ComplexType gibi ortak nesneler içine koyup öyle gönderilir.
@@ -193,10 +198,11 @@ Bir metotda sadece bir değer döndürülür. Mesela liste gibi. Ama aynı anda 
 - Bir proje içerisinde kullanırken oradaki referans yönetimini yakalanır. Utilities / Results içerisinde Data veya işlem sonucu ve kullanıcıyı bilgilendirmek için mesaj olur.
 - SOLID'in I harfine göre bir interface bir interface'i implemente ettiğinde otomatikmen kodlarını içerir.
 - İmplemantasyon eden diğer sınıflar için imza içerir.
+- Getter ve setterler bir nevi class için soyutlama tekniğidir.
 
 ##### Abstract Class :
 Abstractlar inherittır. Aynı zamanda bir nesnel class gibide davranır. Kullanım konusunda cimri olmak gerekir. Interfacelerden farkı nesnel class'lara bir abstract class verilebilinir. Interface'ler ise kısıtlama yoktur. Abstract Class'lar daha çok Business iş süreçlerinde karşımıza çıkar.
-- Polimorfizmle (çok biçimlilik)
+- Polimorfizimle (çok biçimlilik)
 ...
 
 
@@ -260,10 +266,13 @@ Abstract klasörü içerisinde tanımlı veritabanı nesneli repository'den impl
 Concrete klasöründe yine ayrıca kullanılan teknolojiye bağlı olarak veritabanı nesnesi ve veritabanı context nesnesini tutan base repository inherit - DTO nesnelerini tutan interface'i imlemente class barındırır.
 
 ### 📚 Bussines Katmanı
-İş kurallarının/kodlarının tutulduğu merkezi katmandır. Validasyon yönetimi bu katmanda yapılır. Bağımlılıkların çözümü burada yapılır. Klasörlenen teknoloji içerisinde bağımlılık konfigürasyonu yapılır. Örneğin WebAPI startup içerisinde instance konfigurasyon yapılanmasını bu katmana bağlı kalmamak adına dahada geriye çekerek katmanlı mimari içerisinde Business katmanında gerçekleştirilir.
+- İş kurallarının/kodlarının tutulduğu merkezi katmandır. 
+- Servis nesnesi iş tarafında yazacağımız operasyonların implementasyonlarını içeren yapıdır. İlk etapta interface kurulur.
+- Validasyon yönetimi bu katmanda yapılır. 
+- Bağımlılıkların çözümü burada yapılır. Klasörlenen teknoloji içerisinde bağımlılık konfigürasyonu yapılır. Örneğin WebAPI startup içerisinde instance konfigurasyon yapılanmasını bu katmana bağlı kalmamak adına dahada geriye çekerek katmanlı mimari içerisinde Business katmanında gerçekleştirilir.
 
 ### 📚 WebAPI Katmanı
-Yeni modern ve popüler geliştirme ortamıdır. Farklı client'lar ile backend katmanlı mimarinin arasında data yönetimi için iletişim kurulmasını sağlar. WepApi'de RestFul(Json vb.) Mimarisi gibi Standartları bulunur. Servise client'lardan istek (Request) yapılır. Ör: Şu kategorideki ürünleri getir. Yanıt olarakta Response veilir. Microsoft tafında bu mimari ASP.NET WebAPI'dır. Test ortamı olarak Postman kullanılabilinir. Controller isimlendirmeleri çoğul yapılır. Bu MVC'de tekil olmasına dikkat edilir.
+Yeni modern ve popüler geliştirme ortamıdır. Farklı client'lar ile backend katmanlı mimarinin arasında data yönetimi için iletişim kurulmasını sağlar. WepApi'de RestFul(Json vb.) Mimarisi gibi Standartları bulunur. Servise client'lardan istek (Request) yapılır. Ör: Şu kategorideki ürünleri getir. Yanıt olarakta Response veilir. Microsoft tafında bu mimari ASP.NET WebAPI'dır. Test ortamı olarak Postman kullanılabilinir. Controller isimlendirmeleri çoğul yapılır. Bu MVC'de tekil olmasına dikkat edilir.Ataptor servis paterni görevi görür.
 
 ### 📚 UnitTest Katmanı
 ...
