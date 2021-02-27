@@ -45,7 +45,7 @@ namespace Business.Concrete
 
         #region Add
 
-        //[ValidationAspect(typeof(CarImageValidator))]
+        [ValidationAspect(typeof(CarImageValidator))]
         public IResult Add(IFormFile file, CarImage carImage)
         {
             IResult result = BusinessRules.Run(CheckImageLimitExceeded(carImage.CarId));
@@ -53,10 +53,6 @@ namespace Business.Concrete
             {
                 return result;
             }
-
-            carImage.ImagePath = FileHelper.Add(file);
-            carImage.CreateDate = DateTime.Now;
-            ValidationTool.Validate(new CarImageValidator(), carImage);
             _carImageDal.Add(carImage);
             return new SuccessResult(Messages.CarImageAdded);
         }

@@ -1,5 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System;
+using Microsoft.AspNetCore.Mvc;
 using Business.Abstract;
+using Core.Utilities.Helpers;
 using Entities.Concrete;
 using Microsoft.AspNetCore.Http;
 
@@ -53,6 +55,8 @@ namespace WebAPI.Controllers
         [HttpPost("add")]
         public IActionResult Add([FromForm(Name = ("Image"))] IFormFile file, [FromForm] CarImage carImage)
         {
+            carImage.ImagePath = FileHelper.Add(file);
+            carImage.CreateDate = DateTime.Now;
             var result = _carImageService.Add(file, carImage);
             if (result.Success)
             {
