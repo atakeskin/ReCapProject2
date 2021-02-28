@@ -248,11 +248,11 @@ Kurumsal mimari hafızası standart bir alt yapıda oluşturulur.
 
 ### 📚 Core Katmanı
 
-- Evrensel olan framework katmandır. Bir kere yazılır. Kurumsal mimaride tüm projelerde kullanabilir. Ör: JWT(Java web Tokun)işlemleri 
+- Evrensel olan framework katmandır. Bir kere yazılır. Kurumsal mimaride tüm projelerde kullanabilir. Ör: JWT(JSON Web Token)işlemleri 
 - DataAccess katmanında operasyon sınıfları genel olarak birbirini tekrarlayandır. Bunun önüne geçmek için Repository Dizayn Paterni kullanılır.  Generic tipte TEntity kısıtlamaları tanımlı olarak yazılır. Yani TEntity referans tipte veritabanı nesnesi ve newlenebilir somut bir sınıf olmalıdır. İçerisinde operasyonlara kullanıcı parametre vermek isterse Linq expresion ile filtreleme yapacak şekilde IEntityRepository imza interface si oluşturulur. Buna generic constraint denir.
 Generic tipte TEntity ve database  genellemesi TContext için base sınıf yine aynı şekilde tiplere kısıtlamalar verilerek oluşturulur. 
 - Base'de Add(),Update(),Delete() operasyonlarında buna abone ol / refere et Eklenecek/güncellenecek/silinecek olarak işaretle Veritabanında ekleme/güncelleme/silme kodunu çalıştır ve SaveChanges metoduyla burada UnitOfDizayn Paterni imlemente ederek onu gerçekleştirmiş olacağız. Dahada genelleme yapılarak core katmanında ilgili teknolojiyi base repository haline getirerek klasörü içerisinde tutulur. Bütün CRUD işlemler için böylece metodlar yazmış olunur.
-- TEntity Database nesnesi interface'i tutulur.
+- TEntity Database nesnesi ve TDto interface'i tutulur. Ayrıca evrensel entities nesneleride burada tutulur.
 
 ### 📚 Entities Katmanı
 Dikey mimaride çalışır. Temel manada Entity varlıktır. Veritabanı nesnelerini ve DTO'ları burada oluştururuz.
