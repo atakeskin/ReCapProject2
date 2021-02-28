@@ -245,6 +245,7 @@ Kurumsal mimari hafızası standart bir alt yapıda oluşturulur.
 - Backend ve Frontend olarak ikiye ayrabiliriz. Backendde asıl olan  DRY Prensiblerin (reusability,Maintainability vb.) oluşumunu sağlayan nesnel sistemlerin kurulumunu sağlamaktır. Bu ihtiyaçların çeşitlenmesinden ötürüdür. Mobil(IOS,Android...), Desktop(MT,Windows...), Web
 - Frontend uygulamanın ön yüzünü oluşturur. - Html,Css,JS
 - Klasörleme ; Abstract:Soyut(Abstract,Interface,Base) sınıflar tutulur. Concrete:Somut sınıflar tutulur.
+- C#'da katmanlardan biri diğerini referans almıış olduğu durumda aynı an için tersi geçerli değildir. Javada bu durum söz konusu değildir.
 
 ### 📚 Core Katmanı
 
