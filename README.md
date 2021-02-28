@@ -18,7 +18,7 @@ Bazı kelimeleri aşağıdaki manaları ile anlamlandırınız.
 - Katmanlar = Business,DataAccess,Entitiy,Core,UI vb.
 - Soyutlama = Interface vb.
 - Versiyonlama = Program yazımında kullandığımız anadil ve ek olarak teknolojik library'lerin versiyon uyumluluğu için hassasiyet gösterilmesidir.
-- DTO = Data Translate Object : Veritabanonda bulunan iki tablonun join edilerek birleşiminden doğan tabloların nesnel karşılığı yada veritabanı tablosunda olmayan ekstra propertisi olan nesneleridir.
+- DTO (Data Transfer Object) - Complex Type: Veritabanonda bulunan iki tablonun join edilerek birleşiminden doğan tabloların nesnel karşılığı yada veritabanı tablosunda olmayan ekstra propertisi olan nesneleridir.
 
 ## ⚠ Dikkat!!!
 Aşağıdaki yazılar bazıları için beyin yakıcı olabilir. O yüzden Spaghetti Kodlama yazanları uzak tutunuz. :)) Engin Hoca öğrencileri hariç.
