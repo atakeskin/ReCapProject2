@@ -271,6 +271,7 @@ Dikey mimaride çalışır. Temel manada Entity varlıktır. Veritabanı nesnele
 - İş kurallarının/kodlarının tutulduğu merkezi katmandır. İf'ler burada yazılır. 
 - Servis nesnesi iş tarafında yazacağımız operasyonların implementasyonlarını içeren yapıdır. İlk etapta interface kurulur.
 - Validasyon yönetimi, loglamalar bu katmanda yapılır. 
+- Veritabanından gelebilecek hatalar ayrı ayrı işlenerek bu katmanda belirtilir. WepAPI veya UI katmanları tarafından bu handel edilir.
 - Bağımlılıkların çözümü burada yapılır. Klasörlenen teknoloji içerisinde bağımlılık konfigürasyonu yapılır. Örneğin WebAPI startup içerisinde instance konfigurasyon yapılanmasını bu katmana bağlı kalmamak adına dahada geriye çekerek katmanlı mimari içerisinde Business katmanında gerçekleştirilir.
 
 ### 📚 WebAPI Katmanı
