@@ -264,13 +264,13 @@ Dikey mimaride çalışır. Temel manada Entity varlıktır. Veritabanı nesnele
 
 ### 📚 DataAccess Katmanı 
 - Sadece Veri Erişim Katmanı işlerini yapar. Insert,Update,Delete ve Select kodları yazılır. ORM Teknolojileri kullanılır.
-Abstract klasörü içerisinde tanımlı veritabanı nesneli repository'den implemente interface'dir. Ayrıca DTO nesneleri imzalarını barındırır.
-Concrete klasöründe yine ayrıca kullanılan teknolojiye bağlı olarak veritabanı nesnesi ve veritabanı context nesnesini tutan base repository inherit - DTO nesnelerini tutan interface'i imlemente class barındırır.
+- Abstract klasörü içerisinde tanımlı veritabanı nesneli repository'den implemente interface'dir. Ayrıca DTO nesneleri imzalarını barındırır.
+- Concrete klasöründe yine ayrıca kullanılan teknolojiye bağlı olarak veritabanı nesnesi ve veritabanı context nesnesini tutan base repository inherit - DTO nesnelerini tutan interface'i imlemente class barındırır.
 
 ### 📚 Bussines Katmanı
-- İş kurallarının/kodlarının tutulduğu merkezi katmandır. 
+- İş kurallarının/kodlarının tutulduğu merkezi katmandır. İf'ler burada yazılır. 
 - Servis nesnesi iş tarafında yazacağımız operasyonların implementasyonlarını içeren yapıdır. İlk etapta interface kurulur.
-- Validasyon yönetimi bu katmanda yapılır. 
+- Validasyon yönetimi, loglamalar bu katmanda yapılır. 
 - Bağımlılıkların çözümü burada yapılır. Klasörlenen teknoloji içerisinde bağımlılık konfigürasyonu yapılır. Örneğin WebAPI startup içerisinde instance konfigurasyon yapılanmasını bu katmana bağlı kalmamak adına dahada geriye çekerek katmanlı mimari içerisinde Business katmanında gerçekleştirilir.
 
 ### 📚 WebAPI Katmanı
