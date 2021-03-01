@@ -231,7 +231,7 @@ Aynı şey dosya isimleri içinde geçerlidir. Teknolojiye bağlı olarak dosya 
 Bir Class'ın base'inin inherit veya implementasyonunun olması gerekir. SOLID'in - sürdürülebilirliğin sağlanması için olmazsa olmaz kuraldır.
 O yüzden Abstract klasöründe implementasyonlar için Interface'ler yazılır.
 İlgili Classımızın imzaları bu Interface'den implemente edilmesi sağlanır.
-Aynı zamanda yeni bir teknoloji(Entity Framework,NHibernate vb.) kullandığımızda Classımız bu Interface üzerinden miras alır. Ve böylece bağımlılığn önüne geçilmiş olunacaktır. İstisnası Araç olarak kullanılan statik classlar yalın kalabilir.
+Aynı zamanda yeni bir teknoloji(Entity Framework,NHibernate vb.) kullandığımızda Classımız bu Interface üzerinden miras alır. Ve böylece bağımlılığn önüne geçilmiş olunacaktır. İstisnası Araç olarak kullanılan statik classlar yalın kalabilir.Metodlarıda statik olur.
 
 Veritabanı tablo nesne karşılığı olan class'larımız için burada;
 IEntity : Veritabanı nesnesi olduğunu belirten imzadır(boş bir interface)
