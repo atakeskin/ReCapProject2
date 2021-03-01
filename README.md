@@ -246,6 +246,7 @@ Kurumsal mimari hafızası standart bir alt yapıda oluşturulur.
 - Frontend uygulamanın ön yüzünü oluşturur. - Html,Css,JS
 - Klasörleme ; Abstract:Soyut(Abstract,Interface,Base) sınıflar tutulur. Concrete:Somut sınıflar tutulur.
 - C#'da katmanlardan biri diğerini referans almıış olduğu durumda aynı an için tersi geçerli değildir. Javada bu durum söz konusu değildir.
+- Solution proje bazlı database isimlendirmesi verilerek yola çıkılır.Katmanlar için bu isimlendirme nokta katman adı verilir. Bu diğer projelerde kullanılacaksa böyle yapılır. İstenirse sadece o projeye özgü katman adı verilebilinir.
 
 ### 📚 Core Katmanı
 
