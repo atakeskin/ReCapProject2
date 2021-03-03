@@ -1,4 +1,7 @@
-﻿namespace Business.Constants
+﻿using Core.Entities.Concrete;
+using System.Runtime.Serialization;
+
+namespace Business.Constants
 {
     /// <summary>
     /// DevRentACar Project Constant Messages
@@ -73,5 +76,16 @@
 
         #endregion
 
+        #region Other
+
+        public static string AuthorizationDenied = "Yetkiniz yok.";
+        public static string UserRegistered = "Kayıt Oldu.";
+        public static string UserNotFound = "Kullanıcı bulunamadı.";
+        public static string PasswordError = "Password hatası.";
+        public static string SuccessfulLogin = "Giriş başarılı";
+        public static string UserAlreadyExists = "Kullanıcı zaten mevcut";
+        public static string AccessTokenCreated = "Token oluşturuldu.";
+
+        #endregion
     }
 }
