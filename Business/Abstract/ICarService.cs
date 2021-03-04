@@ -19,6 +19,7 @@ namespace Business.Abstract
 
         #region Other CRUD Signatures
         IDataResult<List<CarDetailDto>> GetCarDetailsByCarProperty(Expression<Func<Car, bool>> filter = null);
+        IResult AddTransactionalTest(Car car);
         #endregion
     }
 }
