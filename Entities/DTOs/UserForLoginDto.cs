@@ -1,6 +1,4 @@
-﻿using System;
-using Core.Entities;
-using Core.Entities.Abstract;
+﻿using Core.Entities.Abstract;
 
 namespace Entities.DTOs
 {
