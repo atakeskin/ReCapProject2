@@ -334,12 +334,12 @@ Hata işleme (Error handling) : İstisnaları (exception) işleyebileceğimiz ve
 ## 📌 Best Practice
 ## UI katmanında nesne isimleri mutlaka değiştirilerek yeniden verilmelidir.(Ör:gbxCategory)
 
-## 📌 DRY Prensibinin Avantajları
+## 📌 DRY "Don't Repeat Yourself" Prensibinin Avantajları
 - Tekrar Kullanılabilirlik (reusability)
 - Okunaklılık (Readability)
 - Sürdürülebilirlik (Maintainability)
 - Test Edilebilirlik (Testing)
-Kendini tekrar etmemek, aynı şeyi defalarca yazmamak. Sık kullandığımız kodları, library’lere taşırız yeri geldimi yine bu library’lerimizi kullanarak belli bir işe özel framework’ler yazarız. Object Oriented diller de bize bu konuda oldukça yardımcı olurlar. Bir süre sonra yazdığımız kodların anlaşılabilirliği ve maintainability(bakım yapılabilirlik)’si düşmekte. Aspect-Oriented Programming bu noktada bize yardımcı olmakta. AOP’un en büyük hedefi modularity’i arttırmak ve Cross-Cutting Concern’lerimiz arasındaki ayrımı daha net sağlamaktır.
+OOP bu konuda yardımcıdır. Kendini tekrar etmemek, aynı şeyi defalarca yazmamak. Sık kullandığımız kodları, library’lere taşırız yeri geldimi yine bu library’lerimizi kullanarak belli bir işe özel framework’ler yazarız. Object Oriented diller de bize bu konuda oldukça yardımcı olurlar. Bir süre sonra yazdığımız kodların anlaşılabilirliği ve maintainability(bakım yapılabilirlik)’si düşmekte. Aspect-Oriented Programming bu noktada bize yardımcı olmakta. AOP’un en büyük hedefi modularity’i arttırmak ve Cross-Cutting Concern’lerimiz arasındaki ayrımı daha net sağlamaktır.
 
 
 
