@@ -358,6 +358,7 @@ Abstract Class'lar ve Normal Class'lar inheritince'dır.
 - Kodları düzenlemek için Ctrl+K , Ctrl+D
 
 ## 📌 Referans Kaynakça
+- [C#](https://www.w3schools.com/cs/default.asp)
 - [kodlama.io](https://www.kodlama.io/)
 - [YouTube](https://www.youtube.com/channel/UCRjiquPh4mjPNoOV9eCilXQ) - Engin DEMİROĞ Videoları
 - [C# - btkakademi](https://www.btkakademi.gov.tr) - Engin DEMİROĞ C#
