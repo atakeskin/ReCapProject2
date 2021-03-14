@@ -18,7 +18,7 @@ namespace Business.Abstract
         #endregion
 
         #region Private CRUD Signatures
-        IDataResult<List<RentalDetailDto>> RentalDetails(Expression<Func<Rental, bool>> filter = null);
+        IDataResult<List<RentalDetailDto>> RentalDetails();
         #endregion
     }
 }

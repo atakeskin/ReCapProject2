@@ -100,10 +100,10 @@ namespace WebAPI.Controllers
 
         #region getcardetails
 
-        [HttpPost("getcardetails")]
-        public IActionResult GetCarDetailsByCarProperty(Expression<Func<Car, bool>> filter = null)
+        [HttpGet("getcardetails")]
+        public IActionResult getcardetails()
         {
-            var result = _carService.GetCarDetailsByCarProperty(filter);
+            var result = _carService.GetCarDetailsByCarProperty();
             if (result.Success)
             {
                 return Ok(result);

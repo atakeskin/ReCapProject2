@@ -55,9 +55,9 @@ namespace Business.Concrete
             return new SuccessResult(Messages.RentalDeleted);
         }
 
-        public IDataResult<List<RentalDetailDto>> RentalDetails(Expression<Func<Rental, bool>> filter = null)
+        public IDataResult<List<RentalDetailDto>> RentalDetails()
         {
-            return new SuccessDataResult<List<RentalDetailDto>>(_rentalDal.GetRentalDetails(filter).Data);
+            return new SuccessDataResult<List<RentalDetailDto>>(_rentalDal.GetRentalDetails().Data);
         }
     }
 }

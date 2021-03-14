@@ -85,9 +85,9 @@ namespace Business.Concrete
         }
 
 
-        public IDataResult<List<CarDetailDto>> GetCarDetailsByCarProperty(Expression<Func<Car, bool>> filter=null)
+        public IDataResult<List<CarDetailDto>> GetCarDetailsByCarProperty()
         {
-            return new SuccessDataResult<List<CarDetailDto>>(_carDal.GetCarDetailsByCarProperty(filter).Data, Messages.CarsListed);
+            return new SuccessDataResult<List<CarDetailDto>>(_carDal.GetCarDetailsByCarProperty().Data, Messages.CarsListed);
         }
 
         //[TransactionScopeAspect]

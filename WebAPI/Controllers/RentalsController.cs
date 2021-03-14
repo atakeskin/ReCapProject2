@@ -99,10 +99,10 @@ namespace WebAPI.Controllers
 
         #region rentaldetail
 
-        [HttpGet("rentaldetail")]
-        public IActionResult RentalDetails(Expression<Func<Rental, bool>> filter = null)
+        [HttpGet("getrentaldetail")]
+        public IActionResult GetRentalDetails()
         {
-            var result = _rentalService.RentalDetails(filter);
+            var result = _rentalService.RentalDetails();
             if (result.Success)
             {
                 return Ok(result);
