@@ -3,6 +3,7 @@ using System.Linq.Expressions;
 using Microsoft.AspNetCore.Mvc;
 using Business.Abstract;
 using Entities.Concrete;
+using Entities.DTOs;
 
 namespace WebAPI.Controllers
 {
@@ -101,7 +102,7 @@ namespace WebAPI.Controllers
         #region getcardetails
 
         [HttpGet("getcardetails")]
-        public IActionResult getcardetails()
+        public IActionResult getCarDetails()
         {
             var result = _carService.GetCarDetailsByCarProperty();
             if (result.Success)
@@ -112,6 +113,41 @@ namespace WebAPI.Controllers
             return BadRequest(result);
         }
 
+        [HttpGet("getcarsbybrand")]
+        public IActionResult getCarsByBrand(int brandId)
+        {
+            var result = _carService.GetCarByBrand(brandId);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+
+            return BadRequest(result);
+        }
+
+        [HttpGet("getcarsbycolor")]
+        public IActionResult getCarsByColor(int colorId)
+        {
+            var result = _carService.GetCarByColor(colorId);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+
+            return BadRequest(result);
+        }
+
+        [HttpPost("deletebycarid")]
+        public IActionResult DeleteByCarId(CarDetailDto carDetailDto)
+        {
+            var result = _carService.DeleteByCarId(carDetailDto);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+
+            return BadRequest(result);
+        }
         #endregion
 
     }

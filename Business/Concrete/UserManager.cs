@@ -28,10 +28,10 @@ namespace Business.Concrete
             return new SuccessDataResult<User>(_userDal.Get(co => co.Id == id), Messages.UserListed);
         }
 
-        [ValidationAspect(typeof(UserValidator))]
+        //[ValidationAspect(typeof(UserValidator))]
         public IResult Add(User user)
         {
-            ValidationTool.Validate(new UserValidator(), user);
+            //ValidationTool.Validate(new UserValidator(), user);
             _userDal.Add(user);
             return new SuccessResult(Messages.UserAdded);
         }

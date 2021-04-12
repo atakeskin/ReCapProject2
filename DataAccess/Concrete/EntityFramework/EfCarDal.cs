@@ -27,7 +27,6 @@ namespace DataAccess.Concrete.EntityFramework
                     {
                         Id = c.Id,
                         Name = c.Name,
-                        ModelYear = c.ModelYear,
                         PlakaNo = c.PlakaNo,
                         BrandName = b.Name,
                         ColorName = co.Name,
