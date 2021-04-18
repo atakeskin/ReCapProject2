@@ -6,7 +6,9 @@ using Core.Aspects.Autofac.Validation;
 using Core.CrossCuttingConcerns.Validation;
 using Core.Entities.Concrete;
 using Core.Utilities.Results;
+using Core.Utilities.Security.Hashing;
 using DataAccess.Abstract;
+using Entities.DTOs;
 
 namespace Business.Concrete
 {
@@ -49,14 +51,36 @@ namespace Business.Concrete
             return new SuccessResult(Messages.UserDeleted);
         }
 
-        public List<OperationClaim> GetClaims(User user)
+        public IDataResult<List<OperationClaim>> GetClaims(User user)
         {
-            return _userDal.GetClaims(user);
+            return new SuccessDataResult<List<OperationClaim>>(_userDal.GetClaims(user));
         }
 
-        public User GetByMail(string email)
+        public IDataResult<User> GetByMail(string email)
         {
-            return _userDal.Get(u => u.Email == email);
+            return new SuccessDataResult<User>(_userDal.Get(u => u.Email == email));
+        }
+
+        public IResult EditProfile(UserForUpdateDto user)
+        {
+            byte[] passwordHash;
+            byte[] passwordSalt;
+
+            HashingHelper.CreatePasswordHash(user.Password, out passwordHash, out passwordSalt);
+
+            var userInfo = new User()
+            {
+                Id = user.Id,
+                FirstName = user.FirstName,
+                LastName = user.LastName,
+                Email = user.Email,
+                PasswordHash = passwordHash,
+                PasswordSalt = passwordSalt,
+                Status = true
+            };
+
+            _userDal.Update(userInfo);
+            return new SuccessResult();
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Business.Abstract;
 using Core.Entities.Concrete;
+using Entities.DTOs;
 
 namespace WebAPI.Controllers
 {
@@ -77,6 +78,17 @@ namespace WebAPI.Controllers
             return BadRequest(result);
         }
 
+        [HttpPost("user/edit")]
+        public IActionResult EditProfile(UserForUpdateDto user)
+        {
+            var result = _userService.EditProfile(user);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
+
         #endregion
 
         #region delete
@@ -90,6 +102,17 @@ namespace WebAPI.Controllers
                 return Ok(result);
             }
 
+            return BadRequest(result);
+        }
+
+        [HttpGet("getbymail")]
+        public IActionResult GeyByMail(string email)
+        {
+            var result = _userService.GetByMail(email);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
             return BadRequest(result);
         }
 

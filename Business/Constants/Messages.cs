@@ -84,7 +84,10 @@ namespace Business.Constants
         public static string PasswordError = "Password hatası.";
         public static string SuccessfulLogin = "Giriş başarılı";
         public static string UserAlreadyExists = "Kullanıcı zaten mevcut";
-        public static string AccessTokenCreated = "Token oluşturuldu.";
+        public static string AccessTokenCreated = "Kullanıcı girişi başarılı oldu.";
+        public static string CreditCardAdded = "Kredi kartı eklendi.";
+        public static string CreditCarDeleted = "Kredi kartı silindi.";
+        public static string CreditCardUpdated = "Kredi kartı güncellendi.";
 
         #endregion
     }

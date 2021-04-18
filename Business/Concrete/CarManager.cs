@@ -36,7 +36,7 @@ namespace Business.Concrete
         {
             return new SuccessDataResult<Car>(_carDal.Get(c => c.Id == id),Messages.CarListed);
         }
-        [SecuredOperation("car.add")]
+        [SecuredOperation("car.add,admin")]
         [ValidationAspect(typeof(CarValidator))]
         [CacheRemoveAspect("ICarService.Get")]
         public IResult Add(Car car)
@@ -120,6 +120,12 @@ namespace Business.Concrete
             Car deleteToCar = _carDal.Get(c => c.Id == carDetailDto.Id);
             _carDal.Delete(deleteToCar);
             return new SuccessResult(Messages.CarDeleted);
+        }
+
+        public IDataResult<List<CarDetailDto>> GetCarsDetailByColorIdAndBrandId(int colorId, int brandId)
+        {
+            return new SuccessDataResult<List<CarDetailDto>>(_carDal.GetCarDetailsByCarProperty(c => c.ColorId == colorId && c.BrandId == brandId).Data, Messages.CarsListed);
+
         }
     }
 }
