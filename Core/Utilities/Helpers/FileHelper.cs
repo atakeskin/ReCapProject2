@@ -5,59 +5,97 @@ using Core.Utilities.Results;
 
 namespace Core.Utilities.Helpers
 {
-    public class FileHelper
+    public class FileHelper : IFileHelper
     {
-        public static string Add(IFormFile file)
+        private static string _currentDirectory = Environment.CurrentDirectory + "\\wwwroot";
+        private static string _folderName = "\\images\\";
+        public void CheckDirectoryExist(string directory)
         {
-            var sourcepath = Path.GetTempFileName();
-            if (file.Length > 0)
+            if (!Directory.Exists(directory))
             {
-                using (var fileStream = new FileStream(sourcepath, FileMode.Create))
-                {
-                    file.CopyTo(fileStream);
-                }
+                Directory.CreateDirectory(directory);
             }
-            var result = NewPath(file);
-            File.Move(sourcepath, @"wwwroot" + result);
-            return result;
         }
 
-        public static IResult Delete(string path)
+        public IResult CheckFileExist(IFormFile file)
         {
-            try
+            if (file != null && file.Length > 0)
             {
-                File.Delete(path);
+                return new SuccessResult();
             }
-            catch (Exception ex)
-            {
-                return new ErrorResult("Dosya silinemedi: " + ex.ToString());
-            }
+            return new ErrorResult();
+        }
 
+        public IResult CheckFileTypeValid(string type)
+        {
+            if (type != ".jpeg" && type != ".png" && type != ".jpg")
+            {
+                return new ErrorResult("Bu tipte bir dosya yüklenemez.");
+            }
             return new SuccessResult();
         }
 
-        public static string Update(string sourcePath, IFormFile file)
+        public void CreateFile(string directory, IFormFile file)
         {
-            var result = NewPath(file);
-            if (sourcePath.Length > 0)
+            using (FileStream fs = File.Create(directory))
             {
-                using (var fileStream = new FileStream(result, FileMode.Create))
-                {
-                    file.CopyTo(fileStream);
-                }
+                file.CopyTo(fs);
+                fs.Flush();
             }
-            File.Delete(sourcePath);
-            return result;
         }
 
-
-        public static string NewPath(IFormFile file)
+        public IResult Delete(string path)
         {
-            FileInfo fileInfo = new FileInfo(file.FileName);
-            string fileExtension = fileInfo.Extension;
-            var newPath = Guid.NewGuid().ToString() + "_" + DateTime.Now.Month + "_" + DateTime.Now.Day + "_" + DateTime.Now.Year + fileExtension;
-            string result = $@"\uploads\{newPath}";
-            return result;
+            DeleteOldFile((_currentDirectory + path).Replace("/", "\\"));
+            return new SuccessResult();
+        }
+
+        public void DeleteOldFile(string directory)
+        {
+            if (File.Exists(directory.Replace("/", "\\")))
+            {
+                File.Delete(directory.Replace("/", "\\"));
+            }
+        }
+
+        public IResult Update(IFormFile file, string imagePath)
+        {
+            var fileExists = CheckFileExist(file);
+            if (fileExists.Message != null)
+            {
+                return new ErrorResult(fileExists.Message);
+            }
+            var type = Path.GetExtension(file.FileName);
+            var typeValid = CheckFileTypeValid(type);
+            var randomName = Guid.NewGuid().ToString();
+
+            if (typeValid == null)
+            {
+                return new ErrorResult(typeValid.Message);
+            }
+            CheckDirectoryExist(_currentDirectory + _folderName);
+            CreateFile(_currentDirectory + _folderName + randomName + type, file);
+            return new SuccessResult((_folderName + randomName + type).Replace("\\", "/"));
+        }
+
+        public IResult Upload(IFormFile file)
+        {
+            var fileExists = CheckFileExist(file);
+            if (fileExists.Message != null)
+            {
+                return new ErrorResult(fileExists.Message);
+            }
+            var type = Path.GetExtension(file.FileName);
+            var typeValid = CheckFileTypeValid(type);
+            var randomName = Guid.NewGuid().ToString();
+
+            if (typeValid == null)
+            {
+                return new ErrorResult(typeValid.Message);
+            }
+            CheckDirectoryExist(_currentDirectory + _folderName);
+            CreateFile(_currentDirectory + _folderName + randomName + type, file);
+            return new SuccessResult((_folderName + randomName + type).Replace("\\", "/"));
         }
     }
 }

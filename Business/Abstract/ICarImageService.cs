@@ -7,20 +7,13 @@ namespace Business.Abstract
 {
     public interface ICarImageService
     {
-        #region Basic CRUD Signatures 
-
         IDataResult<List<CarImage>> GetAll();
+
         IDataResult<CarImage> GetById(int id);
-        IResult Add(IFormFile file, CarImage carImage);
-        IResult Update(IFormFile file, CarImage carImage);
+        IDataResult<List<CarImage>> GetByCarId(int carId);
+
+        IResult Add(CarImage carImage, IFormFile file);
         IResult Delete(CarImage carImage);
-
-        #endregion
-
-        #region Other CRUD Signatures
-
-        IDataResult<List<CarImage>> GetImagesByCarId(int id);
-
-        #endregion
+        IResult Update(CarImage carImage, IFormFile file);
     }
 }

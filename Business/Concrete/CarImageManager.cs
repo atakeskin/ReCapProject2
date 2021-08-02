@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using Business.Abstract;
 using Business.Constants;
 using Business.ValidationRules.FluentValidation;
@@ -18,126 +19,136 @@ namespace Business.Concrete
 {
     public class CarImageManager : ICarImageService
     {
-        private ICarImageDal _carImageDal;
+        ICarImageDal _carImageDal;
+        IFileHelper _fileHelper;
 
-        public CarImageManager(ICarImageDal carImageDal)
+        public CarImageManager(ICarImageDal carImageDal, IFileHelper fileHelper)
         {
             _carImageDal = carImageDal;
+            _fileHelper = fileHelper;
         }
 
-        #region GetAll
+        public IResult Add(CarImage carImage, IFormFile file)
+        {
+            IResult result = BusinessRules.Run(
+                IsOverflowCarImageCount(carImage.CarId));
+
+            if (result != null)
+            {
+                return new ErrorResult(result.Message);
+            }
+
+            var imageResult = _fileHelper.Upload(file);
+            if (!imageResult.Success)
+            {
+                return new ErrorResult(imageResult.Message);
+            }
+            carImage.ImagePath = imageResult.Message;
+            carImage.CreateDate = DateTime.Now;
+            _carImageDal.Add(carImage);
+            return new SuccessResult(Messages.CarImageAdded);
+        }
+
+       
+
+        public IResult Delete(CarImage carImage)
+        {
+            try
+            {
+                var imageDelete = _carImageDal.Get(c => c.Id == carImage.Id);
+                if (imageDelete == null)
+                {
+                    return new ErrorResult(Messages.CarImageNotFound);
+                }
+                _carImageDal.Delete(carImage);
+                _fileHelper.Delete(imageDelete.ImagePath);
+                
+                return new SuccessResult(Messages.CarImageDeleted);
+            }
+            catch (Exception)
+            {
+
+                return new ErrorResult("Resim Silinemedi");
+            }
+            
+        }
 
         public IDataResult<List<CarImage>> GetAll()
         {
             return new SuccessDataResult<List<CarImage>>(_carImageDal.GetAll(), Messages.CarImagesListed);
         }
 
-        #endregion
+        public IDataResult<List<CarImage>> GetByCarId(int carId)
+        {
+            var result = BusinessRules.Run(ShowDefaultImage(carId));
+            if (result == null)
+            {
+                return new SuccessDataResult<List<CarImage>>(_carImageDal.GetAll(c => c.CarId == carId));
 
-        #region GetById
+            }
+            return new ErrorDataResult<List<CarImage>>("Hata");
+        }
 
         public IDataResult<CarImage> GetById(int id)
         {
-            return new SuccessDataResult<CarImage>(_carImageDal.Get(ci => ci.Id == id), Messages.CarImageListed);
+            return new SuccessDataResult<CarImage>(_carImageDal.Get(ci => ci.CarId == id), Messages.CarImageListed);
         }
 
-        #endregion
-
-        #region Add
-
-        [ValidationAspect(typeof(CarImageValidator))]
-        public IResult Add(IFormFile file, CarImage carImage)
+        public IResult Update(CarImage carImage, IFormFile file)
         {
-            IResult result = BusinessRules.Run(CheckImageLimitExceeded(carImage.CarId));
-            if (result != null)
+            var imageDelete = _carImageDal.Get(ci => ci.Id == carImage.Id);
+
+            if (imageDelete == null)
             {
-                return result;
+                return new ErrorResult("Bulunamadı");
             }
-            _carImageDal.Add(carImage);
-            return new SuccessResult(Messages.CarImageAdded);
-        }
+            var updatedFile = _fileHelper.Update(file, imageDelete.ImagePath);
 
-        #endregion
+            if (!updatedFile.Success)
+            {
+                return new ErrorResult(updatedFile.Message);
+            }
 
-        #region Update
-
-        [ValidationAspect(typeof(CarImageValidator))]
-        public IResult Update(IFormFile file, CarImage carImage)
-        {
-            carImage.ImagePath = FileHelper.Update(_carImageDal.Get(p => p.Id == carImage.Id).ImagePath, file);
-            carImage.CreateDate = DateTime.Now;
-
+            carImage.CarId = imageDelete.CarId;
+            carImage.ImagePath = updatedFile.Message;
             _carImageDal.Update(carImage);
-            return new SuccessResult(Messages.CarUpdated);
+            _fileHelper.Delete(imageDelete.ImagePath);
+            return new SuccessResult(Messages.CarImageUpdated);
         }
 
-        #endregion
-
-        #region Delete
-        
-        public IResult Delete(CarImage carImage)
+        public IResult IsOverflowCarImageCount(int carId)
         {
-            IResult result = BusinessRules.Run(CarImageDelete(carImage));
-            if (result != null)
+            var result = _carImageDal.GetAll(im => im.CarId == carId);
+
+            if (result.Count >= 5)
             {
-                return result;
-            }
-
-            _carImageDal.Delete(carImage);
-            return new SuccessResult(Messages.CarImageDeleted);
-        }
-
-        #endregion
-
-        #region GetImagesByCarId
-
-        public IDataResult<List<CarImage>> GetImagesByCarId(int id)
-        {
-            return new SuccessDataResult<List<CarImage>>(CheckIfCarImageNull(id));
-        }
-
-        #endregion
-
-        #region Business Roles
-
-        private IResult CheckImageLimitExceeded(int carid)
-        {
-            var carImagecount = _carImageDal.GetAll(p => p.CarId == carid).Count;
-            if (carImagecount >= 5)
-            {
-                return new ErrorResult(Messages.CarImageLimitExceeded);
+                return new ErrorResult(Messages.OverflowCarImageMessage);
             }
 
             return new SuccessResult();
+            
         }
-
-        private IResult CarImageDelete(CarImage carImage)
+        private IResult ShowDefaultImage(int carId)
         {
+
+
             try
             {
-                File.Delete(carImage.ImagePath);
+                string path = @"\images\default.png";
+                var result = _carImageDal.GetAll(c => c.CarId == carId).Any();
+                if (result)
+                {
+                    List<CarImage> carImages = new List<CarImage>();
+                    carImages.Add(new CarImage { CarId = carId, CreateDate = DateTime.Now, ImagePath = path });
+                    return new SuccessDataResult<List<CarImage>>(carImages);
+                }
             }
-            catch (Exception exception)
+            catch (Exception)
             {
 
-                return new ErrorResult(exception.Message);
+                return new ErrorDataResult<List<CarImage>>("Hata");
             }
-
-            return new SuccessResult();
+            return new SuccessDataResult<List<CarImage>>(_carImageDal.GetAll(c => c.CarId == carId).ToList());
         }
-
-        private List<CarImage> CheckIfCarImageNull(int id)
-        {
-            string path = @"/uploads/logo.png";
-            var result = _carImageDal.GetAll(c => c.CarId == id).Any();
-            if (!result)
-            {
-                return new List<CarImage> { new CarImage { CarId = id, ImagePath = path, CreateDate = DateTime.Now } };
-            }
-            return _carImageDal.GetAll(p => p.CarId == id);
-        }
-
-        #endregion
-
     }
-}
+}   

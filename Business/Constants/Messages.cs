@@ -88,6 +88,9 @@ namespace Business.Constants
         public static string CreditCardAdded = "Kredi kartı eklendi.";
         public static string CreditCarDeleted = "Kredi kartı silindi.";
         public static string CreditCardUpdated = "Kredi kartı güncellendi.";
+        public static string CarImageNotFound;
+        public static string CarImageUpdated;
+        public static string OverflowCarImageMessage;
 
         #endregion
     }
